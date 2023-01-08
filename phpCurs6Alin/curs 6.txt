@@ -1,0 +1,56 @@
+Fisiere prin formular
+
+- Pentru incarcarea de fisiere prin formular este necesar  sa avem atributul 
+enctype="multipart/form-data" pe tag-ul form
+- NU se pot trimite fisiere folosind method="get"
+- informatiile despre fisier precum si fisierul in sine pot fi accesate prin $_FILES['fisier'] si nu cu $_POST['fisier']
+
+ex:
+   $fisierul =  $_FILES['fisier'];
+   echo $fisierul['name'];   // numele original al fisierului
+
+   echo $fisierul['tmp_name'];   // calea catre fisierul temporar care se salveaza 
+   in browser - o vom folosi pentru salvarea fisierului
+
+   echo $fisierul['size'];      // dimensiunea fisierului (bytes)
+
+   echo $fisierul['type'];      // tipul de fisier
+
+   echo $fisierul['error'];      // afiseaza codul erorii (in cazul in care nu se incarca imaginea) 0 - ok
+
+ex de array afisat cu print_r:
+    Array ( 
+        [fisier] => Array ( 
+            [name] => wp-rocket_3.12.3.3.zip 
+            [type] => application/x-zip-compressed 
+            [tmp_name] => E:\xampp\tmp\php46CC.tmp 
+            [error] => 0 [size] => 3553308 
+        ) 
+    )
+    
+move_uploaded_file('calea temporara a fisierului incarcat', 'calea noua')
+    -> salveaza fisierul trimis prin formular pe server
+
+ex:
+    // presupunem <input type="file" name="cv" />
+    $fisier = $_FILES['cv'];
+    move_uploaded_file($fisier['tmp_name'], 'uploads/' . $fisier['name']);
+
+- In general NU ESTE INDICAT sa utilizam denumirea originala a fisierului (poate fi prea lunga / sa contina text abuziv si se suprascrie la duplicate)
+
+- putem crea nume unice folosindu-ne de time() sau microtime() sau orice alt mecanism de generare de texte/numere unice
+
+    time() - reprezinta numarul de SECUNDE din 01.01.1970  pana in prezent (creste in fiecare secunda deci nu se repeta)
+
+    microtime() - reprezinta numarul de MICROSECUNDE din 01.01.1970  pana in prezent (creste in fiecare microsecunda deci nu se repeta)
+
+
+    Exercitiu:
+    <form enctype="multipart/form-data" method="post">
+        <input type="file" name="fisier" /><br/>
+        <input type="submit" name="upload" />
+    </form>
+
+    salavti fisierul pe server intr-un folder predefinit
+
+

@@ -1,0 +1,29 @@
+#form-one{
+
+    background-color:BlanchedAlmond ;
+    padding:1.5em 0.5em ;
+    margin:1.5em 0.5em ;
+    border:3px solid magenta ;
+
+}
+
+
+#submitInput{
+
+    background-color:blueviolet ;
+    color:white;
+    padding:1.5em 0.5em ;
+    margin:1.5em 0.5em ;
+    border:none ; 
+    cursor:pointer ;
+
+}
+
+#userMounthValueTitle{
+
+text-align: center;
+padding:1.5em 0.5em ;
+margin:1.5em 0.5em ;
+border:3px solid rgb(6, 61, 58) ;
+
+}

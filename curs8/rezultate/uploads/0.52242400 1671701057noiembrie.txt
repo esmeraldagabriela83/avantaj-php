@@ -1,0 +1,14 @@
+la fiecare producator la sectiunea cu intrebarea / link poze cu produse
+pagina de producator (link-uri carousel) + betterment design
+header calculator-termopan
+
+usiexterioare/superusi -> google console
+DONE usiexterioare/superusi -> harta google
+
+
+Tamplarie.com
+-> adaugat producator profilco
+-> calculator termopan (header)
+-> link->carousel producatori / parteneri (despre noi)
+-> producatori trecuti in ordinea (rehau, madrugada, gealan <br/> etem schuco aluprof)
+

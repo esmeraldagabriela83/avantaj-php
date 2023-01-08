@@ -1,0 +1,118 @@
+
+usi exterioare->
+DONE de eliminat produse care au poza cu fisa tehnica si sunt cu NB
+
+DONE Model P02 90mm SL02 -> variantele gri si alb cu poze corespunzatoare (imagini din galerii / detalii tehnice la fel cu imaginile corespunzatoare)
+
+
+DONE Dropdown menu la categorii sa incapa toate (eventual jumbo menu pe orizontala)
+
+
+Produsele trebuie adaugate dublate ca pe usi-24.ro (trebuie sa existe si varianta sl75 si p90?)
+categorii diferite ? p90 / sl75
+	- produsele de alta culoare sa aiba culoarea in denumire
+	- redenumirea produselor ca sa fie unice (descriere ampla a caracteristicilor in titlu)
+	- shop -> produsele afisate doar cu o culoare (specificat toate culorile in titlu)
+	- luminatoare (+10 lei...?)
+
+proprunerede redesign a paginii de produse
+	-> titlul / pret + varianta culoare
+	-> feronerie (eventual termenul inlocuit cu incuietoare) (optiune de selectie) + incuietoare cu amprenta
+	-> luminatoare (optiune de selectie)
+
+colectii si link-uri catre colectie si catre pdf (acum link-ul este doar catre pdf)
+
+
+
+Modelele cele mai vandute
+p90, ac68, ds92,
+
+usile de apartament:   (t68rc3 si rot 68) 
+usi rezidentiale (exterior): p90, ac68, ds92, (p si g sunt de aluminiu)g90 / sL75, at56
+usi tehnice: (Nbt56, mz41)
+
+HOMEPAGE
+DONE - structura (recomandate) (toate produsele)
+DONE - zona cu noutati (gen articole / adaugari la produse)
+DONE - toate produsele (categorii (usi tehnice / de intrare apartament / rezidentiale / premium))
+- noutati si in slider
+
+Q: recomandate (toate) produsele sa fie afisate doar cateva produse si apoi buton cu toate cum e acum sau mai bine carousel
+Q: momentan la slider sunt doar imagini, putem pune noi carousel cu continut insa ce ar mai trebui sa fie pe celelalte slide-uri in afara de noutati
+A: Ramane la imagini si vom adauga cand vor aparea noutatile (inclusiv imagini / text adaugate cand vor aparea usile de apartamente)
+A: Slider-ul mai vizibil (cu totul mai mare + textul vizibil / sa iasa in evidenta)
+A:  structura (recomandate) (toate produsele) -> carousel 
+    buline cu toate culorile disponibile ca aici https://b2b.turenwerke.ro/
+
+A:  sectiunea AI NEVOIE DE O SCHIMBARE ÎN CASĂ?
+	- de adaugat un text + schimbat imaginea + metoda de contact (contact)
+
+
+MENU
+ DONE Categorii 
+ DONE -> meniu (sa punem categoriile)
+ DONE Optiune de accesat toate produsele (dropdown)
+
+ DONE Cataloage (sa disapara din meniu) 
+  -> de adaugat la fiecare dintre colectii
+
+
+Q: review categorii (sunt toate in meniu?)
+DONE A: Meniul sa fie mai vizibil (mai mare - asemanator cu celelalte site-uri)
+
+PRODUS
+DONE - lipsesc  2 deschideri (stanga /dreapta - interior) -> TOATE produsele (ajustat imaginile)
+DONE - feronerie (1200 bara) + set 07 (duplicam poza de seto 01  si schimbat 1600 in 1200)
+- Luminatoare
+
+
+Toate produsele 
+ - buline de culori ca pe home
+ DONE - cate 4 DAR si spatiile dintre ele mai reduse
+
+FLOW
+ - adaugarea in cos -> https://usiexterioare.ro/ro/cart
+ - continuarea la checkout fara cont
+ - transport (120 euro + tva) ~ 715 LEI
+ - plata: card / transfer bancar
+
+
+
+----
+General 
+- mai mare textul la titluri si la text 
+- de adaugat prin site: pretul fix indiferent de destinatia din tara
+
+HOME 
+- produse recomandate (bazate pe o colectie specifica)
+- cate 4 produse afisate
+- buton catre toate produsele
+- minim 6-8 produse*
+- refacere imagini la produsele recomandate
+Lista produse recomandate
+-> p90: p00, 
+-> DS92: 01, 04, 13
+-> AC68: 05, 02, 07 
+-> ROT68: M07(cand va veni)
+-> MZ41: 
+
+- eventual variatii de culori (imaginile acestor produse)
+
+- (section) Ai nevoie de o schimbare in casa 
+- poza (cea de pe home de la ac68) / text
+(titlu) Ai nevoie de o schimbare in casa sau de o solutie pentru afacerea ta?
+
+PRODUS
+- preluat luminatoarele (3 optiuni / 3 liste de pe usi 24)
+- pretul de pornire al usii (verificat)
+- de sters la optiuni (stoc / luminatoare)
+- inainte de pret adauga in cos (camp cu mentiunie)
+	- trimiteti dimensiunile de luminatoare
+        - la selectarea unui luminator / supra lumina-> atentionara scrie in mentiuni dimensiunea exacta (dimensiuni custom)
+
+COMENZI
+- plata integrala in avans cu livrare oriunde in tara
+- Q: limita maxima pentru care pretul de transport va fi cel de mai sus
+
+
+

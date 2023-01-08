@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>curs7 exemplu trimitere fisier prin formular</title>
+    <style>
+        form {
+            display: flex;
+            align-items: center;
+        }
+        #fi {
+            display: none;
+        }
+        label {
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 6px 8px;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        label img {
+            height: 26px;
+            margin-right: 10px;
+        }
+        #send {
+            background: black;
+            color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            height: 34px;
+            width: 110px;
+            margin-left: 10px;
+        }
+        #send:hover {
+            background: white;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Incarcati fisiere: .pdf, .doc, .docx, .xls, .xlsx</h2>
+    <form action="functionalitate.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="document" id="fi" />
+        <label for="fi">
+            <img src="images/upload (1).png" />
+            Adauga fisierul
+        </label>
+        <input type="submit" value="Upload" name="trimite" id="send"/>
+    </form>
+</body>
+</html>

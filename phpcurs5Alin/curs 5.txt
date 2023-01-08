@@ -1,0 +1,57 @@
+Formular (continuare)
+    <input type="radio" name="age" value="minor" /> 0-17
+    <input type="radio" name="age" value="adult" /> 18-60
+    <input type="radio" name="age" value="varstnic" /> 61+
+
+    -> pentru ca aceste elemente de tip radio sa se excluda intre ele este NECESAR sa aiba ACELASI name
+    -> avand acelasi name presupune ca in $_POST / $_GET vor avea aceeas cheie (se vor suprascrie)
+    -> atributul value este NECESAR pentru a identifica optiunea aleasa (valoarea default la checkbox si radio este "on")
+
+
+    <select name="tara">
+        <option value="ro">Romania</option>
+        <option>Bulgaria</option>
+    </select>
+    -> accesa optiunea completata cu cheia tara din $_GET / $_POST
+    -> valoarea va fi valoarea atributului value pentru optiunea selectata sau textul din optiunea selectata in cazul in care nu are atributul value
+    ex:
+        $_POST['tara'] -> 'ro'
+        $_POST['tara'] -> 'Bulgaria'
+
+
+Exercitiu:
+    - un formular din care sa se trimita:
+        -> 1. e-mail
+        -> 2. o data (<input type="date" />)
+        -> 3. 3 checkbox-uri (pasiuni)
+            ex:
+                <input type="checkbox" /> Calatorii
+                <input type="checkbox" /> Sport
+                <input type="checkbox" /> Citit
+
+                <input type="submit" />
+    - dupa trimitere sa se afiseze informatiile inserate
+
+    Rezultatul dorit:
+        abce@de.asd
+        2022-01-03
+        pasiuni: calatorie, sport
+
+isset($_POST['send']) -> verifica daca variabila dintre () exista / este setata 
+                      -> daca acel camp  a fost trimis prin formular
+
+strlen('hello') -> returneaza numarul de caractere din string
+    ex:
+        $abc = 'unu doi';
+        echo strlen($abc); // 7 - se numara si spatiile
+
+
+
+Exercitiu:
+    $zile = array('Luni', 'Marti', ..)
+
+    - creati un formular care sa contina:
+        -> un select cu optiuni generate pe baza valorilor din array
+        -> submit
+    - dupa trimiterea formularului verificati daca s-a ales ziua sambata sau duminica si daca da, afisati 'weekend' daca nu, 'zi lucratoare'
+    

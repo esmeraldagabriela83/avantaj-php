@@ -1,0 +1,34 @@
+MySQL 
+    
+I. Introducere
+    - sistemele de baze de date pot fi relationale sau nerelationale
+    - SQL (structrured query language) respectiv NoSQL(nerelationale)
+    - MySQL -> este open source si este cel mai popular
+    - exista si Oracle / Microsoft (sisteme de SQL care sunt contracost)
+
+    - phpmyadmin este o interfata de administrare a serverului de baza de date
+    - il putem accesa din browser: localhost/phpmyadmin (atat timp cat este pornit si serviciul de MySQL de la xampp)
+
+    - bazele de date sunt fisiere (cate un folder pentru fiecare baza de date)
+    - se gasesc in locatia C:\xampp/mysql/data
+    - in general un tabel de baza de date = 2-3 fisiere
+
+
+II. phpmyadmin
+    - browser: localhost/phpmyadmin
+    - INTOTDEAUNA trebuie sa fim atenti la nivelul la care suntem: server / baza de date / tabel baza de date
+
+    Cream baza de date:
+        - New / Noua din bara din stanga
+        - completam denumirea bazei de date -> Create/Creeaza
+
+    Cream tabel in cadrul bazei de date:
+        - click pe baza de date
+        - completam numele tabelului (setam nr de coloane)
+        - go/executa
+
+III. Query-uri
+    1. INSERT
+    2. SELECT
+    3. UPDATE
+    4. DELETE

@@ -1,0 +1,133 @@
+Wordpress - curs practic
+
+I. Introducere
+    1. Ce este un CMS
+    2. Platforme similare
+    3. Wordpress.org vs Wordpress.com
+
+II. Instalarea unui Wordpress local (xampp) sau pe un domeniu (cpanel)
+
+III. Dashboard (interfata de administrare Wordpress)
+    1. Posts / Articole
+    2. Media / Media
+    3. Pages / Pagini
+    4. Appearance / Aspect
+        - Themes / Teme
+        - Menus / Meniuri
+        - Customize / Personalizare
+    5. Settings / Setari    
+        - General / Generale
+        - Reading / Afisare 
+        - Discussions / Discutii
+        - Permalinks / Legaturi permanente
+    6. Plugins / Module
+    7. Tools / Instrumente
+        - Site health / Sanatatea site-ului
+    8. Users / Utilizatori
+
+IV. Teme wordpress (free vs premium)
+V. Plugins 
+
+
+
+I. Introducere
+    1. Ce este un CMS
+        - CMS = Content Management System
+        - este o platforma cu ajutorul careia putem crea / administra un site folosind o interfata grafica (Dashboard)
+
+    2. Platforme similare
+        - joomla, drupal, shopify, magento, open cart etc.
+        - wordpress este cel mai utilizat 60-65% market share (CMS-uri)
+    
+    3. Wordpress.org vs Wordpress.com
+        - utilizam wordpress.org
+        - .com necesita un cont pe wordpress.com (platit) si presupune restrictii la administrarea fisierelor /temelor / plugin-urilor DAR exista mai mult suport
+
+
+II. Instalarea unui Wordpress local (xampp) sau pe un domeniu (cpanel)  
+    1. Instalarea unui Wordpress local (xampp) 
+        - instalam xampp (pornim xampp-control.exe si activam Apache / MySQL)
+        - descarcam wordpress de pe wordpress.org
+        - dezarhivam folder-ul wordpress in xampp/htdocs/wordpress (folder-ul wordpress poate fi redenumit)
+        - din browser, accesam: localhost/wordpress (ex: localhost/magazin-de-la-colt)
+        - selectam limba de instalare (poate fi schimbata ulterior din setari)
+        - let's go / mergi mai departe
+        - vom completa un formular cu:
+            -> nume baza de date (database name)
+            -> nume utilizator baza de date (database user)
+            -> parola utilizator baza de date (database password)
+            -> gazda baza de data (database host) - va ramane neschimbata in 90% + dintre cazuri
+            -> prefix tabel - poate ramane la fel / schimbat (in general il lasam neschimbat wp_ )
+        - din browser (intr-un tab nou), accesam localhost/phpmyadmin pentru a crea baza de date + utilizator baza de date
+        - din bara din stanga, click pe New(Noua), completam un nume pentru baza de date (TREBUIE RETINUT) -> Create / Creeaza
+        - revenim in tab-ul cu instalarea wordpress-ului si completam primul camp cu numele bazei de date
+        - din tab-ul de phpmyadmin, selectam server 127.0.0.1 (din bara de sus) si apoi accesam User Accounts / Conturi utilizatori pentru a crea un nou utilizator
+        - Add new account / Adauga un cont nou 
+        - completam numele utilizatorului si parola (poate fi generata), bifam Toate privilegiile -> Go / Executa (pentru a crea utilizatorul)
+        - revenim in tab-ul cu formularul de instalare al wordpress-ului si completam cele 2 campuri ramase: database username / utilizator baza da date si database password / parola baza de date
+        - submit / trimite pentru a continua instalarea wordpress-ului -> Run installation / Instaleaza
+        - (instalare-pas2.png) completam campurile: 
+            -> Titlul site (orice text care poate fi ulterior schimbat din setari)
+            -> User (utilizatorul pe care il vom folosi la accesarea in dashboard)
+            -> Parola (parola pe care o vom folosi la accesarea dashboard-ului)
+            -> E-mail (pentru un proiect real, este indicat sa avem o adresa pe care sa o putem accesa)
+            -> Bifam casuta de descurajare a motoarelor de cautare (VOM DEBIFA aceasta optiune DUPA terminarea site-ului si incarcarea lui pe adresa finala din setari)
+        - instalam -> accesam dashboard-ul -> user/ parola -> log in
+
+        Accesam site-ul: browser-> localhost/magazin-de-la-colt
+        Accesam dashboard-ul: browser-> localhost/magazin-de-la-colt/wp-admin
+
+        Instalarea wordpress pe un domeniu (cpanel - softaculous)
+            - accesam cpanel: browser-> http://site.ro/cpanel 
+            - ne logam
+            - selectam softaculous wordpress manager 
+            - instalam alegand:
+                -> destinatia (folder-ul in care se instaleaza)
+                -> user / parola pentru accesarea dashboard
+            - install
+
+
+III. Dashboard (interfata de administrare Wordpress)
+    1. Posts / Articole
+        - gestionam articole si categorii de articole (adaugare, editare, stergere)
+        
+    2. Media / Media
+        - adaugam / stergem fisiere (video, pdf, imagini etc.)
+
+    3. Pages / Pagini
+        - gestionam pagini (adaugare, editare, stergere)
+
+    3b. Comments / Comentarii
+        - gestionam comentariile utilizatorilor (aprobare, spam, stergere)  
+
+    4. Appearance / Aspect
+        - Themes / Teme
+            - alegem tema site-ului
+            - nu exista wordpress fara nicio tema
+            - alegerea temei se face in functie de functionalitatile ei
+            - tema free vs premium (temele premium au mai multe functionalitati si actualizari)
+
+        - Menus / Meniuri
+            - cream meniuri in care adaugam pagini
+            - design-ul meniului este dat de tema (Se poate altera prin cod/plugins)
+            - in functie de tema pot exista unul sau mai multe meniuri predefinite (locatie)
+            
+        - Customize / Personalizare
+    5. Settings / Setari    
+        - General / Generale
+        - Reading / Afisare 
+        - Discussions / Discutii
+        - Permalinks / Legaturi permanente
+    6. Plugins / Module
+    7. Tools / Instrumente
+        - Site health / Sanatatea site-ului
+    8. Users / Utilizatori
+
+V. Plugins 
+- page builder (elementor, divi, ocean wp, guttenberg etc.)
+- magazin online (woocommerce)
+- Search Engine Optimization - SEO (Yoast, etc )
+- optimizari pentru SEO (resurse) (Autoptimize, wp smush, w3total cache etc.)
+- formulare de contact (contact form 7, wp forms, ninja forms )
+- back-up / migrare (duplicator, all in one wp migrate, back-up buddy)
+

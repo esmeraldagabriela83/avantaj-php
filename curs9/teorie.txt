@@ -1,0 +1,61 @@
+CURS 9
+	
+	La tabele - "NUME" reprezinta coloanele, iar dupa se seteaza tipul si detaliile fiecareia. 
+	La coloanele de tipul text/ varchar trebuie pus numarul maxim de caractere in campul "lungime/valori"
+	La campurile FLOAT trebuie pus (5,2) pentru a exprima numere cu virgula.
+	Ex: FLOAT
+	(5,2) - 12.564,32
+	
+	A_I - autoincrement pentru ID adica numar unic pentru fiecare data introdusa in tabel
+	Se da Salveaza la finalul paginii pentru a crea tabelul. 
+	
+	SELECT * FROM 'produse'   si tasta GO din josul paginii 
+	( * inseamna toate coloanele din tabelul produse sau oricare dintre coloane)
+	
+	SELECT pret, nume_produs FROM 'produse' 
+	(afiseaza doar coloanele cu numele si pretul produselor)
+			
+	SELECT * FROM 'produse' WHERE pret < 30 AND pret > 10
+	(afiseaza toate produsele care au pretul mai mic de 30 
+	si mai mare decat 10, adica intre 10 si 30)
+	BETWEEN a AND b ( intre a si be, incluzand a si b)
+	OR sau ||
+	AND sau &&
+	WHERE id-categorie IN(1,3,0) afiseaza produsele care au id-ul 1, 3 sau 0 
+	( echivalent cu id_categorie= 1 OR id_categorie=3 OR id_categorie=0; opusul e NOT IN) 
+	
+	
+	INSERT INTO produse( nume_produs, id-categorie, data_expirare) VALUES ('croissant cu gem', '2', '2022-12-30')
+	( insereaza in tabel un nou rand cu un produs care are detaliile de mai sus din ' ' 
+	
+	SELECT * FROM 'produse' WHERE nume_produs LIKE '%croissant%'
+	(afiseaza produsele care au croissant in numele lor)
+	%c - care se termina cu c
+	c% - care incep cu c
+	%unt%- toate care au unt in nume 
+	
+	SELECT * FROM 'produse' ORDER BY pret DESC 
+	(afiseaza toate produsele in ornea descrescatoare a pretului)
+	
+	SELECT * FROM 'produse' WHERE... ORDER BY data_expirare ASC, pret DESC
+	(in cazul in care sunt produse cu aceeasi data de expirare, 
+	va afisa toate produsele in ordinea crescatoare a datei de expirare si vor fi 
+	 ordonate descrescator in functie de pret)
+	 
+	 SELECT * FROM 'produse' ORDER BY id_categorie ASC
+	 (afiseaza grupate produsele apartinand aceleiasi categorii, 
+	 adica toate cu 0, toate cu 1, toate cu 2 etc.; 
+	 afisate in ordinea istorica cu care le-am introdus in tabel)
+	 
+	SELECT * FROM 'produse' ORDER BY id_categorie ASC, nume_produs ASC
+	(afiseaza grupat produsele din aceeasi categorie, in ordine alfabetica)
+	
+	SELECT * FROM 'produse' WHERE id_categorie = 1 ORDER BY pret DESC LIMIT 1
+	(afiseaza produsele din categoria 1, ordonate dupa pret descrescator si afiseaza doar 1, 
+	adica cel mai scump pentru ca cel mai scump va fi primul)
+		LIMIT 2 sau LIMIT 0,2 (primele 2 cele mai scumpe)
+		LIMIT 1,1 ( al doilea cel mai scump produs)
+			
+	LIMIT 0,1 - unde incepe, cate va afisa 
+	
+	

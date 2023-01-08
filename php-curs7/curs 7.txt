@@ -1,0 +1,44 @@
+trimiterea mai multor fisiere prin acelasi input
+
+<input type="file" name="fisiere[]" multiple="multiple" /> 
+-> valoarea atributului name va avea si [] (array) pentru a permite prelucrarea tuturor fisierelor trimise
+-> in php se va genera cate un array pentru fiecare cheie din:
+    -  $_FILES['fisiere']['name'] = array('nume1.pdf', 'nume2.txt', 'nume3.txt')
+    -  $_FILES['fisiere']['tmp_name'] = array('E:\...', 'E:\...', 'E:\...')
+    -  $_FILES['fisiere']['type'] = array('application/pdf', 'text/plain', 'text/plain')
+    -  $_FILES['fisiere']['size'] = array(1500, 600, 2020)
+    -  $_FILES['fisiere']['error'] = array(0,0,0)
+
+
+interactiuni cu fisiere:
+    fopen('cale catre fisier', 'mod')
+        moduri:
+            'r' - permite doar citirea si pune cursorul la inceputul fisierului
+            'r+' - permite citirea + scrierea 
+                 - pune cursorul la inceputul fisierului (suprascrie caracter cu caracter)
+
+            'w'  - permite doar scrierea si STERGE intregul continut 
+                 - creeaza fisierul in cazul in care el nu exista
+            'w+' - permite scrierea + citirea 
+                 - STERGE intregul continut
+                 - creeaza fisierul in cazul in care el nu exista
+
+            'a'  - permite doar scrierea si pune cursorul la sfaristul documentului
+                 - creeaza fisierul in cazul in care el nu exista
+            'a+' - permite scrierea + citirea 
+                 - pune cursorul la sfaristul documentulu
+                 - creeaza fisierul in cazul in care el nu exista
+
+$fisier = fopen('cale','mod');
+fread($fisier, 10); 
+    - returneaza 10 caractere de la pozitia cursorului pentru fisierul selectat
+    - trebuie sa fie permis de modul selectat
+ex:
+    $fisier = fopen('cale','mod');
+    fread($fisier, filesize('cale'));
+    - returneaza TOATE caracterele pana la sfarsitul documentului plecand de la pozitia cursorului pentru fisierul selectat  
+
+$fisier = fopen('cale','mod');
+fwrite($fisier, 'hello there');
+    - scrie textul 'hello there' in fisierul selectat plecand de la pozitia cursorului
+    - suprascrie sau nu textul in functie de modul selectat (daca modul permite scriere)

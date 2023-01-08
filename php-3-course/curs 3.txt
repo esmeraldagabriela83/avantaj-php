@@ -1,0 +1,144 @@
+Exercitiu:
+    $fructe = array('mere','pere','nuci');
+    -> afisati fiecare fruct in propriul <h3></h3> 
+
+    Rezultat dorit:
+        <h3>mere</h3>
+        <h3>pere</h3>
+        <h3>nuci</h3>
+
+
+
+Array-uri asociative:
+    ex:
+        $oameni  = array(
+            'Popescu' => 18,
+            'Petrescu' => 28,
+            'Ionescu' => 38,
+            20 => 'hello',
+            'Popescu' => 55,    // va suprascrie cheia 'Popescu' anterioara
+        );
+    
+    // cheile (cele din stanga) pot fi int sau string dar trebuie sa fie UNICE
+
+    ex:
+       $fructe =  array(
+            0 => 'mere',
+            1 => 'pere',
+            2 => 'nuci'
+        );
+
+        // cheile acestui array sunt numerice (crescatoare) si pot fi parcurse cu for
+    
+    - pentru a parcurge chei (dintr-un array) care nu sunt numerice / crescatoare vom avea nevoie de foreach
+
+    ex:
+        $oameni  = array(
+            'Popescu' => 18,
+            'Petrescu' => 28,
+            'Ionescu' => 38,
+        );
+
+        foreach($oameni as $varsta) {
+            echo $varsta . '<br/>';
+        }
+
+        // rezultatul va fi:
+        18
+        28 
+        38
+
+        // $varsta reprezinta valoarea fiecarei chei din array-ul $oameni
+        // sintaxa:
+            foreach($array as $value){
+                ...
+            }
+
+Exercitiu:
+    $marci = array(
+        'Audi' => 26000, // pretul model mediu de euro
+        'Mercedes' => 35000,
+        'BMW' => 30000,
+        'Dacia' => 12000,
+     );
+
+     -> Parcurgeti array-ul $marci (foreach) si afisati valorile sub 30000
+     -> Rezultatul:
+            26000
+            12000
+
+
+    sintaxa foreach care sa includa si cheia si valoarea:
+        $x = array(...);
+        foreach($x as &key => $value){
+            ...
+        }
+
+    ex:
+        $marci = array(
+            'Audi' => 26000, 
+            'Mercedes' => 35000,
+            'BMW' => 30000,
+            'Dacia' => 12000,
+        );
+
+        foreach ($marci as $marca => $pret){
+            if ($pret < 30000){
+                echo $marca . ' pret mediu per model (euro) ' . $pret;
+            }
+        }
+
+
+
+sort($x) - sorteaza CRESCATOR dupa valorile din array-ul $x 
+         - indicat DOAR pentru array-urile numerice (elimina cheile)
+rsort($x) - identic cu sort() DOAR ca sorteaza DESCRESCATOR
+
+
+asort($x) - sorteaza CRESCATOR dupa valorile din array-ul $x 
+          - poate fi utilizat pe orice tip de array (pastreaza cheile si asocierile)
+arsort($x) - identic cu asort() DOAR ca sorteaza DESCRESCATOR
+
+
+ksort($x) - sorteaza CRESCATOR dupa cheile din array-ul $x
+          - poate fi utilizat pe orice tip array (pastreaza cheile si asocierile)
+krsort($x) -  identic cu ksort() DOAR ca sorteaza DESCRESCATOR
+
+ex: 
+    $marci = array(
+            'Audi' => 26000, 
+            'Mercedes' => 35000,
+            'Toyota' => 30000,
+        );
+
+    sort($marci);            // array( 
+                                0 => 26000, 
+                                1 => 30000, 
+                                2 => 35000
+                            )
+    rsort($marci);           // array(35000, 30000, 26000)   
+
+
+    asort($marci);          // array(
+                                'Audi' => 26000, 
+                                'Toyota' => 30000,
+                                'Mercedes' => 35000,
+                            );
+    arsort($marci);         // array(
+                                'Mercedes' => 35000,
+                                'Toyota' => 30000,
+                                'Audi' => 26000, 
+                            );
+    
+
+    ksort($marci);          // array(
+                                'Audi' => 26000, 
+                                'Mercedes' => 35000,
+                                'Toyota' => 30000,
+                            );
+    krsort($marci);         // array(
+                                'Toyota' => 30000,
+                                'Mercedes' => 35000,
+                                'Audi' => 26000, 
+                            );
+    

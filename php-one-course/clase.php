@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clase.php after tutorial</title>
+</head>
+<body>
+
+ <!-- https://www.youtube.com/watch?v=obpSm0dJ2Ko&list=PLRlcs-KgbzEdWyMgQ-vPiS70CaYC5ssBa&index=41 -->
+
+ <!-- https://www.youtube.com/watch?v=mVjOt4ZET2Q -->
+
+
+<p style="text-align:center ; color:green">insert values for my class Exemplu</p>
+
+ <form action="clase.php" method="post">
+
+ <label for="abcName">Name:</label><br>
+ <input type="text" name="name" id="abcName" value="
+ <?php
+ //ca sa ramana bifat de catre user
+ if(isset($_POST['name'])){echo $_POST['name'];}
+ ?>
+ "/><br>
+
+ <label for="abc1">NR 1:</label><br>
+ <input type="number" name="nr1" id="abc1"  value="<?php
+                    if (isset($_POST['nr1'])){
+                        echo $_POST['nr1'];
+                    }
+                ?>" /><br>
+
+ <label for="abc2">NR 2:</label><br>
+ <input type="number" name="nr2" id="abc2" value="<?php
+ if(isset($_POST['nr2'])){
+    echo $_POST['nr2'];
+ }
+ ?>" /><br>
+
+ <input type="submit" name="submit" value="submit form" />
+
+ </form>
+    
+</body>
+</html>
+
+
+
+<?php
+
+echo '<h1 style="text-align:center ; color:pink">php-one-course clase.php</h1>' ;
+
+
+if(isset($_POST['submit'])){
+
+    echo '<h3 style="text-align:center ; color:Chartreuse">nr 1 is : '  . $_POST['nr1'] . '</h3>' ;
+    echo '<h3 style="text-align:center ; color:Chartreuse">nr 2 is : '  . $_POST['nr2'] . '</h3>' ;
+    echo '<h3 style="text-align:center ; color:olive">nr1 + 2 is : '  . $_POST['nr1'] + $_POST['nr2'] . '</h3>' ;
+
+
+/////////////////////////
+
+
+class Exemplu{
+
+    public $variabila="Ma aflu in clasa Exemplu.";
+    public $variabila2='<h1 style="text-align:center ; color:orange">Ma aflu in clasa Exemplu.</h1>';
+    public $variabila3= '5 + 10 ';
+    public $variabila4= 5 + 10 ;
+ 
+    public function myFunc(){
+     echo '<h1 style="text-align:center ; color:Chocolate">Ma aflu in clasa Exemplu , in interiorul functiei myFunc.</h1>';
+    }
+ 
+    public function myFunc2($param){
+     echo '<h1 style="text-align:center ; color:DarkSlateBlue">$param + 50 : ' . $param + 50 . '</h1>';
+    }
+
+    public function myFunc3($param1 , $param2){
+        echo '<h1 style="text-align:center ; color:DarkSlateBlue">$param1 + $param2 : ' . $param1 + $param2 . '</h1>';
+       }
+
+    public function myFunc4($paramName , $paramAge){
+        echo '<h1 style="text-align:center ; color:gray">' . $paramName . ' is ' . $paramAge . ' years old . </h1>';
+    }  
+ 
+ }
+ 
+ //initializare obiect
+ $tutorial=new Exemplu;
+ 
+ echo $tutorial->variabila;
+ echo $tutorial->variabila2;
+ echo $tutorial->variabila3;
+ echo '<br>';
+ echo $tutorial->variabila4;
+ echo '<br>';
+ echo $tutorial->myFunc();
+ echo $tutorial->myFunc2(1000);
+ echo $tutorial->myFunc2($_POST['nr1']);
+ echo $tutorial->myFunc3($_POST['nr1'] , $_POST['nr2']);
+ echo $tutorial->myFunc4($_POST['name'] , $_POST['nr1']);
+
+
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+?>

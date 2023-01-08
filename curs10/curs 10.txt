@@ -1,0 +1,336 @@
+-------------------------------------------------------------------------------------
+CURS 10 PHP - 06.01.2023
+
+	QUERY DELETE
+
+EXEMPLU IN PHPMYADMIN
+DELETE FROM produse WHERE nume_produs LIKE '%tort%'
+(sterge toate produsele care au cuvantul 'tort' in denumire; 
+'produse' este tabelul;
+trebuie neaparat sa folosim o conditie, adica WHERE, altfel va sterge tot continutul;)
+
+In codul PHP, DELETE trebuie sa fie inainte de AFISARE PRODUSE.
+
+EXEMPLU IN COD PHP 
+$id_produs=$_POST['id'];
+mysqli_query($c_db, "DELETE FROM produse WHERE id='$id_produs' ");	
+
+echo '<td>' . 'x' . '</td>';
+(va adauga o coloana cu 'x' in dreptul fiecarui rand, iar daca dam click pe un x, 
+va sterge randul cu produsul in dreptul caruia se afla x-ul)
+
+
+	QUERY UPDATE
+
+UPDATE produse SET pret=pret+10 WHERE 'id_categorie'=3
+(actualizez tabelul si modific coloana cu pretul, adica adaug 10 lei pentru produsele ce au id-ul categoriei 3;
+daca nu folosim conditie, adica WHERE, se va actualiza tot tabelul;)
+
+In codul PHP, UPDATE trebuie sa fie inainte de AFISARE PRODUSE.
+
+EXEMPLU IN COD PHP
+Trebuie sa ne legam de ceva unic, cum este id-ul. In cod vom folosi intotdeauna id-ul sau o alta caracteristica unica 
+atunci cand dorim sa actualizam un anumit produs.
+Se va folosi acelasi cod de la INSERT, doar ca vom schimba name-ul si vom adauga 
+
+$id_produs=$_POST['id_produs'];
+...
+mysqli_query($c_db, "UPDATE produse SET nume_produs='$produs', id_categorie='$cat', pret='$pret', data_expirare='$data'  
+WHERE id='id_produs' ");
+			
+			*UPDATE-UL ar cam trebui facut la fiecare produs in parte pentru ca fiecare are campul lui de name, de id etc.*
+			*REGISTER foloseste INSERT*
+			*LOG IN foloseste SELECT*
+			*asociativ = text*
+
+
+--------------------------------------------------------------------------------
+
+3. UPDATE
+
+4. DELETE
+
+
+mysqli_connect('localhost', 'root', '', 'cofetarie');
+    - realizeaza conexiunea cu baza de date:
+        'localhost' 
+            - serverul de mysql (poate fi inlocuit si cu un ip ex: 127.0.0.1)
+        
+        'root' 
+            -  user-ul de baza de date (root este user-ul default DAR nu va exista in cazul unei gazduiri reale)
+
+        '' 
+            - parola utilizatorului de baza de date
+
+        'cofetarie'
+            - numele bazei de date
+
+
+
+mysqli_query($conexiune, "INSERT ....");
+    - realizeaza un query pe baza de date la care ne-am conectat
+    ex:
+        $c = mysqli_connect('localhost', 'root', '', 'cofetarie');
+        mysqli_query($conexiune, "INSERT ....");
+
+
+mysqli_fetch_assoc() - returneaza un array asociativ cu rezultatele unui query SELECT
+                     - unde cheile acestui array sunt numele coloanelor cerute in query iar valorile sunt valorile din acele coloane
+        ex: 
+            $c = mysqli_connect('localhost', 'root', '', 'cofetarie');
+            $q = mysqli_query($conexiune, "SELECT nume, pret, cat FROM produse ");
+            while ($r = mysqli_fetch_assoc($q)){
+                echo $r['nume'];
+                echo $r['pret'];
+                echo $r['cat'];
+            }
+
+mysqli_fetch_row() - returneaza un array numeric cu rezultatele unui query SELECT
+                   - unde cheile acestui array sunt numerice (in oridinea ceruta in SELECT) iar valorile sunt valorile din acele coloane
+        ex1: 
+            $c = mysqli_connect('localhost', 'root', '', 'cofetarie');
+            $q = mysqli_query($conexiune, "SELECT nume, pret, cat FROM produse ");
+            while ($r = mysqli_fetch_row($q)){
+                echo $r[0]; //nume
+                echo $r[1]; //pret
+                echo $r[2]; //cat
+            }
+
+        ex2: 
+            $c = mysqli_connect('localhost', 'root', '', 'cofetarie');
+            $q = mysqli_query($conexiune, "SELECT pret, nume, cat FROM produse ");
+            while ($r = mysqli_fetch_row($q)){
+                echo $r[0]; //pret
+                echo $r[1]; //nume
+                echo $r[2]; //cat
+            }
+
+mysqli_fetch_array() - returneaza un array cu rezultatele unui query SELECT
+                     - unde cheile acestui array sunt si:
+                        - numerice (in oridinea ceruta in SELECT) iar valorile sunt valorile din acele coloane
+                        - text numele coloanelor cerute in query iar valorile sunt valorile din acele coloane
+                    - ** avand in vedere ca are si chei numerice si chei text este un array mai mare si prin urmare este mai incet
+        ex1: 
+            $c = mysqli_connect('localhost', 'root', '', 'cofetarie');
+            $q = mysqli_query($conexiune, "SELECT nume, pret, cat FROM produse ");
+            while ($r = mysqli_fetch_array($q)){
+                echo $r[0]; //nume
+                echo $r['nume']; //nume
+
+                echo $r[1]; //pret
+                echo $r['pret']; //pret
+
+                echo $r[2]; //cat
+                echo $r['cat']; //cat
+            }
+
+Exercitiu:
+- conectati-va la baza de date
+- afisati numele si preturile produselor pentru produsele de peste 20 lei
+
+ Exportul bazei de date:
+    -> ne conectam la phpmyadmin
+    -> de la NIVEL DE SERVER, accesam EXPORT din meniul de sus
+    -> selectam custom (Export method:) si alegem baza de date pe care dorim sa o exportam
+    -> scroll pana jos si GO / EXECUTA 
+    -> se va genera/descarca un fisier .sql pe care il trimiteti...
+
+Importul bazei de date:
+    -> DACA a fost exportata ca in pasii de mai sus
+    -> ne conectam la phpmyadmin
+    -> de la NIVEL DE SERVER, accesam IMPORT din meniul de sus
+    -> selectam fisierul .sql (choose file)
+    -> GO / EXECUTA
+
+
+
+Alte functii
+
+file_get_contents('cale');
+    - returneaza intregul continut al fisierului
+    ex:
+        $f = file_get_contents('hello.txt');
+        $f = file_get_contents('hello.html');
+        $f = file_get_contents('https://site.ro/contact.html');
+        echo $f;
+
+file_put_contents('cale', 'text nou');
+    - inlocuieste intregul continut al fisierului din cale cu 'text nou'
+    - daca fisierul nu exista, va fi creat
+    - putem scrie in el daca avem acces
+    ex:
+        file_put_contents('hello.txt', 'text nou');
+        file_put_contents('https://site.ro/contact.html', 'text nou');
+
+
+touch('cale', time());
+    - actualizeaza fisierul din cale astfel incat sa fie modificat in data aleasa (date last modified = time() - curent)
+    - daca fisierul nu exista, el va fi creat
+
+    ex:
+        touch('files/hello.txt', time() + 60);
+        - creeaza fisierul daca nu exista si ii schimba data de last modified in timpul curent + 1 minut        
+
+        touch('files/hello.txt', time() - 3600);
+        - creeaza fisierul daca nu exista si ii schimba data de last modified in timpul curent -  1 ora
+
+time() 
+    - timpul curent in secunde din 01.01.1970 pana in prezent
+
+date('format', 'data') 
+    -  afiseaza data (in secunde) in formatul ales
+    ex:
+        echo  date('d-M-Y H:i', time() + 3* 24* 60 * 60);
+        // afiseaza data de peste 3 zile in formatul dorit 
+
+    - ex format:
+        'd' - ziua 01-31
+        'l' - (L mic) ziua Monday - Sunday
+        'N' - ziua 1 - 7
+
+        'M' - luna Jan - Dec
+        'I' - (i MARE) luna 0(ianuarie) - 11(decembrie)
+        'n' - luna 1(ianuarie) - 12(decembrie) 
+
+        'Y' - anul cu 4 cifre
+
+        'H' - ore 00-23
+        'i' - minute 00-59
+        's' - secunde 00-59
+
+        https://www.php.net/manual/en/datetime.format.php
+
+    
+strtotime('tomorrow')
+    - transforma string-ul dintre () in timp (time())
+    ex:     
+        strtotime('+3 days')
+        strtotime('-1 week')
+        strtotime('20.12.2021')
+
+
+include('cale');
+include_once('cale');
+    - include fisierul din cale in fisierul curent
+    - daca nu exista un fisier care sa corespunda caii, va da o eroare (warning) dar va continua codul
+    - include_once (include fisieru o singura data chiar daca este apelat de mai multe ori ex: for, foreach, while)
+
+require('cale');
+require_once('cale');
+    - include fisierul din cale in fisierul curent
+    - daca nu exista un fisier care sa corespunda caii, va da o eroare (fatal error) si NU va continua
+    - require_once (include fisieru o singura data chiar daca este apelat de mai multe ori ex: for, foreach, while)
+
+
+
+Functii custom
+    - putem crea propriile functii
+    ex:
+        //cream functia
+        function abc(){
+            echo 'hello';
+        }
+        //alt cod
+        ......
+        // end alt cod
+
+        // apelam functia si doar aici se va afisa hello
+        abc();
+
+    - mecanisme de a iesi din functie
+        - exit; sau exit();  iese din functie si opreste executarea codului ulterior
+        - die; sau die();  iese din functie si opreste executarea codului ulterior
+
+        - return; iese din functie dar NU opreste executarea codului ulterior
+
+        ex:
+            function abc(){
+                echo '1';
+                exit;
+                echo '2';
+            }
+            echo '3';
+            abc();
+            echo '4';
+
+            rezultat in browser:
+                3
+                1
+
+        ex:
+            function abc (){
+                echo '1';
+                return 'hello';
+                echo '2';
+            }
+            echo '3';
+            $x = abc();  // se afiseaza 1 si se noteaza ca $x = 'hello';
+            echo $x;
+            echo '4';
+            
+            rezultat in browser:
+                3
+                1
+                hello
+                4
+
+---------------------------------------------------------------
+MySQL query
+
+    INSERT
+        ex: INSERT INTO nume_tabel (col1, col2, col5) VALUES (val1, val2, val5);
+        - insereaza un rand in tabelul nume_tabel completand valorile val1, val2, val5 la coloanele col1, col2 respectiv col5
+
+        ex: INSERT INTO nume_tabel (col1, col3) VALUES (val11,val31), (val12, val32);
+        - insereaza 2 randuri in tabelul nume_table completant val11, val31 pentru primul rand si val12, val32 pentru al doilea in coloanele col1 respectiv col3    
+SELECT
+    SELECT * FROM nume_tabel
+    // selecteaza toate randurile cu informatiile din toate coloanele din tabelul nume_tabel
+
+    SELECT col1, col3, col2 FROM nume_tabel
+    // selecteaza informatiile din coloanele col1, col3 si col2 de la toate randurile din tabelul nume_tabel
+
+    SELECT * FROM nume_tabel WHERE col1 < 2
+    // selecteaza informatiile din toate coloanele doar de pe randurile care au valoarea din coloana col1 < 2 din tabelul nume_tabel
+
+    ex conditii:
+    WHERE col2 = 5 || col3 >= 12 && col4 != 5; 
+    WHERE col3 LIKE 'text';     // valoarea din col3 sa fie 'text'
+    WHERE col3 LIKE '%text';    // valoarea din col3 sa se termine cu 'text' ('text', '12text')
+    WHERE col3 LIKE 'text%';    // valoarea din col3 sa se inceapa cu 'text' ('text', 'text132')
+    WHERE col3 LIKE '%text%';   // valoarea din col3 sa se contina 'text' ('text', 'text132', '12text', '123textabc')
+    WHERE col5 IN ('2000-02-20', '2002-02-20', '2001-10-02'); //daca valoarea din col5 este una dintre cele enumerate
+    WEHRE col4 NOT IN (2,5,1);  //daca valoarea din col4 NU este niciuna dintre cele enumerate
+    WEHRE col4 BETWEEN 123 AND 532;  //daca valoarea din col4 intre 123 si 532
+
+
+    SELECT * FROM nume_tabel WHERE col1 = 2 ORDER BY col2 DESC
+    // selecteaza informatiile din toate coloanele pentru randurile care au col1=2 si le ordoneaza descrescator in functie de valoarea din col2
+    
+    SELECT * FROM nume_tabel ORDER BY col2 DESC, col1 ASC
+    // selecteaza informatiile din toate coloanele pentru toate randurile si ordoneaza intai descrescator dupa col2 si apoi crescator dupa col1
+
+    SELECT col1, col2 FROM nume_tabel ORDER BY col2 LIMIT 0,4
+    //selecteaza informatiile din coloanele col1 si col2 pentru toate randurile, le ordoneaza ascendent(crescator) dupa col2 si afiseaza doar primele 4 rezultate (0 - peste cate rezultate sa sara, 4 - cate rezultate sa afiseze dupa ce a sarit peste 0 rezultate)
+
+
+    WHERE, ORDER BY, LIMIT - pot lipsi dar daca sunt prezente trebuie inserate strict in aceasta ordine
+
+
+UPDATE 
+    UPDATE nume_tabel SET col1 = 3, col3 = 1 WHERE col2 > 5;
+    // modifica valorile din coloanele col1 si col3 (cu valorile 3 si 1) pentru randurila a caror valoare din col2 > 5
+
+    fara WHERE va actualiza / modifica TOATE randurile
+
+
+DELETE
+    DELETE FROM nume_tabel WHERE col1 IN (2,3,14);
+    // sterge randurile din tabel care au valoarea din col1 printre valorile (2,3,14)
+
+    fara WHERE va sterge TOATE randurile din tabel
+
+
+
+
+

@@ -1,0 +1,47 @@
+implode('-',$x); 
+    -> returneaza intr-un string valorile din array-ul $x separate prin '-'
+    -> lipeste valorile din array cu un text (ex: '-')
+    ex:
+        $a = array('c',2,3,'v1');
+        echo implode('<br/>', $a);
+        // rezultat din implode:
+            'c<br/>2<br/>3<br/>v1';
+        // rezultat in browser:
+            c
+            2
+            3
+            v1
+
+explode(' ', $y);
+    -> returneaza un array format din ceea ce ramane dupa impartirea string-ului $y dupa ' ';
+    
+    ex:
+        $text = 'Ana are mere';
+        $array_text = explode(' ', $text);
+        // $array_text va fi:
+            array('Ana','are', 'mere');
+
+
+Formulare
+    - vom folosi tag-ul <form> 
+    - atribute pentru <form>
+         - action="file.php" -> reprezinta calea catre fisierul .php care va face preluarea datelor din Formular (Ex:<form action=""></form> - presupupne ca preluarea datelor se va face in acelasi fisier) 
+
+        - method="get"  
+                 "post"   -> reprezinta modul de interactiune cu serverul si array-ul care va contine informatiile din formular
+                          -> array-urile $_POST si $_GET se vor popula DOAR dupa trimiterea formularelor
+                          -> ex: $_POST respectiv $_GET 
+                                 - sunt array-uri 
+                                 - sunt variabile superglobale (pot fi accesate de oriunde)
+
+    - toate elementele de formular vor avea atributul name="user"
+        -> valoarea atributului name trebuie sa fie unica pentru fiecare element de formular (din cadrul unui formular)
+        -> valoarea atributului name reprezinta cheia din array-ul $_GET / $_POST prin care putem accesa informatia din acel camp
+        ex:
+        HTML:
+            <form method="post">
+                <input type="text" name="username" />
+            </form>
+        PHP:
+            // informatia din campul de text din formular se va gasi in:
+            $_POST['username']

@@ -1,0 +1,27 @@
+Lista functii php:
+
+- variabile (cum se declara, tipurile de variabile)
+- operatori (tipurile de operatori)
+- echo
+- if (toate formele)
+- switch
+- for, foreach
+- while
+- array() (cum se declara, tipuri de array)
+- functii pentru array: count(), asort(), sort(), ksort(), krsort(), arsort(), rsort(), explode(), implode();
+- $_POST, $_GET, $_FILES
+- fopen(), fread(), fwrite(), fclose()
+- file_get_contents(), file_put_contents()
+- touch()
+- include(), require(), require_once(), include_once()
+- functii custom (cum se creeaza, cum se aplica si cum se iese din ele: exit(); exit; die(); die; return();)
+- date(), time(), strtotime();
+- interogari baze de date( insert, select, update, delete)
+- mysqli_connect()
+- mysqli_query()
+- mysqli_fetch_row()
+- mysqli_fetch_assoc()
+- mysqli_fetch_array()
+
+
+

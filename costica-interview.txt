@@ -1,0 +1,2649 @@
+                                                                                                        index.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>myCopy after Catalin curs React Basics - Exercises</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main id="app" class="container"></main>
+
+    <h1 id="h1-first-title">this is HOME page from index.html</h1>
+    <a href="about.html">get me to the ABOUT page</a>
+    <div>any element from the body with the font-size of html tag (16px)</div>
+    <div id="parent">parent container with font-size 2rem;
+    <div id="first-child">first child element with font-size 4rem;</div>
+    <div id="second-child">second child element with font-size 4em;</div>
+    </div>
+    <p id="add"></p>
+    <p id="multiply"></p>
+    <p id="letVariable"></p>
+    <p id="letVariable-add"></p>
+
+    <h3 class="myh3"></h3>
+    <h3 class="myh3"></h3>
+    <h3 class="myh3"></h3>
+    <h3 class="myh3"></h3>
+    <h3 class="myh3"></h3>
+
+    <h4 class="myh4"></h4>
+    <h4 class="myh4"></h4>
+    <h4 class="myh4"></h4>
+    <h4 class="myh4"></h4>
+    <h4 class="myh4"></h4>
+
+    <span id="popID"></span><span id="popSpanID"></span><span id="shiftSpanID"></span>
+
+    <script src="build/out.js"></script>
+  </body>
+</html>
+
+
+
+                                                                                                          about.html
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>myCopy About page after Catalin curs React Basics - Exercises</title>
+  </head>
+  <body>
+    <!-- <main id="app" class="container"></main> -->
+
+    <h1>this is ABOUT page from about.html</h1>
+    <a href="index.html">get me to the HOME page</a>
+
+    <main id="appAbout" style="background-color:yellow ;
+                               padding:1em ;
+                               border:3px solid indigo">from about page</main>
+    <script src="build/out.js"></script>
+  </body>
+</html>
+                                                                                                        intro.js
+
+                                                                                                      
+console.log("curs 30 react 2 05 2022 cu propriu apel render schimba calea in webpack si ctrl c // npm run start in terminal");
+
+import React, {Component} from "react";
+import ReactDOM from "react-dom";
+
+class TopComponent extends Component {
+  render() {
+    return (
+      <div id="TopComponent">
+        <h1>Hello, World!</h1>
+      </div>
+    )
+  }
+}
+
+class BottomComponent extends Component {
+  render() {
+    return (
+      <>
+        <span>test</span>
+        <b>Example</b>
+      </>
+    )
+  }
+}
+
+
+function App() {
+  return (
+    <div id="app">
+      <TopComponent />
+      <BottomComponent />
+    </div>
+  )
+}
+
+
+ReactDOM.render(
+  <App />,
+  document.getElementById("app"));
+
+
+
+                                                                                                   app.js
+
+
+
+// import React, {Component} from "react";
+// import ReactDOM from "react-dom";
+//
+// ReactDOM.render(
+//   <h1>Hello, World!</h1>,
+//   document.getElementById("app")
+// );
+
+//curs 30 Reactex 1
+import React, {Component} from "react";
+import ReactDOM from "react-dom";
+
+function SearchEngine(){
+  return (
+    <form action="#">
+      <input type="text" name="srcterm" value=""/>
+      <button>Search</button>
+    </form>
+  )
+}
+
+ReactDOM.render(
+  <SearchEngine />,
+  document.getElementById("app"));
+////////////////costica curs interviu-------------------------------------------------------------------------------------------///////////////////////////
+var a=2;
+
+function functiaMea(){
+  console.log("a is : " , a);
+}
+//apel functie
+functiaMea();//a is :  2
+/////////////////////////////////
+
+function add(a , b){
+  console.log("a venit primavara from add function");
+  console.log("a * b is :" , a * b);
+  return a + b ;
+}
+
+console.log("add(40 , 5) is : " , add(40 , 5))
+
+const paragraphAdd=document.getElementById("add");
+paragraphAdd.style.border="3px solid red";
+paragraphAdd.style.padding="1em";
+paragraphAdd.style.color="cornflowerblue";
+paragraphAdd.style.fontSize="2rem";
+paragraphAdd.innerText=add(25 , 3);
+//////////////////////////////////////////////
+function multiply(c , d){
+    return c * d ;
+}
+
+console.log("multiply(355 , 7) is : " , multiply(355 , 7));
+
+const paragraphMultiply=document.getElementById("multiply");
+paragraphMultiply.style.border="3px solid yellow";
+paragraphMultiply.style.padding="0.5em";
+paragraphMultiply.style.color="deeppink";
+paragraphMultiply.style.fontSize="3rem";
+paragraphMultiply.innerHTML=multiply(2 , 7);
+////////////////////////-------------------------------------------------------------------------///////////////////////
+
+let x=12345;
+
+function show(){
+  console.log("x is : " , x);
+}
+//apel functie
+show();//x is :  12345
+
+var pLet=document.getElementById("letVariable");
+pLet.style.border="3px solid yellowgreen";
+pLet.style.padding="0.5em";
+pLet.innerText=x;
+//////////////////////////////////////
+
+var pLetAdd=document.getElementById("letVariable-add");
+pLetAdd.style.border="3px solid darkred";
+pLetAdd.style.padding="0.5em";
+pLetAdd.innerText=add(x , 5);
+
+//////////////
+
+{
+  //scope global
+
+  function costica(){
+    //scope is inside function
+    let m;
+    if(true){
+      m = 78;
+      let n = 42 ;
+      console.log("n + 5 is : " , n + 5);//n + 5 is :  47
+    }
+    console.log("m + 2 is : " , m + 2);//m + 2 is :  80
+    //console.log("n + 3 is : " , n + 3);//undefined
+  }
+  //apel functie
+  costica();
+}
+//--------------------------------------------------------------------------------------------------------------------
+function costicaInterviu(){
+  for(let i=0 ; i < 10 ; i++){
+    console.log("i from inside costicaInterviu function  is : " , i);
+  }
+}
+//apel functie
+costicaInterviu();
+///----------------------------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!
+function interviu(){
+  setTimeout(function(){
+    for(let j=0 ; j < 10 ; j++){
+      console.log("j from inside interviu function is : " , j);
+    }
+  } , 7000)
+}
+//apel functie
+interviu();
+
+////////////////////////////////////////
+const myh3Arr=document.querySelectorAll(".myh3");
+console.log("myh3Arr is : " , myh3Arr);
+
+for(let i = 0 ; i < myh3Arr.length ; i++){
+  let k= i + 1;
+myh3Arr[i].style.padding="1em";
+myh3Arr[i].style.border="3px solid indigo";
+myh3Arr[i].style.textAlign="center";
+myh3Arr[i].innerText=k;
+}
+
+////////////////////////////////////////////////
+const myh4Arr=document.querySelectorAll(".myh4");
+console.log("myh4Arr is : " , myh4Arr);
+
+for(let i = 0 ; i < myh4Arr.length ; i++ ){
+    let k= i + 3;
+  myh4Arr[i].style.padding="1em";
+  myh4Arr[i].style.border="3px solid magenta";
+  myh4Arr[i].style.textAlign="center";
+  myh4Arr[i].style.fontWeight="bold";
+  setTimeout(function(){
+      myh4Arr[i].innerText=k;
+  } , 7000)
+}
+
+//////////////////////////js
+console.log("--------------typeof my string is : " , typeof "my string");
+console.log("--------------typeof 123 is : " , typeof 123);
+console.log(typeof [123 , "my string" , ["chocolate"] , {key1:"a" , key2:"b"}]);//object
+console.log(typeof [1 , 2 , 3 ,"candy"]);//object
+console.log(typeof {key1:"cat" , key2:5});//object
+
+//cand transmitem o variabila unei functii printr-un parametru :
+//- daca variabila e de tip complex (array , obiect , functie) se transmite prin referinta
+//- daca variabila e de tip primitiv (string , numar , null , boulean) se transmite prin valoare
+
+//variabila e de tip primitiv
+//valoarea initiala nu se modifica
+var string1="initial string";
+console.log("before string1 is : " , string1);//before string1 is :  initial string
+
+function stringTransform(paramFormal){
+  return paramFormal="changed string";
+}
+
+stringTransform(string1);
+console.log("after string1 is : " , string1);//after string1 is :  initial string
+/////////////
+
+//valoarea initiala nu se modifica
+var nr1=555;
+console.log("before nr1 is : " , nr1);//before nr1 is :  555
+
+function nrTransform(anynr){
+  return anynr=5;
+}
+
+nrTransform(nr1);
+console.log("after nr1 is : " , nr1);//after nr1 is :  555
+//////////////////////////////
+
+//variabila e de tip complex
+
+const costicaArr=[1 , 2 , 3];
+console.log("before costicaArr is : " , costicaArr);//before costicaArr is :  (3) [1, 2, 3]
+function arrTransform(arr){
+  return arr.push(22 , 45);
+}
+
+arrTransform(costicaArr);
+console.log("after costicaArr is : " , costicaArr);//after costicaArr is : (5) [1, 2, 3, 22, 45]
+
+//pt a nu modifica array-ul initial folosim destructurare cu spread
+
+const initialArray=[1 , 2 , 3];
+console.log("before---initialArray is : " , initialArray);//before---initialArray is :  (3) [1, 2, 3]
+
+function arrNotTransform(arr){
+  const copyArr=[...arr];
+  copyArr.push(22 , 45);
+  console.log("copyArr is : " , copyArr);//copyArr is :  (5) [1, 2, 3, 22, 45]
+  return copyArr;
+}
+
+arrNotTransform(initialArray);
+console.log("after---initialArray is : " , initialArray);//after---initialArray is :  (3) [1, 2, 3]
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+var arrayExercise = ["GOLD","SILVER","DIAMOND","RUBY","PLATINUM"];
+console.log("before-------------------------------arrayExercise" , arrayExercise);
+arrayExercise.pop();
+console.log("after-------------------------------arrayExercise" , arrayExercise);
+//////////////
+const myPop=document.getElementById("popID");
+myPop.style.padding="1em";
+myPop.style.border="3px solid forestgreen";
+myPop.innerHTML=arrayExercise.pop();
+//////////////////
+const myPopSpan=document.getElementById("popSpanID");
+myPopSpan.style.padding="0.5em";
+myPopSpan.style.border="3px solid gray";
+myPopSpan.innerHTML=arrayExercise.pop();
+//////////////////////////////////////////
+const myShiftSpan=document.getElementById("shiftSpanID");
+myShiftSpan.style.padding="0.5em";
+myShiftSpan.style.border="3px solid gold";
+myShiftSpan.style.color="gold";
+myShiftSpan.innerHTML=arrayExercise.shift();
+
+////////////////costica: functii pt array-uri care modifica array-ul initial
+//pop() ; shift() ; push()
+
+var costicaArray=[1 , 2 ,3 , 4 , 5 , 6 , 7];
+console.log("#############costicaArray is : " , costicaArray);
+console.log("#############costicaArray.length is : " , costicaArray.length);
+console.log("#############costicaArray.pop() is : " , costicaArray.pop());
+console.log("#############costicaArray.pop() is // second try : " , costicaArray.pop());
+console.log("#############costicaArray.shift() is : " , costicaArray.shift());
+console.log("#############costicaArray.shift() is // second try : " , costicaArray.shift());
+console.log("#############costicaArray.push() is : " , costicaArray.push("chocolate" , 8));
+console.log("#############costicaArray.push() is : " , costicaArray.push("chocolate" , 8));
+console.log("#############costicaArray.unshift() is : " , costicaArray.unshift(-2 , -1 , "strawberrys" , 0));
+console.log("#############costicaArray is // after modification : " , costicaArray);//
+
+///////////////////////////////////////////////////
+// The splice() method adds and/or removes array elements.
+//
+// The splice() method overwrites the original array.
+var exerciseArr=[11 , 22 , 33 , 44 , 55 , 66 , 77 , 88 , 99 , 111 , 222 , 333 , 444 , 555 , 666 , 777 , 888 , 999 , 1000 , 1001];
+console.log("before exerciseArr is " , exerciseArr);
+console.log(exerciseArr.splice(1 , 1));
+console.log("now exerciseArr is " , exerciseArr);
+console.log(exerciseArr.splice(2 , 1));
+console.log("now exerciseArr is " , exerciseArr);
+console.log(exerciseArr.splice(7 , 3));
+console.log("now exerciseArr is " , exerciseArr);
+//(15) [11, 33, 55, 66, 77, 88, 99, 444, 555, 666, 777, 888, 999, 1000, 1001]
+console.log(exerciseArr.splice(9 , 3 , "icecream" , "micuPisicu" , 54 , 55 , 56));
+console.log("now exerciseArr is " , exerciseArr);
+//slice() de la pana la
+var fruitsArray=["banane" , "mere" , "capsuni" , "pere" , 1 , 2 , 3 , 4 , 5];
+console.log("fruitsArray is : " , fruitsArray);
+console.log("fruitsArray.slice(2 , 6) is : " , fruitsArray.slice(2 , 6));
+console.log("now fruitsArray is : " , fruitsArray);//nu modifica array-ul initial
+
+////////////////////sort() afisare in ordine alfabetica
+var fruits = ["Banana", "Capsuni" , "Orange", "Apple", "Mango" , "Zmeura" , "Branza"];
+console.log("before-----fruits is : " , fruits);
+fruits.sort();
+console.log("after-----fruits is : " , fruits);
+///////////////////////
+var numbers=[100 , 2 , 25 , -7 , 0.67 , 3.2];
+console.log("numbers is : " , numbers);
+//in ordine crescatoare
+numbers.sort(function(a , b){
+  return a - b;
+});
+console.log("now numbers is : " , numbers);
+//in ordine descrescatoare
+numbers.sort(function(a , b){
+  return b - a;
+});
+console.log("now numbers is : " , numbers);
+////////////////////////////////////////////////////////////////////////////////reduce() catalin discord
+
+var arr = [1,2,3,4,5,6,7];
+console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!arr is : " , arr);
+//FUNCtiONQLA CU (reduce)
+//se aplica pe array, DAR intoarce o valoare
+//foarte potrivita pentru acumulari
+//al doilea parametru al lui reduce initializeaza accumulator
+            //daca lipseste al doilea param atunci acumulator este
+            //PRIMUL ELEMENT DIN ARRAY-ul pe care se aplica
+var sum3 = arr.reduce(function(accumulator,currentElement,index){
+  console.log("Accumulator", accumulator,"currentElement = ", currentElement, " index = ", index);
+  return accumulator + currentElement;
+
+})
+console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!sum3 is : " , sum3);
+////////////////////////////////////////concat()
+
+// The concat() method joins two or more strings.
+//
+// The concat() method does not change the existing strings.
+//
+// The concat() method returns a new string.
+
+var initialArr=["candy" , 1 , 4 , 5 , 889];
+console.log("initialArr is : " , initialArr);
+console.log("now initialArr is : " , initialArr.concat([45 , 23 , "sweets"]));
+
+var anotherArray=["ploaie" , 55 , 56 , 67 , 78 , 89 , "vant"];
+console.log("anotherArray is : " , anotherArray)
+console.log("after concat()" , initialArr.concat(anotherArray));
+console.log("after concat()" , anotherArray.concat(initialArr));
+initialArr.push(567 , "cat");
+console.log("initialArr after push()" , initialArr);
+console.log(initialArr.length);
+
+////////////////////
+var sundayA=[3 , 4 , 5 , 6 , 7 , 33 , 44 , 55 , 66 , 77];
+console.log("sundayA is : " , sundayA);
+sundayA.push("tv" , "glasses");
+console.log("now sundayA is : " , sundayA);
+
+
+
+
+
+
+
+
+//la funclia costica:!!!!!!!!!!!!!!!!!!!!!!!1
+
+//m + 2 is :  80//pt ca m devine global , e definit in inerior dar fara let , var , const
+    //Variables created without a declaration keyword (var, let, or const) are always global, even if they are created inside a function.
+    //https://www.w3schools.com/js/js_function_closures.asp
+    //https://www.w3schools.com/js/tryit.asp?filename=tryjs_function_scope4
+    //console.log("n + 3 is : " , n + 3);//undefined
+
+
+//
+--------------------------------------------my try after costica and w 3 school---------------------------------------------------------
+
+  <div style="border:3px dotted DarkSlateGray ; padding:1em ; margin:0.5em">
+<uL>
+<li class="liNr"></li>
+<li class="liNr"></li>
+<li class="liNr"></li>
+<li class="liNr"></li>
+</ul>
+<p id="toateNrArr"></p>
+        </div>
+
+///------------------------------------------------------------------------------------
+
+const nrsForLi= [2 , 3 , 4 , 5];
+console.log("nrsForLi is : " , nrsForLi);
+
+nrsForLi.forEach(liContentFcb);
+///ATENTIE LA ORDINEA CORECTA A PARAMETRILOR FORMALI IN CALLBACK FUNCTION : item, index, array
+function liContentFcb(item, index, array){
+  console.log("item * 50 is : " , item * 50);
+  return array[index]=item * 50;
+}
+
+console.log("nrsForLi after forEach is : " , nrsForLi);
+
+const allLiNr=document.querySelectorAll(".liNr");
+console.log("allLiNr is : " , allLiNr);
+
+for(let i=0 ; i<allLiNr.length ; i++){
+  allLiNr[i].style.border="3px dotted red";
+  allLiNr[i].style.padding="0.5em";
+  allLiNr[i].style.margin="0.5em";
+  allLiNr[i].innerText=nrsForLi[i];
+}
+
+///
+var toateNrArr=document.getElementById("toateNrArr");
+console.log("toateNrArr is : " , toateNrArr);
+toateNrArr.style.border="3px solid DeepPink ";
+toateNrArr.style.padding="0.5em";
+toateNrArr.innerHTML=nrsForLi;
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////AFTER PHP TUTORIAL FREE CODE CAMP
+
+https://www.youtube.com/watch?v=OK_JCtrrv-c&t=304s                                                                          PHP Programming Language Tutorial - Full Course
+
+
+////////////
+                                                                                                           constructors.php
+
+
+<?php
+class Book2 {
+    //use public instead of var 
+    //ex la getters and setters
+
+    public $title ;
+    public $author ;
+    public $pages ;
+    
+
+    function __construct($paramTitle , $paramAuthor , $paramPages){
+        
+        $this -> title = $paramTitle ;
+        $this -> author = $paramAuthor ;
+        $this -> pages = $paramPages ;
+        
+        echo '<h1 style="text-align:center ; color:tomato">Cartea ' . $this -> title . ' scrisa de autorul ' . $this -> author . ' are ' . $this -> pages . ' pagini . </h1>' ;
+    }
+
+
+    function methodFunc(){
+        echo '<h1 style="text-align:center ; color:SeaGreen"> method : Cartea ' . $this -> title . ' scrisa de autorul ' . $this -> author . ' are ' . $this -> pages . ' pagini</h1>' ;
+    }
+
+    
+
+
+}
+
+
+
+$book13= new Book2("Carte 13" , "Autor 13" , 60) ;
+
+echo $book13 -> title ;
+
+$book13 -> title = "Hunger games" ;
+
+echo $book13 -> methodFunc() ;
+
+
+echo '<hr>' ;
+
+echo $book13 -> title ;
+
+$book14= new Book2("Carte 14" , "Autor 14" , 140) ;
+
+echo $book14 -> author ;
+
+echo $book14 -> methodFunc() ;
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class and constructor</title>
+</head>
+<body>
+    
+      <form action="constructors.php" method="post">
+
+<label for="titluCarteUser">introdu nume carte</label><br>
+<input type="text" name="titluCarte" id="titluCarteUser"/><br>
+
+
+<label for="titluAutorUser">introdu nume autor</label><br>
+<input type="text" name="autorCarte" id="titluAutorUser"/><br>
+
+
+<label for="nrPagesUser">introdu nr de pagini</label><br>
+<input type="number" name="nrPagini" id="nrPagesUser"/><br>
+
+
+      <button type="submit" name="submitForm">submit</button>
+
+      </form>
+
+</body>
+</html>
+
+<?php
+
+if( isset($_POST['submitForm']) ){
+
+     echo '<h1 style="text-align:center ; color:LimeGreen"> numele cartii citite de tine este : ' . $_POST['titluCarte'] . '</h1>' ;
+
+     echo '<h1 style="text-align:center ; color:gold"> autorul cartii citite de tine este : ' . $_POST['autorCarte'] . '</h1>' ;
+
+     echo '<h1 style="text-align:center ; color:deeppink"> nr de pagini al cartii citite de tine este : ' . $_POST['nrPagini'] . '</h1>' ;
+
+     echo new Book2($_POST['titluCarte'] , $_POST['autorCarte'] , $_POST['nrPagini']) ;
+
+}
+
+?>
+
+
+
+/////////////                                                                                                 objectFunctions.php
+
+
+<?php
+//free code camp
+//https://www.youtube.com/watch?v=OK_JCtrrv-c&t=304s
+//PHP Programming Language Tutorial - Full Course
+
+
+echo '<h1 style="text-align:center ; color:green">object functions</h1>' ;
+
+
+class Student{
+    var $name ;
+    var $major ;
+    var $gpa ;
+
+function __construct( $name , $major , $gpa ){
+      $this -> name = $name ;
+      $this -> major = $major ;
+      $this -> gpa = $gpa ;
+}
+
+function hasHonors(){
+    if($this -> gpa >= 3.5){
+       return 'true' ;
+    }else{
+        return 'false' ;
+    }
+}
+
+}
+
+$student1 = new Student("Jim" , "Business" , 2.8) ;
+$student2 = new Student("Pam" , "Art" , 3.6) ;
+
+echo $student1 -> hasHonors() . '<br>' ;
+echo $student2 -> hasHonors() ;
+
+
+?>
+
+
+/////////////                                                                                                             associativeArrays.php
+
+
+<?php
+//free code camp
+//https://www.youtube.com/watch?v=OK_JCtrrv-c&t=304s
+//PHP Programming Language Tutorial - Full Course
+
+echo '<h1 style="text-align:center ; color:yellowgreen">associative arrays</h1>' ;
+
+//array has key , value, pairs
+
+$grades=array(
+    "Jim" => "A+" ,
+    "Pam" => "B-" ,
+    "Oscar" => "C+" ,
+) ;
+
+echo '<h1 style="color:yellowgreen ; text-align:center">Jim el of array is :' . $grades["Jim"] . '</h1>' ;
+
+echo '<h1 style="color:yellowgreen ; text-align:center">Pam el of array is :' . $grades["Pam"] . '</h1>' ;
+
+echo '<h1 style="color:yellowgreen ; text-align:center">Oscar el of array is :' . $grades["Oscar"] . '</h1>' ;
+
+$grades["Jim"]="F";
+
+echo '<h1 style="color:red ; text-align:center">Jim el of array is :' . $grades["Jim"] . '</h1>' ;
+
+$grades["Andreea"]="E+";
+
+echo '<h1 style="color:orange ; text-align:center"> list has ' . count($grades) . ' students</h1>' ; 
+
+echo '<ul>' ;
+foreach($grades as $gradeKey => $gradeVal){
+  
+ echo '<li style="color:dimgray ; text-align:center"> student ' . $gradeKey . ' has ' . $gradeVal . ' grade . </li>' ;   
+
+}
+echo '</ul>' ;
+
+
+?>
+
+
+<form action="associativeArrays.php" method="post">
+
+
+<label for="studentID">Insert a student name: </label><br>
+<input type="text" name="student" id="studentID" value="<?php
+
+//ca sa ramana scris in input  de catre user
+echo $_POST['student'] ;
+
+?>" /><br>
+
+<input type="submit" name="submit"/>
+
+
+</form>
+
+<?php
+
+if( isset($_POST['submit']) ){
+
+      echo '<h2 style="color:BurlyWood ; text-align:center">value from the input is :' . $_POST['student'] . '</h2>' ;
+
+      echo '<h2 style="color:CadetBlue ; text-align:center"> student from input has grade :' . $grades[$_POST['student']] . '</h2>' ;
+
+      echo '<h3 style="color:DarkGoldenRod ; text-align:center">  student ' . $_POST['student'] . ' has ' . $grades[$_POST['student']] . ' grade . </h3>' ; 
+
+}
+
+?>
+
+
+
+
+//////////////////////////////                                                 curs 4  form1.php by Alin
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+
+        user: <input type="text" name="username" value="<?php
+            if (isset($_POST['username'])){
+                echo $_POST['username'];
+            }
+        ?>" /><br/>
+
+        <input type="checkbox" name="bifa" <?php
+            if (isset($_POST['bifa'])){
+                echo 'checked="checked"';
+            }
+        ?>/>filtru 2<br/>
+
+        <input type="submit" value="Log in" name="login" />
+    </form>
+
+    
+    <?php
+    // verificam daca formularul de login s-a trimis
+    if (isset($_POST['login'])){
+        echo 'username-ul inserat a fost: ' . $_POST['username'];
+        echo '<Br/>filtrul ales a fost:  ' . $_POST['bifa'];
+    }?>
+
+
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+
+    <form action="" method="get">
+
+        telefon: <input type="tel" name="telefon" /><br/>
+        varsta: <input type="number" name="age" /><br/>
+
+        <input type="submit" value="register" name="register" />
+
+    </form>
+
+    <?php
+    
+
+    // verificam daca formularul de register s-a trimis
+    if (isset($_GET['register'])){
+        echo $_GET['telefon'] .'<br/>' .  $_GET['age'];
+    }
+    ?>
+</body>
+</html>
+
+
+
+
+
+
+
+//////////////////////////////                                                 during curs5.php email and  checkbox care ramane selectat
+
+<?php
+
+
+//make form
+//label cu for cand nu cuprinde in interior input-ul , for tre sa fie egal cu id
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 5 course</title>
+</head>
+<body>
+    
+
+<form action = "curs5.php" method="post">
+
+<label>Email address:<br>
+    <input type="email" name="email" value="<?php 
+    //CA SA RAMANA BIFAT DE CATRE USER
+    if( (isset($_post['email'])) ){
+echo $_post['email'] ;
+    }
+    ?> " />
+</label><br>
+
+
+<label for="abc">Email address2:<br></label>
+<input type="email" name="email2" id="abc" value=" <?php
+//CA SA RAMANA BIFAT DE CATRE USER
+
+if( isset($_POST['email2']) ){
+    //CA SA RAMANA BIFAT DE CATRE USER
+   echo $_POST['email2'] ;
+}
+?> " />
+
+<br>
+<label for="dateBirthday">Your birthday:<br>
+    <input type="date" name="dateBirthday" id="dateBirthday" value=" <?php
+    if( isset($_POST['dateBirthday']) ){
+        //CA SA RAMANA BIFAT DE CATRE USER
+       echo $_POST['dateBirthday'] ;
+    }
+    ?> " />
+</label><br>
+
+
+
+<label for="calatorii">Calatorii:</label>
+<input type="checkbox" name="calatorii" id="calatorii" <?php
+//CA SA RAMANA BIFAT DE CATRE USER
+if( isset($_POST['calatorii']) ){
+    echo 'checked="checked"' ;
+}
+?>  /><br>
+
+
+
+<label for="sport">Sport:</label>
+<input type="checkbox" name="sport" id="sport" <?php
+//CA SA RAMANA BIFAT DE CATRE USER
+if( isset($_POST['sport']) ){
+    echo 'checked="checked"' ;
+}
+?> /><br>
+
+
+
+
+<label for="citit">Citit:</label>
+<input type="checkbox" name="citit"  id="citit"  <?php
+//CA SA RAMANA BIFAT DE CATRE USER
+if( isset($_POST['citit']) ){
+    echo 'checked="checked"' ;
+}
+?> /><br>
+
+
+<button type="submit" name="submit">submit</button>
+
+</form>
+
+
+</body>
+</html>
+
+<?php 
+
+if( isset($_POST["submit"]) ){
+echo '<h1 style="text-align:center ; color:green">adresa de email este :' . $_POST['email'] . '</h1>' ; 
+
+echo '<h1 style="text-align:center ; color:yellowgreen">adresa de email2 este :' . $_POST['email2'] . '</h1>' ; 
+
+echo '<h1 style="text-align:center ; color:gray">date este :' . $_POST['dateBirthday'] . '</h1>' ; 
+
+if ( isset($_POST['calatorii'])){
+    //folosesc if  ca sa verific daca bifa de calatorie a fost selectata
+    //ca sa-mi afiseze pasiunea 'Calatorii' in loc de 'on'
+    echo '<h1 style="text-align:center ; color:orange">pasiunea aleasa  este Calatorii </h1>' ; 
+}
+
+if ( isset($_POST['sport'])){
+    //folosesc if  ca sa verific daca bifa de Sport a fost selectata
+    //ca sa-mi afiseze pasiunea 'Sport' in loc de 'on'
+    echo '<h1 style="text-align:center ; color:red">pasiunea aleasa  este Sport </h1>' ; 
+}
+
+
+if ( isset($_POST['citit'])){
+    //folosesc if  ca sa verific daca bifa de Citit a fost selectata
+    //ca sa-mi afiseze pasiunea 'Citit' in loc de 'on'
+    echo '<h1 style="text-align:center ; color:yellow">pasiunea aleasa  este Citit </h1>' ; 
+}
+
+
+
+
+echo 'pasiunile alese sunt : ';
+
+
+if ( isset($_POST['calatorii'])){
+    //folosesc if  ca sa verific daca bifa de calatorie a fost selectata
+    //ca sa-mi afiseze pasiunea 'Calatorii' in loc de 'on'
+    echo 'calatorii' ; 
+}
+
+if ( isset($_POST['sport'])){
+    //folosesc if  ca sa verific daca bifa de sport a fost selectata
+    //ca sa-mi afiseze pasiunea 'sport' in loc de 'on'
+    echo 'sport' ; 
+}
+
+if ( isset($_POST['citit'])){
+    //folosesc if  ca sa verific daca bifa de citit a fost selectata
+    //ca sa-mi afiseze pasiunea 'citit' in loc de 'on'
+    echo 'citit' ; 
+}
+ 
+
+}
+
+
+?>
+
+
+
+
+//////////////////////////////                                               varianta mea  during curs5.php email and  checkbox care ramane selectat
+
+
+
+<?php
+
+
+//make form
+//label cu for cand nu cuprinde in interior input-ul , for tre sa fie egal cu id
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 5 course</title>
+</head>
+<body>
+    
+
+<form action = "curs5.php" method="post">
+
+<label>Email address:<br>
+    <input type="email" name="email" value="<?php 
+    //CA SA RAMANA BIFAT DE CATRE USER
+    if( (isset($_post['email'])) ){
+echo $_post['email'] ;
+    }
+    ?> " />
+</label><br>
+
+
+<label for="abc">Email address2:<br></label>
+<input type="email" name="email2" id="abc" value=" <?php
+//CA SA RAMANA BIFAT DE CATRE USER
+
+if( isset($_POST['email2']) ){
+    //CA SA RAMANA BIFAT DE CATRE USER
+   echo $_POST['email2'] ;
+}
+?> " />
+
+<br>
+<label for="dateBirthday">Your birthday:<br>
+    <input type="date" name="dateBirthday" id="dateBirthday" value=" <?php
+    if( isset($_POST['dateBirthday']) ){
+        //CA SA RAMANA BIFAT DE CATRE USER
+       echo $_POST['dateBirthday'] ;
+    }
+    ?> " />
+</label><br>
+
+
+
+<label for="calatorii">Calatorii:</label>
+<input type="checkbox" name="calatorii" id="calatorii" <?php
+//CA SA RAMANA BIFAT DE CATRE USER
+if( isset($_POST['calatorii']) ){
+    echo 'checked="checked"' ;
+}
+?>  /><br>
+
+
+
+<label for="sport">Sport:</label>
+<input type="checkbox" name="sport" id="sport" <?php
+//CA SA RAMANA BIFAT DE CATRE USER
+if( isset($_POST['sport']) ){
+    echo 'checked="checked"' ;
+}
+?> /><br>
+
+
+
+
+<label for="citit">Citit:</label>
+<input type="checkbox" name="citit"  id="citit"  <?php
+//CA SA RAMANA BIFAT DE CATRE USER
+if( isset($_POST['citit']) ){
+    echo 'checked="checked"' ;
+}
+?> /><br>
+
+
+<button type="submit" name="submit">submit</button>
+
+</form>
+
+
+</body>
+</html>
+
+<?php 
+
+if( isset($_POST["submit"]) ){
+echo '<h1 style="text-align:center ; color:green">adresa de email este :' . $_POST['email'] . '</h1>' ; 
+
+echo '<h1 style="text-align:center ; color:yellowgreen">adresa de email2 este :' . $_POST['email2'] . '</h1>' ; 
+
+echo '<h1 style="text-align:center ; color:gray">date este :' . $_POST['dateBirthday'] . '</h1>' ; 
+
+if ( isset($_POST['calatorii'])){
+    //folosesc if  ca sa verific daca bifa de calatorie a fost selectata
+    //ca sa-mi afiseze pasiunea 'Calatorii' in loc de 'on'
+    echo '<h1 style="text-align:center ; color:orange">pasiunea aleasa  este Calatorii </h1>' ; 
+}
+
+if ( isset($_POST['sport'])){
+    //folosesc if  ca sa verific daca bifa de Sport a fost selectata
+    //ca sa-mi afiseze pasiunea 'Sport' in loc de 'on'
+    echo '<h1 style="text-align:center ; color:red">pasiunea aleasa  este Sport </h1>' ; 
+}
+
+
+if ( isset($_POST['citit'])){
+    //folosesc if  ca sa verific daca bifa de Citit a fost selectata
+    //ca sa-mi afiseze pasiunea 'Citit' in loc de 'on'
+    echo '<h1 style="text-align:center ; color:yellow">pasiunea aleasa  este Citit </h1>' ; 
+}
+
+
+
+
+echo 'pasiunile alese sunt : ';
+
+
+if ( isset($_POST['calatorii'])){
+    //folosesc if  ca sa verific daca bifa de calatorie a fost selectata
+    //ca sa-mi afiseze pasiunea 'Calatorii' in loc de 'on'
+    echo 'calatorii' ; 
+}
+
+if ( isset($_POST['sport'])){
+    //folosesc if  ca sa verific daca bifa de sport a fost selectata
+    //ca sa-mi afiseze pasiunea 'sport' in loc de 'on'
+    echo 'sport' ; 
+}
+
+if ( isset($_POST['citit'])){
+    //folosesc if  ca sa verific daca bifa de citit a fost selectata
+    //ca sa-mi afiseze pasiunea 'citit' in loc de 'on'
+    echo 'citit' ; 
+}
+ 
+
+}
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////                                                 during curs5Dayweek.php email and  checkbox
+
+
+
+
+<?php
+
+//EX 2 CURS 5
+
+$zile=array("Luni" , "Marti" , "Miercuri" , "Joi" , "Vineri" , " Sambata" , "Duminica");
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAY WEEK</title>
+</head>
+<body>
+<p>DAY WEEK SELECT WITH OPTIONS in select tag</p>
+
+
+
+<form action="curs5DayWeek.php" method="post">
+
+
+<select name="weekDays">
+
+<?php 
+
+foreach($zile as $ziKeyIndex =>$ziVal){
+    
+
+       echo '<option>'  . $ziVal . '</option>' ;
+
+}
+
+?>
+
+</select><br>
+
+
+<input type="submit" name="send" />
+
+</form>
+
+
+</body>
+</html>
+
+<?php
+
+if( isset( $_POST['send'] ) ){
+    // print_r($_POST);
+    if( $_POST['weekDays'] === "Sambata" ||  $_POST['weekDays'] === "Duminica" ){
+          echo '<h1 style="yext-align:center ; color:green" >you chose a free day :' . $_POST['weekDays'] .  '.</h1>' ;
+    }else{
+        echo '<h1 style="yext-align:center ; color:red" >you chose a workday :' . $_POST['weekDays'] .  '.</h1>' ;
+    }
+
+}
+
+?>
+
+
+
+//////////////////////////////                                      varianta mea            during curs5Dayweek.php email and  checkbox
+
+
+
+<?php
+
+//EX 2 CURS 5
+
+$zile=array("Luni" , "Marti" , "Miercuri" , "Joi" , "Vineri" , " Sambata" , "Duminica");
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAY WEEK</title>
+</head>
+<body>
+<p>DAY WEEK SELECT WITH OPTIONS in select tag</p>
+
+
+
+<form action="curs5DayWeek.php" method="post">
+
+
+<select name="weekDays">
+
+<?php 
+
+foreach($zile as $ziKeyIndex =>$ziVal){
+    
+
+       echo '<option>'  . $ziVal . '</option>' ;
+
+}
+
+?>
+
+</select><br>
+
+
+<input type="submit" name="send" />
+
+</form>
+
+
+</body>
+</html>
+
+<?php
+
+if( isset( $_POST['send'] ) ){
+    // print_r($_POST);
+    if( $_POST['weekDays'] === "Sambata" ||  $_POST['weekDays'] === "Duminica" ){
+          echo '<h1 style="yext-align:center ; color:green" >you chose a free day :' . $_POST['weekDays'] .  '.</h1>' ;
+    }else{
+        echo '<h1 style="yext-align:center ; color:red" >you chose a workday :' . $_POST['weekDays'] .  '.</h1>' ;
+    }
+
+}
+
+?>
+
+
+
+/////////////                                                                                             radio age form 1 curs 5
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <input type="radio" name="age" value="minor"  <?php
+            if (isset($_POST['age']) && $_POST['age'] == 'minor'){
+                echo 'checked="checked"';
+            }
+        ?> /> 0-17 <br/>
+        <input type="radio" name="age" value="adult" 
+        <?php
+            if (isset($_POST['age']) && $_POST['age'] == 'adult'){
+                echo 'checked="checked"';
+            }
+        ?>
+        /> 18-60 <br/>
+        <input type="radio" name="age" value="varstnic"  <?php
+            if (isset($_POST['age']) && $_POST['age'] == 'varstnic'){
+                echo 'checked="checked"';
+            }
+        ?>/> 61+ <br/>
+        <button name="varsta">send</button>
+    </form>
+
+    <?php
+        if (isset($_POST['varsta'])){
+            echo  $_POST['age'];
+        }
+    ?>
+</body>
+</html>
+
+//////////////////////                                                                            parola si select cu option tags form 2 curs 5
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="get">
+        <label>Introduce parola<br/>
+        <input type="password" name="parola" /></label><br/>
+
+        <select name="limba">
+            <option value="ro">Romana</option>
+            <option value="en">Engleza</option>
+            <option value="fr">Franceza</option>
+        </select>
+
+        <input type="submit" name="send" />
+    </form>
+
+    <?php
+        if(isset($_GET['send'])){
+            echo $_GET['parola'] . '<br/> ' . $_GET['limba'];
+
+        }
+    ?>
+</body>
+</html>
+
+
+
+/////////////////////////////////////////////                                                                checkbox and textarea form 3 / ramane afisata valoarea selectata curs 5
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p> afisati numarul de caractere din mesaj </p>
+    <form action="" method="post">
+        <textarea name="msg" rows="5" maxlength="50"><?php
+            if (isset($_POST['msg'])){
+                echo $_POST['msg'];
+            }
+        ?></textarea><br/>
+        <input type="checkbox" name="words"/> Afiseaza si numarul de cuvinte<br/>
+        <input type="submit" name="send"/>
+    </form>
+
+    <?php
+        if (isset($_POST['send'])){
+            echo strlen($_POST['msg']) . ' caractere';
+
+            if (isset($_POST['words'])){
+                $cuvinte = explode(' ', $_POST['msg']);
+                echo '<br/>' . count($cuvinte) . ' cuvinte';
+            }
+
+        }
+    ?>
+</body>
+</html>
+
+/////////////////////////////////////////////////                                                       zilele saptamanii cu select si option form 4 / ramane afisata valoarea selectata curs 5
+
+<?php
+$zile = array('Luni', 'Marti', 'Miercuri','Joi','Vineri','Sambata','Duminica');
+
+?>
+<form action="" method="post">
+    <select name="alegere">
+        <?php
+            foreach($zile  as  $zi){
+                
+                if ($_POST['alegere'] == $zi) {
+                    // afiseaza optiunea deja selectata
+                    echo '<option selected="selected" value="' .$zi. '">' . $zi . '</option>';
+                } else {
+                    // default
+                    echo '<option value="' .$zi. '">' . $zi . '</option>';
+                }
+                
+            }
+        ?>
+    </select>
+    <br/>
+    <input type="submit" name="send"/>
+</form>
+
+<?php
+   if (isset($_POST['send'])){
+    if ($_POST['alegere'] == 'Sambata' || $_POST['alegere'] == 'Duminica') {
+        echo ' este weekend ';
+    } else {
+        echo ' este zi lucrataorea';
+    }
+   }
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////curs 6 Alin
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////curs6.php din php-one-course
+
+
+<?php 
+
+
+echo "<h1>ex curs 6</h1>";
+
+
+
+
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>curs6</title>
+</head>
+<body>
+    
+
+<form enctype="multipart/form-data" method="post">
+
+
+<input type="file" name="fisier"/><br>
+
+<input type="submit" name="upload"/>
+
+
+</form>
+
+
+</body>
+</html>
+
+
+<?php
+
+if(isset($_POST["upload"])){
+
+
+$fisierul=$_FILES['fisier'];
+$nume_nou = 'myUploads/' . microtime() . " - " . $fisierul['name'];
+
+move_uploaded_file($fisierul['tmp_name'] , $nume_nou);
+
+//name este cheie predefinita
+
+echo '<img src="' .$nume_nou . '" alt="my-photo" style="width:50% ; border:3px solid green"/>' ;
+}
+
+
+
+?>
+
+
+//////////////////////////////////////////////////////////////////////////////////curs 6 Alin rezolvate ex 1 , tema de la curs 5
+
+
+<?php
+    $tari = array(
+        'SUA' => 19.485, 
+        'China' => 12.238,
+        'Japonia' => 4.872,
+        'Germania' => 3.693,
+        'India' => 2.651
+    );
+?>
+<form action="" method="get">
+    <select name="ordonare">
+        <option value="nume_asc" <?php
+            if(isset($_GET['ordonare']) && $_GET['ordonare'] == 'nume_asc') {
+                echo 'selected="selected"';
+            }
+        ?> >nume tara ascendent</option>
+        <option value="nume_desc" <?php
+            if(isset($_GET['ordonare']) && $_GET['ordonare'] == 'nume_desc') {
+                echo 'selected="selected"';
+            }
+        ?> >nume tara descendent</option>
+        <option value="pib_asc" <?php
+            if(isset($_GET['ordonare']) && $_GET['ordonare'] == 'pib_asc') {
+                echo 'selected="selected"';
+            }
+        ?> >valoare pib ascendent</option>
+        <option value="pib_desc"<?php
+            if(isset($_GET['ordonare']) && $_GET['ordonare'] == 'pib_desc') {
+                echo 'selected="selected"';
+            }
+        ?> >valoare pib descendent</option>
+    </select>
+    <input type="submit" value="ordoneaza" name="afiseaza" />
+</form>
+<p>Avand array-ul de mai sus cu tarile si pib-ul lor afisati mai jos o lista in functie de ordonarea aleasa din formular</p>
+
+<p>Exemplu:<br/>
+    - daca s-a ales ordonare crescatoare dupa nume, rezultatul va fi:
+</p>
+<ol>
+    <li> China (12.238)</li>
+    <li> Germania (3.693)</li>
+    <li> India (2.651)</li>
+    <li> Japonia (4.872)</li>
+    <li> SUA (19.485)</li>
+</ol>
+
+
+<?php
+    if(isset($_GET['afiseaza'])){
+        $sortare = $_GET['ordonare'];
+
+        // v1 - if
+        if ($sortare == 'nume_asc') {
+            ksort($tari);
+        } elseif ($sortare == 'nume_desc'){
+            krsort($tari);
+        } elseif ($sortare == 'pib_asc'){ 
+            asort($tari);
+        } elseif ($sortare == 'pib_desc'){
+            arsort($tari);
+        } else {
+            echo 'big problem';
+        }
+        // end v1
+
+        // v2
+        // switch($sortare){
+        //     case 'nume_asc': ksort($tari);
+        //     break;
+        //     case 'nume_desc': krsort($tari);
+        //     break;
+        //     case 'pib_asc': asort($tari);
+        //     break;
+        //     case 'pib_desc': arsort($tari);
+        //     break;
+        //     default: echo 'big problem';
+        // }
+        // end v2
+
+
+        
+        echo '<ol>';
+        foreach($tari as $tara => $pib){
+            echo '<li>' . $tara .  '(' .$pib .')</li>';
+        }
+        echo '</ol>';
+
+
+
+        
+    }
+?>
+
+
+
+//////////////////////////////////////////////////////////////////////////////////curs 6 Alin rezolvate ex 2 , tema de la curs 5
+
+<?php
+$lunile = array('Ianuarie','Februarie','Martie','Aprilie','Mai','Iunie','Iulie','August','Septembrie','Octombrie','Noiembrie','Decembrie');
+?>
+<form action="" method="get">
+    <select name="month">
+        <?php
+            foreach($lunile as $luna){
+                if ($_GET['month'] == $luna){
+                    echo '<option selected="selected">' . $luna . '</option>';
+                } else {
+                    echo '<option>' . $luna . '</option>';
+                }
+            }
+        ?>
+    </select>
+    <input type="submit" name="anotimp" />
+</form>
+<p>Avand array-ul cu lunile anului (in cod) generati tag-urile &lt;option&gt; pentru toate lunile in &lt;select&gt; (foreach sau for). In functie de luna aleasa afisati sub formular anotimpul corespunzator.</p>
+<p>optional*: optiunea aleasa anterior sa ramana selectata (tag-ul option cu valoarea egala cu cea din $_GET['luna'] sa aiba atributul selected)</p>
+
+<?php
+    if (isset($_GET['anotimp'])){
+        $month = $_GET['month'];
+        if ($month == 'Decembrie' || $month == 'Ianuarie' || $month == 'Februarie'){
+            echo $month .' este o luna de Iarna';
+        } elseif ($month == 'Martie' || $month == 'Aprilie' || $month == 'Mai'){
+            echo $month .' este o luna de Primavara';
+        }  elseif ($month == 'Iunie' || $month == 'Iulie' || $month == 'August'){
+            echo $month .' este o luna de Vara';
+        } elseif ($month == 'Septembrie' || $month == 'Octombrie' || $month == 'Noiembrie'){
+            echo $month .' este o luna de Toamna';
+        } else {
+            echo 'big problem';
+        }
+    }
+
+?>
+
+
+
+//////////////////////////////////////////////////////////////////////////////////curs 6 Alin rezolvate ex 3 , tema de la curs 5
+
+<?php
+    $produse = array(
+        'produs 1'=> 2300,
+        'produs 2'=> 1300,
+        'produs 3'=> 300,
+        'produs 4'=> 1150,
+        'produs 5'=> 1800,
+        'produs 6'=> 2100,
+        'produs 7'=> 600,
+    );
+?>
+<form action="" method="post">
+    Pret minim: <input type="number" name="minim" value="<?php
+        if (isset($_POST['minim'])){
+            echo $_POST['minim'];
+        }
+    ?>" /> <br/>
+    Pret maxim: <input type="number" name="maxim" value="<?php
+        if (isset($_POST['maxim'])){
+            echo $_POST['maxim'];
+        }
+    ?>" /> <br/>
+    <input type="submit" name="filtru" value="filtreaza" />
+</form>
+<p>
+    Dupa completarea formularului, afisati o lista cu toate produsele (numele si preturile) care sunt cuprinse intre cele 2 valori introduse. 
+</p>
+<?php
+    // verificam trimiterea formularului (if isset)
+    // parcurgem array-ul cu produse (foreach)
+    // verificam daca valoarea produsului este intre minim si maxim din formular (if)
+    // daca da, afisam lista (li)
+
+    if(isset($_POST['filtru'])){
+        echo 'Produsele care au pretul intre ' .$_POST['minim'] .' si '. $_POST['maxim'];
+        echo '<ol>';
+        // cream un array gol pe care il vom popula cu produsele care corespunde filtrului de mai jos
+        $rezultate = array();
+        foreach($produse as $produs => $pret){
+            if ($pret >= $_POST['minim'] && $pret <= $_POST['maxim'] ){
+                echo '<li>' . $produs . ' are pretul ' . $pret . '</li>';
+                $rezultate[] = $produs;
+            }
+        }
+        if (count($rezultate) == 0) {
+            echo '<li> niciun produs ...</li>';
+        }
+        echo '</ol>';
+    }
+
+
+?>
+
+////////////////
+
+
+
+//////////////////////////////////////////////////////////////////////////////////my version curs 6 Alin rezolvate ex 3 , tema de la curs 5
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////curs 6 Alin form1.php
+
+
+<form enctype="multipart/form-data" method="post">
+    <input type="file" name="fisier" /><br/>
+    <input type="submit" name="upload" />
+</form>
+
+<?php
+    if (isset($_POST['upload'])){
+        print_r($_FILES);
+    }
+
+?>
+
+
+//////////////////////////////////////////////////////////////////////////////////curs 6 Alin form2.php
+
+<form enctype="multipart/form-data" method="post">
+    <input type="file" name="fisier" /><br/>
+    <input type="submit" name="upload" />
+</form>
+
+<?php
+    if (isset($_POST['upload'])){
+        $fisierul = $_FILES['fisier'];
+
+        // incarcam fisierul din formular (temporar in browser)
+        // in locatia aleasa de catre noi (uploads/nume...) folder-ul uploads fiind creat manual
+        move_uploaded_file($fisierul['tmp_name'], 'uploads/' . $fisierul['name']);
+        // echo 'calea fisierului:  uploads/' . $fisierul['name'];
+        echo $fisierul['type'] . '<br/>';
+        if ($fisierul['type'] == 'image/jpeg' || 
+            $fisierul['type'] == 'image/png'||
+            $fisierul['type'] == 'image/gif' ||
+            $fisierul['type'] == 'image/svg+xml'   ){
+                echo '<img src="uploads/' . $fisierul['name'] . '"/>';
+        }  elseif ($fisierul['type'] == 'application/pdf'){
+            echo '<a href="uploads/' . $fisierul['name'] . '" target="_blank">vezi pdf</a>'; 
+        } elseif ($fisierul['type'] == 'video/mp4'){
+            echo '<video controls> <source type="video/mp4"
+            src="uploads/' . $fisierul['name'] . '"/></video>'; 
+        } else {
+            echo '<a href="uploads/' . $fisierul['name'] . '" download>descarca fisierul</a>'; 
+        }
+    }
+
+?>
+
+
+//////////////////////////////////////////////////////////////////////////////////curs 6 Alin form3.php
+
+
+<form enctype="multipart/form-data" method="post">
+    <input type="file" name="fisier" /><br/>
+    <input type="submit" name="upload" />
+</form>
+
+<?php
+    if (isset($_POST['upload'])){
+        $fisierul = $_FILES['fisier'];
+
+        move_uploaded_file($fisierul['tmp_name'], 'uploads/' . microtime(). '-'. $fisierul['name']);
+        
+        // name este cheia predefinita pentru array-ul fisierului din $_FILES
+    }
+
+?>
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  curs 7 
+
+////////////////  exemplu trimitere isier prin formular curs 7
+
+//////////////////fisier.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>curs7 exemplu trimitere fisier prin formular</title>
+    <style>
+        form {
+            display: flex;
+            align-items: center;
+        }
+        #fi {
+            display: none;
+        }
+        label {
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 6px 8px;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        label img {
+            height: 26px;
+            margin-right: 10px;
+        }
+        #send {
+            background: black;
+            color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            height: 34px;
+            width: 110px;
+            margin-left: 10px;
+        }
+        #send:hover {
+            background: white;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Incarcati fisiere: .pdf, .doc, .docx, .xls, .xlsx</h2>
+    <form action="functionalitate.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="document" id="fi" />
+        <label for="fi">
+            <img src="images/upload (1).png" />
+            Adauga fisierul
+        </label>
+        <input type="submit" value="Upload" name="trimite" id="send"/>
+    </form>
+</body>
+</html>
+
+
+//////////////////////functionalitate.php
+
+<?php
+    if (isset($_POST['trimite'])){
+       $doc = $_FILES['document']; 
+       // $doc va fi un array cu ['name'], ['tmp_name'], ['size'], ['error'], ['type']
+    
+       if(
+          ($doc['type'] == 'application/pdf' || 
+          $doc['type'] == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+          $doc['type'] == 'application/msword' || 
+          $doc['type'] == 'application/vnd.ms-excel' ||
+          $doc['type'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ) &&
+          $doc['size'] < 5000000 &&
+          $doc['error'] == 0
+       ) {
+        $nume = $doc['name'];   // numele original al fisierului
+        $nume_array = explode('.', $nume);  // $nume_array[0] - numele fisierului
+                                            // $nume_array[1] - extensia fisierului
+        
+        $calea_noua = 'uploads/'. $nume_array[0]. microtime() . '.' . $nume_array[1];
+
+        move_uploaded_file($doc['tmp_name'], $calea_noua );
+        
+        echo '<a href="'. $calea_noua.'" download>descarca-ti fisierul</a>';
+
+       } else {
+        echo 'trebuie sa trimiteti doar tipurile de fisiere acceptate si sa nu depaseasca 5MB';
+       }
+
+    }
+?>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////// exemplu trimitere isiere MULTIPLE  prin formular  curs 7
+
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="file" name="fisiere[]" multiple />
+    <input type="submit" name="send" />
+</form>
+
+<?php
+    if(isset($_POST['send'])){
+        // decomentati urmatoarele 3 linii daca vreti sa vedeti ce fisiere/informatii ati trimis
+        // echo '<pre>';
+        // print_r ($_FILES['fisiere']);
+        // echo '</pre>';
+        
+        $doc = $_FILES['fisiere']; 
+        // returneaza array-ul principal cu cele 5 chei: name, size, type, error si tmp_name INDIFERENT de numarul de fisiere trimise
+
+        // toate aceste array-uri vor avea cate o valoare pentru fiecare fisier
+        // astfel indiferent de cea pe care o parcurgen, vom avea acces la numarul de fisiere trimise
+        //  count($doc['name']) = count($doc['size']) = count($doc['error']) = count( $doc['type']) =  count($doc['tmp_name']) = numarul de fisiere trimise
+
+
+        for($x = 0; $x < count($doc['name']); $x ++) {
+            $cale = 'uploads2/' . microtime() . $doc['name'][$x];
+            move_uploaded_file($doc['tmp_name'][$x], $cale );
+            echo '<a href="'.$cale.'" download> descarca fisierul'.  $doc['name'][$x]. ' </a><br/>';
+        }
+        
+    }
+?>
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////file creation edit  curs 7
+
+///////////////////////////////////////////files.php
+
+<form action="" method="post">
+    <input type="text" name="nr_chitanta" placeholder="nr chitanta" /><br/>
+    <input type="text" name="nume" placeholder="nume" /><br/>
+    <input type="number" name="valoare" placeholder="valoare" /><br/>
+    <input type="submit" name="creeaza" />
+</form>
+<?php
+    if(isset($_POST['creeaza'])){
+
+        $cale ='chitante/chitanta' . microtime() . '.html' ;
+        $ch = fopen($cale,'w');
+
+        $text = '<h1 style="text-align:center"> chitanta nr ' .  $_POST['nr_chitanta'] . '</h1>';
+        $text .= '<div id="chitanta" 
+                       style="margin: 30px 20%; border: 3px solid black; padding: 100px;">
+                       Astazi, data... persoana ' .$_POST['nume'] . ' a achitat produsul ... in valoare de ' . $_POST['valoare'] . ' RON
+                  </div>';
+        fwrite($ch,$text );
+        
+        echo 'Chitanta a fost creata. Vezi <a href="' . $cale .'" target="_blank">Chitanta nr' . $_POST['nr_chitanta'] . '</a>';
+    }
+?>
+
+
+///////////////////////////////////////////////                      chitanta microtime() . html
+
+//////////////////////////////////////////////////////////////////// chitanta0.499...........html
+
+<h1 style="text-align:center"> chitanta nr 125</h1>
+<div id="chitanta" style="margin: 30px 20%; border: 3px solid black; padding: 100px;">
+    Astazi, data... persoana asdasag a achitat produsul ... in valoare de 2445 RON
+</div>
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////curs 8 ex 1 de la curs 7  exercitiul1.php
+
+
+<form action="" method="post">
+    <p>
+        Element(tag html): <br/>
+        <input type="text" placeholder="div" name="element" value="<?php
+        if(isset($_POST['element'])){echo $_POST['element'];}
+        ?>" />
+    </p>
+    <p>
+        latime: <br/>
+        <input type="text" placeholder="200px" name="latime" value="<?php
+        if(isset($_POST['latime'])){echo $_POST['latime'];}
+        ?>" />
+    </p>
+    <p>
+        inaltime: <br/>
+        <input type="text" placeholder="300px" name="inaltime" value="<?php
+        if(isset($_POST['inaltime'])){echo $_POST['inaltime'];}
+        ?>" />
+    </p>
+    <p>
+        Culoare de fundal: <br/>
+        <input type="text" placeholder="green" name="background" value="<?php
+        if(isset($_POST['background'])){echo $_POST['background'];}
+        ?>" />
+    </p>
+
+    <p>
+        User text: <br/>
+        <input type="text" placeholder="your text" name="userText" value="<?php
+        if(isset($_POST['userText'])){echo $_POST['userText'];}
+        ?>" />
+    </p>
+
+    <p>
+        User nr: <br/>
+        <input type="nr" placeholder="your nr" name="userNr" value="<?php
+        if(isset($_POST['userNr'])){echo $_POST['userNr'];}
+        ?>" />
+    </p>
+
+    <input type="submit" name="creeaza" value="Creeaza fisierul" />
+</form>
+<p>Avand formularul de mai sus, preluati valorile din toate campurile si cu ajutorul lor creati un fisier .html care sa contina informatiile din formular. Exemplu dorit:</p>
+<pre> 
+    Am completat: 
+        div
+        200px
+        300px
+        green
+    Fisierul .html nou creat trebuie sa contina un tag &lt;div&gt; care sa aiba proprietatile:
+        width: 200px;
+        height: 300px;
+        background: green
+</pre>
+
+<?php
+
+if(isset($_POST['creeaza'])){
+
+     echo '<p style="text-align:center ; color:green">Tag-ul ales este :' . $_POST['element'] .  '.</p>' ;
+     echo '<p style="text-align:center ; color:blue">Latimea alesa este :' . $_POST['latime'] .  '.</p>' ;
+     echo '<p style="text-align:center ; color:LightSlateGray">Inaltimea alesa este :' . $_POST['inaltime'] .  '.</p>' ;
+     echo '<p style="text-align:center ; color:Chocolate">Culoarea alesa este :' . $_POST['background'] .  '.</p>' ;
+     echo '<p style="text-align:center ; color:olive">Textul ales este :' . $_POST['userText'] .  '.</p>' ;
+
+     echo '<hr>' ;
+
+   echo '<div style="margin:1em 0 ; 
+                     height:' . $_POST['inaltime'] . '; 
+                     width: '. $_POST['latime'] . '; 
+                     background-color:' . $_POST['background'] . '">1. your text inside a div tag is : ' . $_POST['userText'] . '</div>' ;
+
+
+
+   echo '<' . $_POST['element'] . '>new tag </' . $_POST['element'] . '>' ;
+
+
+     echo '<div style=" margin:1em 0;
+                        width:' . floatval($_POST['latime']) . '; 
+                        height:' . floatval($_POST['inaltime']) . ';
+                        background-color:' . $_POST['background'] . '">2. your text inside a div tag is : ' . $_POST['userText'] . '</div > ';
+
+                       
+
+
+    echo '<' . $_POST['element'] . ' style="color:cornflowerblue ; font-size:1.5rem">new tag with cornflowerblue color</' . $_POST['element'] . '>' ;
+
+    echo '<hr>' ;
+
+    $newTag = '<' . $_POST['element'] . ' style="font-size:1.5rem ; text-align:center ; color:' . $_POST['background'] . '" >user text is : ' . $_POST['userText'] . ' </' . $_POST['element'] . '>' ;
+
+    $newTag .= '<div style="display:flex ; align-items:center ; justify-content:center">
+                     <img src="https://images.pexels.com/photos/5755160/pexels-photo-5755160.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                     alt="myImg" 
+                     style="width:' . $_POST['userNr'] . '"/>
+                                                           </div>' ;
+
+    $newTag .= '<h3 style="text-align:center ; color:' . $_POST['background'] . '">default exercise text</h3>' ;                                                     
+
+    echo $newTag ;
+
+    echo '<hr>' ;
+
+                                    $cale ='uploads/tag' . microtime() . '.html' ;
+                                    $ch = fopen($cale,'w');
+                            
+                                    $newPage = '<h1 style="text-align:center ; color:' . $_POST['background'] . '"> Textul user-ului este:'   .  $_POST['userText'] . '</h1>' ;
+
+                                    $newPage .= '<' . $_POST['element'] . 
+                                                          ' style=" margin:1em 0 ;
+                                                                    width:' . floatval($_POST['latime']) . '; 
+                                                                    height:' . floatval($_POST['inaltime']) . ';
+                                                                    background-color:' . $_POST['background'] . '">your text is :' . $_POST['userText'] . '</' . $_POST['element']. ' > ';
+                                   
+
+                                    $newPage .= '<img src="https://images.pexels.com/photos/14749839/pexels-photo-14749839.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                                                     alt="whateverImg" 
+                                                     style="width:' . $_POST['userNr'] . '"/>' ;
+
+
+                                    $newPage .= '<' . $_POST['element'] . 
+                                                          ' style=" margin:1em 0 ;
+                                                                    width:' . floatval($_POST['userNr'] + 400) . '; 
+                                                                    height:' . floatval($_POST['userNr'] + 200) . ';
+                                                                    background-color:' . $_POST['background'] . '">same text is :' . $_POST['userText'] . '</' . $_POST['element']. ' > ' ;
+
+
+                                    fwrite($ch,$newPage); 
+                                    
+                                    echo '<br>' ;
+                                    
+                                    echo 'Alta pagina a fost creata. <br> Vezi <a href="' . $cale .'" target="_blank">User-ul a scris textul : ' . $_POST['userText'] . '</a>';                                
+
+}
+
+?>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////curs 8 ex 2 de la curs 7  exercitiul2.php
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex2 ex 6-7</title>
+    <style>
+        form {
+            display: flex;
+            align-items: center;
+        }
+        #fi {
+            /* display: none; */
+        }
+        label {
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 6px 8px;
+            color:MediumSlateBlue ; 
+            font-size:1.5rem;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        label img {
+            height: 26px;
+            margin-right: 10px;
+        }
+        #send {
+            background: LightSlateGray ;
+            color: LemonChiffon;
+            border: 2px solid black;
+            border-radius: 10px;
+            height: 34px;
+            width: 110px;
+            margin-left: 10px;
+            font-size:1.5rem;
+        }
+        #send:hover {
+            background: LemonChiffon;
+            color: LightSlateGray;
+        }
+
+    </style>
+</head>
+<body><p>Avand fisierul sample.txt, preluati tot continutul fisierului si afisati doar continutul dintre ***</p>
+
+
+
+    <h2>Incarcati fisiere: .txt</h2>
+
+    <form action="functionalitate.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="document" id="fi" />
+        <label for="fi">
+            <img src="images/upload (1).png" />
+            Adauga fisierul
+        </label>
+        <input type="submit" value="Upload" name="trimite" id="send" />
+    </form>
+
+</body>
+</html>
+
+
+
+/////////////////////////////////////////////////////functiponalitate.php
+
+<?php
+
+//https://www.google.com/search?q=memetype+txt&oq=memetype+txt&aqs=chrome..69i57.21283j0j7&sourceid=chrome&ie=UTF-8
+
+    if (isset($_POST['trimite'])){
+       $doc = $_FILES['document']; 
+       // $doc va fi un array cu ['name'], ['tmp_name'], ['size'], ['error'], ['type']
+       echo print_r($doc) ;
+    
+       if(
+          ($doc['type'] == 'text/plain') &&
+          $doc['size'] < 5000000 &&
+          $doc['error'] == 0
+       ) {
+        $nume = $doc['name'];   // numele original al fisierului
+        $nume_array = explode('.', $nume);  // $nume_array[0] - inainte de textul dorit
+                                            // $nume_array[1] - textul dorit
+                                            // $nume_array[2] - dupa textul dorit
+        
+        $calea_noua = 'uploads/'. $nume_array[0]. microtime() . '.' . $nume_array[1];
+
+        move_uploaded_file($doc['tmp_name'], $calea_noua );
+        //deschidem fisierul salvat
+        $f = fopen( $calea_noua ,'r');
+
+        // preluam intregul continut al fisierului
+        $c = fread($f, filesize($calea_noua));
+
+        $rez = explode('***', $c);
+
+        echo '<p style="text-align-center ; color:green">' . $rez[0] . '</p>' ;
+
+        echo '<br>' ;
+        echo $rez[1];
+        echo '<br>' ;
+
+        echo '<p style="text-align-center ; color:red">' . $rez[2] . '</p>' ;
+        
+        echo '<a href="'. $calea_noua.'" download>descarca-ti fisierul</a>';
+
+       } else {
+        echo 'trebuie sa trimiteti doar tipurile de fisiere acceptate si sa nu depaseasca 5MB';
+       }
+
+    }
+?>
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////curs 8 ex 3 de la curs 7  exercitiul3.php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex3 ex6-7</title>
+    <style>
+
+        .thumbnail {
+            margin: 20px;
+            border: 3px solid purple;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        #fisiereInput{
+            background-color:pink ;
+            font-size:1.5rem ;
+            margin:1em 0
+        }
+        #submitInput{
+            background-color:DarkCyan ; 
+            color:white ; 
+            font-size:1.5rem ; 
+            margin:1em 0;
+            padding:0.5em 0.3em;
+            cursor:pointer;
+            /* border:none; */
+        }
+        
+    </style>
+</head>
+<body>
+    
+<h2 style="text-align:center ; color:Plum">Upload one of these: jpeg , jpg , gif , svg+xml</h2>
+
+<form action="" method="post" enctype="multipart/form-data">
+
+    <input type="file" name="fisiere[]" id="fisiereInput" multiple /><br/>
+
+    <input type="submit" name="trimite" id="submitInput"/>
+
+</form>
+
+<p>Avand formularul de mai sus, trimiteti 3 imagini, salvati-le in folder-ul uploads si afisati-le pe fiecare intr-un div cu clasa="thumbnail"  </p>
+
+</body>
+</html>
+
+
+<?php
+
+
+echo '<div class="thumbnail"></div>' ;
+
+echo  '<div style=" height: 150px;
+                    width: 150px;
+                    margin: 20px;
+                    border-radius:50%;
+                    border:3px solid yellowgreen;
+                    background-repeat: no-repeat;
+                    background-image: url(https://images.pexels.com/photos/383646/pexels-photo-383646.jpeg?auto=compress&cs=tinysrgb&w=1600);
+                    background-position: center;
+                    background-size: cover"></div>' ;
+
+echo  '<div style=" height: 150px;
+                    width: 150px;
+                    margin: 20px;
+                    border-radius:50%;
+                    border:3px solid RoyalBlue;
+                    background-repeat: no-repeat;
+                    background-image: url(./uploads/yellowCV.jpg);
+                    background-position: center;
+                    background-size: cover"></div>' ; 
+
+
+
+    if(isset($_POST['trimite'])){
+
+        echo '<h1 style="text-align:center ; color:forestgreen">fisiere descarcate</h1>' ;
+
+      //  decomentati urmatoarele 3 linii daca vreti sa vedeti ce fisiere/informatii ati trimis
+        echo '<pre>';
+        print_r ($_FILES['fisiere']);
+        echo '</pre>';
+        
+        $doc = $_FILES['fisiere']; 
+
+       
+
+        // returneaza array-ul principal cu cele 5 chei: name, size, type, error si tmp_name INDIFERENT de numarul de fisiere trimise
+
+        // toate aceste array-uri vor avea cate o valoare pentru fiecare fisier
+        // astfel indiferent de cea pe care o parcurgen, vom avea acces la numarul de fisiere trimise
+        //  count($doc['name']) = count($doc['size']) = count($doc['error']) = count( $doc['type']) =  count($doc['tmp_name']) = numarul de fisiere trimise
+
+
+     
+
+                
+        for($x = 0; $x < count($doc['name']); $x ++) {
+
+
+            echo '<h3 style="text-align:center ; color:gold">$doc/name/ <strong style="color:red">' . $x . '</strong> : '  . $doc['name'][$x] . '</h3>' ;
+
+            echo '<h3 style="text-align:center ; color:Darkorange">$doc/full_path/x : ' . $doc['full_path'][$x] . '</h3>' ;
+    
+            echo '<h3 style="text-align:center ; color:blue">$doc/type/x : ' . $doc['type'][$x] . '</h3>' ;
+    
+            echo '<h3 style="text-align:center ; color:cornflowerblue">$doc/tmp_name/x : ' . $doc['tmp_name'][$x] . '</h3>' ;
+    
+            echo '<h3 style="text-align:center ; color:MediumAquaMarine">$doc/error/x : ' . $doc['error'][$x] . '</h3>' ;
+    
+            echo '<h3 style="text-align:center ; color:PaleVioletRed">$doc/size/x : ' . $doc['size'][$x] . '</h3>' ;
+
+
+
+ 
+            if ($doc['type'][$x] == 'image/jpeg' || 
+                $doc['type'][$x] == 'image/jpg' ||
+                $doc['type'][$x] == 'image/png'||
+                $doc['type'][$x] == 'image/gif' ||
+                $doc['type'][$x] == 'image/svg+xml'){
+
+
+                $cale = 'uploads/' . microtime() . $doc['name'][$x];
+                move_uploaded_file($doc['tmp_name'][$x], $cale );
+    
+                echo '<a href="'.$cale.'" download> descarca fisierul : '.  $doc['name'][$x]. ' </a><br/>';
+    
+                echo '<img src="' . $cale . '" alt="myUploadedImg" class="thumbnail"/>' ;
+    
+                                 
+    
+                echo  '<div style=" height: 150px;
+                                    width: 150px;
+                                    margin: 20px;
+                                    border-radius:50%;
+                                    border:3px solid tomato;
+                                    background-repeat: no-repeat;
+                                    background-image: url(\'./' . $cale . '\');
+                                    background-position: center;
+                                    background-size: cover"></div>' ;
+    
+
+
+            }else{
+                echo "problem: not the right kind of file";
+            }
+
+
+
+            
+        }
+
+    }
+        
+    
+?>
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////curs 7 form.php
+
+<form method="post">
+    <input type="email" name="email" placeholder="email" style="border:3px solid green ;
+                                                                font-size:1.5rem; 
+                                                                padding:1em 0.5em;
+                                                                margin:1em 2em;
+                                                                border-radius:0.5em"/><br/>
+
+    <input type="text" name="name" placeholder="de la"  style="border:3px solid cornflowerblue ;
+                                                                font-size:1.5rem; 
+                                                                padding:1em 0.5em;
+                                                                margin:1em 2em;
+                                                                border-radius:0.5em"/><br/>
+    <input type="submit" name="send_mail"   style="border:3px solid Chocolate;
+                                                                background-color:Bisque;
+                                                                color:forestgreen;
+                                                                font-size:1.5rem; 
+                                                                padding:1em 0.5em;
+                                                                margin:1em 2em;
+                                                                border-radius:0.5em"/>
+</form>
+
+<?php
+if (isset($_POST['send_mail'])){
+    // $headers = 'From: '. $_POST['mail'] . "\r\n". 
+    //            'Reply-To:'. $_POST['mail'] .  . "\r\n" .
+    //            'X-Mailer: PHP/' . phpversion();
+
+
+
+
+
+    $headers = 'From: contact@mihaelagabriela.ro' . "\r\n" .
+    'Reply-To: '. $_POST['email'] . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+
+
+
+
+    mail('esmeraldagabriela83@yahoo.com' , 'Primul mail de pe propriul site' , $_POST['name'] .  ' hello from user with email:  ' . $_POST['email'] );
+}
+?>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                                                                                                curs 8 ex rezolvate Alin curs8/rezultate
+
+
+                                                                                                 exercitiul1.php
+
+<form action="" method="post">
+    <p>
+        Element(tag html): <br/>
+        <input type="text" placeholder="div" name="element" />
+    </p>
+    <p>
+        latime: <br/>
+        <input type="text" placeholder="200px" name="latime" />
+    </p>
+    <p>
+        inaltime: <br/>
+        <input type="text" placeholder="300px" name="inaltime" />
+    </p>
+    <p>
+        Culoare de fundal: <br/>
+        <input type="text" placeholder="green" name="background" />
+    </p>
+    <input type="submit" name="creeaza" value="Creeaza fisierul" />
+</form>
+<p>Avand formularul de mai sus, preluati valorile din toate campurile si cu ajutorul lor creati un fisier .html care sa contina informatiile din formular. Exemplu dorit:</p>
+<pre> 
+    Am completat: 
+        div
+        200px
+        300px
+        green
+    Fisierul .html nou creat trebuie sa contina un tag &lt;div&gt; care sa aiba proprietatile:
+        width: 200px;
+        height: 300px;
+        background: green
+</pre>
+
+<?php
+    if($_POST['creeaza']){
+        $content = '<' . $_POST['element'] . 
+                    ' style="width:'. $_POST['latime'] .'; 
+                           height:'.$_POST['inaltime']. ';
+                           background:' .$_POST['background']. ' ;">' .  
+                           
+                    '</' . $_POST['element']. '>';
+
+
+        // deschidem fisierul file.html (va fi creat daca nu exista)
+        // modul 'w' face ca fisierul sa isi inlocuiasca continutul de fiecare data
+        $file = fopen('file.html', 'w');
+
+        //scriem in fisierul deschis mai sus continutul preluat din formular
+        fwrite($file, $content);
+
+    }
+?>
+
+
+                                                                                                 curs 8 ex rezolvate Alin curs8/rezultate
+
+
+                                                                                                 exercitiul2.php
+
+
+<p>Avand fisierul sample.txt, preluati tot continutul fisierului si afisati doar continutul dintre ***</p>
+
+<?php
+    $file = fopen('sample.txt', 'r');
+    $content = fread($file, filesize('sample.txt'));
+    $ce_trebuie = explode('***', $content);
+    echo $ce_trebuie[1];
+
+
+////my try
+echo '<p style="color:olive">' . $ce_trebuie[0] . '</p>';
+echo '<p style="color:orange">' . $ce_trebuie[1] . '</p>';
+echo '<p style="color:magenta">' . $ce_trebuie[2] . '</p>';
+
+?>
+
+<?php
+
+$file2 = fopen('myTry.html', 'r');
+$content2 = fread($file2, filesize('myTry.html'));
+$ce_trebuie2 = explode('***', $content2);
+echo $ce_trebuie2[0];
+echo $ce_trebuie2[1];
+echo $ce_trebuie2[2];
+echo $ce_trebuie2[3];
+echo $ce_trebuie2[4];
+
+
+
+?>    
+                                                                                                myTry.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myTry</title>
+</head>
+<body>
+    <p style="color:green">text1: Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+***
+    <h3 style="color:magenta">my title 3 first</h3>
+***
+    <p style="color:red">text2: Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+    ***
+    <h3 style="color:cornflowerblue">my title 3 sec</h3>
+***
+    <p style="color:MediumVioletRed">text3: Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+</body>
+</html>
+
+
+                                                                                                 curs 8 ex rezolvate Alin curs8/rezultate
+
+
+                                                                                                 exercitiul3.php
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .thumbnail {
+            margin: 20px;
+            border: 3px solid purple;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+        }
+        .thumbnail  img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    
+
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="file" name="fisiere[]" multiple /><br/>
+    <input type="submit" name="trimite" />
+</form>
+
+<p>Avand formularul de mai sus, trimiteti 3 imagini, salvati-le in folder-ul uploads si afisati-le pe fiecare intr-un div cu clasa="thumbnail"  </p>
+
+<?php
+    if (isset($_POST['trimite'])){
+
+        ////////////////////////my try
+
+echo "<h3>files sunt: </h3>";        
+print_r($_FILES);
+echo '<br>' ;
+
+echo "<h3>fisierele din files sunt: </h3>";
+print_r($_FILES['fisiere']);
+echo '<br>' ;
+echo count($_FILES['fisiere']);
+
+echo "<h3>tmp_name din files fisiere sunt: </h3>";
+print_r($_FILES['fisiere']['tmp_name']);
+echo '<br>' ;
+echo count($_FILES['fisiere']['tmp_name']);
+
+echo "<h3>name din files fisiere sunt: </h3>";
+print_r($_FILES['fisiere']['name']);
+echo '<br>' ;
+echo count($_FILES['fisiere']['name']);
+
+   ////////////////////////my try
+
+
+        $nr_fisiere = count($_FILES['fisiere']['name']);
+
+        for($x = 0 ; $x < $nr_fisiere; $x++){
+            $cale ='uploads/'. microtime() . $_FILES['fisiere']['name'][$x];
+            move_uploaded_file($_FILES['fisiere']['tmp_name'][$x], $cale);
+
+            if (strpos($_FILES['fisiere']['type'][$x], 'image') !== false ){
+                echo '<div class="thumbnail"><img src="' . $cale . '"></div>'; 
+            } else {
+                echo '<a href="' . $cale . '" download">'.$cale.'</a><br/><br/>'; 
+            }
+        }
+    }
+?>
+
+
+
+</body>
+</html>
+
+
+
+
+

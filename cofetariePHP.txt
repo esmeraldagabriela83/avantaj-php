@@ -1,0 +1,745 @@
+/////////////////////////////////////////////////////////////////////////////////////////avantaj curs php mySQL CURS 8 COFETARIE 8
+
+
+/////////////////////////////////////////////////////////////////////////////////////////avantaj curs php mySQL CURS 8 COFETARIE 8 db8.php
+
+
+<?php
+
+echo '<h2 style="color:green">this is db8.php</h2>' ;
+
+
+
+    $c = mysqli_connect('localhost', 'root', '', 'cofetarie');
+
+    // mysqli_connect() -> realizeaza baza de date
+    // 'localhost' -> serverul de mysql (poate fi inlocuit cu '127.0.0.1')
+    // 'root' -> numele utilizatorului de baza de date (root este user-ul default)
+    // '' -> parola utilizatorului de baza de date (parola default la user-ul root este '')
+    // 'cofetarie' -> numele bazei de date
+
+    // print_r ($c);
+
+    mysqli_query($c, "INSERT INTO produse (nume_produs, id_categorii, pret, data_expirare) VALUES ('ecler', '13', '1','2022-12-31' ),('inghetata','12','2','2822-12-31')");
+    
+
+?>
+<p>Inseram in baza de date urmatorul rand: 'ecler, pret: 13, id-cat: 1, 2022-12-31'</p>
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////alin curs8 cofetarie8 exercitiu-rezolvat.php
+
+
+<p>
+Planul:<br/>
+    1. Cream un formular care sa aiba cate un camp pentru fiecare coloana din tabelul din baza de date<br/>
+    2. Realizam legatura cu baza de date<br/>
+    3. Verificam trimiterea formularului (if isset)<br/>
+    4. Realizam un query (INSERT) cu datele preluate din formular
+</p>
+
+<!-- rezolvare alin curs 9 -->
+<!-- pasul 1 -->
+<form action="" method="post">
+    Nume <input type="text" name="nume" /><br/>
+    Categorie <input type="text" name="categorie" /><br/>
+    Pret <input type="text" name="pret" /><br/>
+    Data de expirare <input type="date" name="data" /><br/>
+    <input type="submit" name="adauga" />
+</form>
+
+
+<?php
+    // pasul 2
+    $c = mysqli_connect('localhost', 'root', '', 'cofetarie');
+
+    // pasul 3
+    if(isset($_POST['adauga'])){
+
+        // pasul 4
+        // pasul 4.1 - cream variabile cu informatiile din formular
+        $produs  = $_POST['nume'];
+        $cat  = $_POST['categorie'];
+        $pret  = $_POST['pret'];
+        $data  = $_POST['data'];
+
+        // pasul 4.2 - inseram variabilele cu informatii din formular in baza de date
+        mysqli_query($c, "INSERT INTO produse (nume_produs, id_categorii, pret, data_expirare) VALUES ('$produs', '$cat', '$pret','$data' )");
+    }
+?>
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////alin curs8 cofetarie8 exercitiu8.php
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cofetarie exercitiu8.php</title>
+</head>
+<body>
+
+<h1>exercitiu8.php facut la curs 3 Wordpress</h1>
+
+<h3>1.Cream un formular care sa aiba cate un camp pt fiecare coloana din tabelul din baza de date</h3>
+<h3>2.Realizam legatura cu baza de date</h3>
+<h3>3.Verificam trimiterea formularului (if isset)</h3>
+<h3>4.Realizam un query (INSERT) cu datele preluate din formular</h3>
+
+<p>Creati un formular prin care sa adaugati informatii in baza de date</p>
+<p>Exemplu:</p>
+<!-- pasul 1 -->
+<form action="exercitiu8.php" method="post">
+    Nume produs <input type="text" name="nume" /><br/>
+    Categorie <input type="text" name="categorie" /><br/>
+    Pret <input type="number" name="pret" /><br/>
+    Data de expirare <input type="date" name="date" /><br/>
+    <input type="submit" name="adauga" value="Adauga un dulce in produsele de cofetarie"/>
+</form>
+<p> Puteti sa il adaptati dupa baza de date construita de voi (ex: cofetaria)</p>
+
+</body>
+</html>
+
+
+<?php
+//pasul 2
+$c = mysqli_connect('localhost', 'root', '', 'cofetarie');
+
+//pasul3
+if(isset($_POST['adauga'])){
+    echo '<h1 style="color:green">your form was submitted</h1>' ;
+
+    //pasul 4
+    //pasul 4.1: cream variabile cu informatii din formular
+    $produs=$_POST['nume'];
+    $categorie=$_POST['categorie'];
+    $pret=$_POST['pret'];
+    $date=$_POST['date'];
+    
+     //pasul 4.2: inseram variabilile cu informatii din formular in baza de date
+    mysqli_query($c, "INSERT INTO produse (nume_produs, id_categorii, pret, data_expirare) VALUES ('$produs' , '$categorie' , '$pret' , '$date' )");
+
+
+    echo '<h3>produsul tau este:' . $produs . '</h3>';
+    echo '<h3>produsul tau este:' . $categorie . '</h3>';
+    echo '<h3>produsul tau este:' . $pret . '</h3>';
+    echo '<h3>produsul tau este:' . $date . '</h3>';
+}
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////alin curs8 cofetarie8  select-db.php
+
+
+<?php
+//accesam baza de date
+    $c_db = mysqli_connect('localhost', 'root', '', 'cofetarie');
+
+    //verificam daca s-a realizat conexiunea cu baza de date
+    if(mysqli_connect_errno()){
+        // daca nu - mesaj de eroare + exit (terminarea programului, nu se mai executa)
+        echo 'NU s-a conectat la baza de date';
+        exit;
+    } else {
+        echo 'conexiune cu succes';
+
+        // daca da - realizam un query SELECT pe baza de date
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM produse");
+        
+
+        echo '<ol>';
+
+        // prelucram raspunsul creand cate un array pentru fiecare rand returnat in urma query-ului
+        //  mysqli_fetch_assoc() -> creeaza un array asociativ pentru fiecare rand unde cheia este numele coloanei iar valoarea este exact valoarea din dreptului acelei coloane
+        // mysqli_fetch_assoc()  -> va returna false atunci cand nu mai sunt rezultate (daca sunt 0 rezultate sau dupa ultimul rand returnat)
+        // while se declanseaza in continuu atat timp cat declaratia dintre () este true - daca este false, se opreste
+        // $rez este variabila array pentru fiecare rand si este inventata de noi
+        while($rez =  mysqli_fetch_assoc($selectie_db)){
+            echo '<li> '.  $rez['nume_produs'] . ' - ' . $rez['pret'] . '</li>';
+        }
+        echo '</ol>';
+    }
+?>
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////alin curs8 cofetarie8 select-db2.php
+
+
+<?php
+//accesam baza de date
+    $c_db = mysqli_connect('localhost', 'root', '', 'cofetarie');
+
+    //verificam daca s-a realizat conexiunea cu baza de date
+    if(mysqli_connect_errno()){
+        // daca nu - mesaj de eroare + exit (terminarea programului, nu se mai executa)
+        echo 'NU s-a conectat la baza de date';
+        exit;
+    } else {
+        echo 'conexiune cu succes';
+
+        // daca da - realizam un query SELECT pe baza de date
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM produse");
+        
+
+        echo '<table border="1" cellpadding="10">';
+        echo '<tr style="background: #ddd">';
+        echo '<th> ID </th>';
+        echo '<th>Nume Produs</th>';
+        echo '<th>Categorie</th>';
+        echo '<th>Pret</th>';
+        echo '<th>Expira</th>';
+        echo '</tr>';
+
+        // prelucram raspunsul creand cate un array pentru fiecare rand returnat in urma query-ului
+        //  mysqli_fetch_assoc() -> creeaza un array asociativ pentru fiecare rand unde cheia este numele coloanei iar valoarea este exact valoarea din dreptului acelei coloane
+        // mysqli_fetch_assoc()  -> va returna false atunci cand nu mai sunt rezultate (daca sunt 0 rezultate sau dupa ultimul rand returnat)
+        // while se declanseaza in continuu atat timp cat declaratia dintre () este true - daca este false, se opreste
+        // $rez este variabila array pentru fiecare rand si este inventata de noi
+        while($rez =  mysqli_fetch_assoc($selectie_db)){
+            echo '<tr>';
+            echo '<td>'.  $rez['id'] . '</td>';
+            echo '<td>'.  $rez['nume_produs'] . '</td>';
+            echo '<td>'.  $rez['id_categorii'] . '</td>';
+            echo '<td>' . $rez['pret'] . '</td>';
+            echo '<td>'.  $rez['data_expirare'] . '</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+    }
+?>
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////alin curs8 cofetarie8 select-db3.php
+
+
+<?php
+//accesam baza de date
+    $c_db = mysqli_connect('localhost', 'root', '', 'cofetarie');
+
+    //verificam daca s-a realizat conexiunea cu baza de date
+    if(mysqli_connect_errno()){
+        // daca nu - mesaj de eroare + exit (terminarea programului, nu se mai executa)
+        echo 'NU s-a conectat la baza de date';
+        exit;
+    } else {
+        echo 'conexiune cu succes';
+
+        // daca da - realizam un query SELECT pe baza de date
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM produse WHERE id_categorii = 1 ORDER BY nume_produs ASC");
+        
+
+        echo '<table border="1" cellpadding="10">';
+        echo '<tr style="background: #ddd">';
+        echo '<th> ID </th>';
+        echo '<th>Nume Produs</th>';
+        echo '<th>Categorie</th>';
+        echo '<th>Pret</th>';
+        echo '<th>Expira</th>';
+        echo '</tr>';
+
+        // prelucram raspunsul creand cate un array pentru fiecare rand returnat in urma query-ului
+        //  mysqli_fetch_assoc() -> creeaza un array asociativ pentru fiecare rand unde cheia este numele coloanei iar valoarea este exact valoarea din dreptului acelei coloane
+        // mysqli_fetch_assoc()  -> va returna false atunci cand nu mai sunt rezultate (daca sunt 0 rezultate sau dupa ultimul rand returnat)
+        // while se declanseaza in continuu atat timp cat declaratia dintre () este true - daca este false, se opreste
+        // $rez este variabila array pentru fiecare rand si este inventata de noi
+        while($rez =  mysqli_fetch_assoc($selectie_db)){
+            echo '<tr>';
+            echo '<td>'.  $rez['id'] . '</td>';
+            echo '<td>'.  $rez['nume_produs'] . '</td>';
+            echo '<td>'.  $rez['id_categorii'] . '</td>';
+            echo '<td>' . $rez['pret'] . '</td>';
+            echo '<td>'.  $rez['data_expirare'] . '</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+    }
+?>
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////alin curs8 cofetarie8 select-db4.php
+
+
+<form action="" method="post">
+    Nume <input type="text" name="nume" /><br/>
+    Categorie <select  name="categorie" >
+        <option value="1"> 1 - Prajituri </option>
+        <option value="2"> 2 - Patiserie </option>
+        <option value="3"> 3 - Torturi </option>
+    </select><br/>
+    Pret <input type="text" name="pret" /><br/>
+    Data de expirare <input type="date" name="data" /><br/>
+    <input type="submit" name="adauga" />
+</form>
+
+<?php
+
+//accesam baza de date
+    $c_db = mysqli_connect('localhost', 'root', '', 'cofetarie');
+
+
+// verificare conexiune
+    if(mysqli_connect_errno()){
+        echo 'NU s-a conectat la baza de date';
+        exit;
+    } else {
+        echo 'conexiune cu succes';
+
+    
+        // INSERAM PRODUSE
+        if(isset($_POST['adauga'])){
+
+            $produs  = $_POST['nume'];
+            $cat  = $_POST['categorie'];
+            $pret  = $_POST['pret'];
+            $data  = $_POST['data'];
+
+            // pasul 4.2 - inseram variabilele cu informatii din formular in baza de date
+            mysqli_query($c_db, "INSERT INTO produse (nume_produs, pret, id_categorii, data_expirare) VALUES ('$produs', '$pret', '$cat','$data' )");
+        }
+        // end INSERARE PRODUSE
+
+        // AFISAM PRODUSE
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM produse");
+        
+
+        echo '<table border="1" cellpadding="10">';
+        echo '<tr style="background: #ddd">';
+        echo '<th> ID </th>';
+        echo '<th>Nume Produs</th>';
+        echo '<th>Categorie</th>';
+        echo '<th>Pret</th>';
+        echo '<th>Expira</th>';
+        echo '</tr>';
+
+      
+        while($rez =  mysqli_fetch_assoc($selectie_db)){
+            echo '<tr>';
+            echo '<td>'.  $rez['id'] . '</td>';
+            echo '<td>'.  $rez['nume_produs'] . '</td>';
+            echo '<td>'.  $rez['id_categorii'] . '</td>';
+            echo '<td>' . $rez['pret'] . '</td>';
+            echo '<td>'.  $rez['data_expirare'] . '</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+
+        // end AFISARE PRODUSE
+
+
+    }
+?>
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////alin curs8 cofetarie8 select-db5.php // sterge cate un element din produsele de cofetarie
+
+
+
+<form action="" method="post">
+    Nume <input type="text" name="nume" /><br/>
+    Categorie <select  name="categorie" >
+        <option value="1"> 1 - Prajituri </option>
+        <option value="2"> 2 - Patiserie </option>
+        <option value="3"> 3 - Torturi </option>
+    </select><br/>
+    Pret <input type="text" name="pret" /><br/>
+    Data de expirare <input type="date" name="data" /><br/>
+    <input type="submit" name="adauga" value="Adauga" />
+</form>
+
+<?php
+
+//accesam baza de date
+    $c_db = mysqli_connect('localhost', 'root', '', 'cofetarie');
+
+
+// verificare conexiune
+    if(mysqli_connect_errno()){
+        echo 'NU s-a conectat la baza de date';
+        exit;
+    } else {
+        echo 'conexiune cu succes';
+
+    
+        // INSERAM PRODUSE
+        if(isset($_POST['adauga'])){
+
+            $produs  = $_POST['nume'];
+            $cat  = $_POST['categorie'];
+            $pret  = $_POST['pret'];
+            $data  = $_POST['data'];
+
+            // pasul 4.2 - inseram variabilele cu informatii din formular in baza de date
+            mysqli_query($c_db, "INSERT INTO produse (nume_produs, pret, id_categorii, data_expirare) VALUES ('$produs', '$pret', '$cat','$data' )");
+        }
+        // end INSERARE PRODUSE
+
+
+        // STERGERE PRODUSE
+        if (isset($_POST['sterge'])){
+            $id_produs = $_POST['id'];
+            mysqli_query($c_db,"DELETE FROM produse WHERE id='$id_produs'");
+        }
+        // end STERGERE PRODUSE
+
+
+
+        // AFISAM PRODUSE
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM produse");
+        
+
+        echo '<table border="1" cellpadding="10">';
+        echo '<tr style="background: #ddd">';
+        echo '<th> ID </th>';
+        echo '<th>Nume Produs</th>';
+        echo '<th>Categorie</th>';
+        echo '<th>Pret</th>';
+        echo '<th>Expira</th>';
+        echo '<th>DELETE</th>';
+        echo '</tr>';
+
+      
+        while($rez =  mysqli_fetch_assoc($selectie_db)){
+            echo '<tr>';
+            echo '<td>'.  $rez['id'] . '</td>';
+            echo '<td>'.  $rez['nume_produs'] . '</td>';
+            echo '<td>'.  $rez['id_categorii'] . '</td>';
+            echo '<td>' . $rez['pret'] . '</td>';
+            echo '<td>'.  $rez['data_expirare'] . '</td>';
+            echo '<td>'; ?>
+                <form action="" method="post">
+                    <input type="hidden" name="id" value="<?php echo $rez['id'] ?>"/>
+                    <input type="submit" name="sterge" value="delete" />
+                </form>
+            <?php 
+            echo '</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+
+        // end AFISARE PRODUSE
+
+
+    }
+?>
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////alin curs8 cofetarie8 select-db6.php  // editeaza // sterge cate un element din produsele de cofetarie
+
+
+<style>
+    #formulare {
+        display: flex;
+    }
+    #formulare div {
+        width: 50%;
+    }
+</style>
+<div id="formulare">
+    <div id="insert">
+        <h2>ADAUGA produs</h2>
+        <form action="" method="post">
+            Nume <input type="text" name="nume" /><br/>
+            Categorie <select  name="categorie" >
+                <option value="1"> 1 - Prajituri </option>
+                <option value="2"> 2 - Patiserie </option>
+                <option value="3"> 3 - Torturi </option>
+            </select><br/>
+            Pret <input type="text" name="pret" /><br/>
+            Data de expirare <input type="date" name="data" /><br/>
+            <input type="submit" name="adauga" value="aduaga" />
+        </form>
+    </div>
+
+    <div id="edit">
+        <h2>MODIFICA produs</h2>
+        <form action="" method="post">
+            ID Produs de modificat <input type="text" name="id_produs" /><br/>
+            Nume <input type="text" name="nume" /><br/>
+            Categorie <select  name="categorie" >
+                <option value="1"> 1 - Prajituri </option>
+                <option value="2"> 2 - Patiserie </option>
+                <option value="3"> 3 - Torturi </option>
+            </select><br/>
+            Pret <input type="text" name="pret" /><br/>
+            Data de expirare <input type="date" name="data" /><br/>
+            <input type="submit" name="modifica" value="modifica"  />
+        </form>
+    </div>
+</div>
+<?php
+
+//accesam baza de date
+    $c_db = mysqli_connect('localhost', 'root', '', 'cofetarie');
+
+
+// verificare conexiune
+    if(mysqli_connect_errno()){
+        echo 'NU s-a conectat la baza de date';
+        exit;
+    } else {
+        echo 'conexiune cu succes';
+
+    
+        // INSERAM PRODUSE - INSERT
+        if(isset($_POST['adauga'])){
+            $produs  = $_POST['nume'];
+            $cat  = $_POST['categorie'];
+            $pret  = $_POST['pret'];
+            $data  = $_POST['data'];
+
+            mysqli_query($c_db, "INSERT INTO produse (nume_produs, pret, id_categorii, data_expirare) VALUES ('$produs', '$pret', '$cat','$data' )");
+        }
+        // end INSERARE PRODUSE -INSERT
+
+
+        // STERGERE PRODUSE - DELETE
+        if (isset($_POST['sterge'])){
+            $id_produs = $_POST['id'];
+            mysqli_query($c_db,"DELETE FROM produse WHERE id='$id_produs'");
+        }
+        // end STERGERE PRODUSE - DELETE
+
+
+        // ACTUALIZARE PRODUSE -  UPDATE
+        if (isset($_POST['modifica'])){
+            $id_produs = $_POST['id_produs'];
+            $produs  = $_POST['nume'];
+            $cat  = $_POST['categorie'];
+            $pret  = $_POST['pret'];
+            $data  = $_POST['data'];
+
+            mysqli_query($c_db, "UPDATE produse SET nume_produs='$produs', id_categorii='$cat', pret='$pret', data_expirare='$data' WHERE id='$id_produs' ");
+        }
+        // end ACTUALIZARE PRODUSE -  UPDATE
+
+        // AFISAM PRODUSE - SELECT
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM produse");
+        
+
+        echo '<table border="1" cellpadding="10">';
+        echo '<tr style="background: #ddd">';
+        echo '<th> ID </th>';
+        echo '<th>Nume Produs</th>';
+        echo '<th>Categorie</th>';
+        echo '<th>Pret</th>';
+        echo '<th>Expira</th>';
+        echo '<th>DELETE</th>';
+        echo '</tr>';
+
+      
+        while($rez =  mysqli_fetch_assoc($selectie_db)){
+            echo '<tr>';
+            echo '<td>'.  $rez['id'] . '</td>';
+            echo '<td>'.  $rez['nume_produs'] . '</td>';
+            echo '<td>'.  $rez['id_categorii'] . '</td>';
+            echo '<td>' . $rez['pret'] . '</td>';
+            echo '<td>'.  $rez['data_expirare'] . '</td>';
+            echo '<td>'; ?>
+                <form action="" method="post">
+                    <input type="hidden" name="id" value="<?php echo $rez['id'] ?>"/>
+                    <input type="submit" name="sterge" value="delete" />
+                </form>
+            <?php 
+            echo '</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+
+        // end AFISARE PRODUSE - SELECT
+
+
+    }
+?>
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////alin curs8 cofetarie8 select10Course.php
+
+
+<?php
+
+
+//exercitiu 
+//conectativa la baza de date
+//afisati numele si preturile produselor pt produsele de peste 20 lei
+
+
+//accesam baza de date
+    $c_db = mysqli_connect('localhost', 'root', '', 'cofetarie');
+
+    //verificam daca s-a realizat conexiunea cu baza de date
+    if(mysqli_connect_errno()){
+        // daca nu - mesaj de eroare + exit (terminarea programului, nu se mai executa)
+        echo 'NU s-a conectat la baza de date';
+        exit;
+    } else {
+        echo 'conexiune cu succes';
+
+        // daca da - realizam un query SELECT pe baza de date
+        $selectie_db = mysqli_query($c_db, "SELECT nume_produs , pret  FROM produse WHERE pret >= 20 ");
+        
+
+        echo '<table border="1" cellpadding="10">';
+        echo '<tr style="background: #ddd">';
+        // echo '<th> ID </th>';
+        echo '<th>Nume Produs</th>';
+        // echo '<th>Categorie</th>';
+        echo '<th>Pret</th>';
+        // echo '<th>Expira</th>';
+        echo '</tr>';
+
+        // prelucram raspunsul creand cate un array pentru fiecare rand returnat in urma query-ului
+        //  mysqli_fetch_assoc() -> creeaza un array asociativ pentru fiecare rand unde cheia este numele coloanei iar valoarea este exact valoarea din dreptului acelei coloane
+        // mysqli_fetch_assoc()  -> va returna false atunci cand nu mai sunt rezultate (daca sunt 0 rezultate sau dupa ultimul rand returnat)
+        // while se declanseaza in continuu atat timp cat declaratia dintre () este true - daca este false, se opreste
+        // $rez este variabila array pentru fiecare rand si este inventata de noi
+        while($rez =  mysqli_fetch_assoc($selectie_db)){
+            echo '<tr>';
+            // echo '<td>'.  $rez['id'] . '</td>';
+            echo '<td>'.  $rez['nume_produs'] . '</td>';
+            // echo '<td>'.  $rez['id_categorii'] . '</td>';
+            echo '<td>' . $rez['pret'] . '</td>';
+            // echo '<td>'.  $rez['data_expirare'] . '</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+    }
+?>
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////alin curs8 cofetarie8 select100Course.php
+
+<?php
+
+
+//exercitiu 
+//conectativa la baza de date
+//ordonare dupa pret >= 20 descrescator
+
+
+//accesam baza de date
+    $c_db = mysqli_connect('localhost', 'root', '', 'cofetarie');
+
+    //verificam daca s-a realizat conexiunea cu baza de date
+    if(mysqli_connect_errno()){
+        // daca nu - mesaj de eroare + exit (terminarea programului, nu se mai executa)
+        echo 'NU s-a conectat la baza de date';
+        exit;
+    } else {
+        echo 'conexiune cu succes';
+
+        // daca da - realizam un query SELECT pe baza de date
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM produse WHERE pret>= 20 ORDER BY pret DESC");
+        
+
+        echo '<table border="1" cellpadding="10">';
+        echo '<tr style="background: #ddd">';
+        echo '<th> ID </th>';
+        echo '<th>Nume Produs</th>';
+        echo '<th>Categorie</th>';
+        echo '<th>Pret</th>';
+        echo '<th>Expira</th>';
+        echo '</tr>';
+
+        // prelucram raspunsul creand cate un array pentru fiecare rand returnat in urma query-ului
+        //  mysqli_fetch_assoc() -> creeaza un array asociativ pentru fiecare rand unde cheia este numele coloanei iar valoarea este exact valoarea din dreptului acelei coloane
+        // mysqli_fetch_assoc()  -> va returna false atunci cand nu mai sunt rezultate (daca sunt 0 rezultate sau dupa ultimul rand returnat)
+        // while se declanseaza in continuu atat timp cat declaratia dintre () este true - daca este false, se opreste
+        // $rez este variabila array pentru fiecare rand si este inventata de noi
+        while($rez =  mysqli_fetch_assoc($selectie_db)){
+            echo '<tr>';
+            echo '<td>'.  $rez['id'] . '</td>';
+            echo '<td>'.  $rez['nume_produs'] . '</td>';
+            echo '<td>'.  $rez['id_categorii'] . '</td>';
+            echo '<td>' . $rez['pret'] . '</td>';
+            echo '<td>'.  $rez['data_expirare'] . '</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+    }
+?>
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////alin curs8 cofetarie8 select1000Course.php
+
+
+<?php
+
+
+//exercitiu 
+//conectativa la baza de date
+//ordonare dupa pret descrescator
+
+
+//accesam baza de date
+    $c_db = mysqli_connect('localhost', 'root', '', 'cofetarie');
+
+    //verificam daca s-a realizat conexiunea cu baza de date
+    if(mysqli_connect_errno()){
+        // daca nu - mesaj de eroare + exit (terminarea programului, nu se mai executa)
+        echo 'NU s-a conectat la baza de date';
+        exit;
+    } else {
+        echo 'conexiune cu succes';
+
+        //log in cu select
+        // daca da - realizam un query SELECT pe baza de date
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM produse ORDER BY pret DESC");
+        
+
+        echo '<table border="1" cellpadding="10">';
+        echo '<tr style="background: #ddd">';
+        echo '<th> ID </th>';
+        echo '<th>Nume Produs</th>';
+        echo '<th>Categorie</th>';
+        echo '<th>Pret</th>';
+        echo '<th>Expira</th>';
+        echo '</tr>';
+
+        // prelucram raspunsul creand cate un array pentru fiecare rand returnat in urma query-ului
+        //  mysqli_fetch_assoc() -> creeaza un array asociativ pentru fiecare rand unde cheia este numele coloanei iar valoarea este exact valoarea din dreptului acelei coloane
+        // mysqli_fetch_assoc()  -> va returna false atunci cand nu mai sunt rezultate (daca sunt 0 rezultate sau dupa ultimul rand returnat)
+        // while se declanseaza in continuu atat timp cat declaratia dintre () este true - daca este false, se opreste
+        // $rez este variabila array pentru fiecare rand si este inventata de noi
+        while($rez =  mysqli_fetch_assoc($selectie_db)){
+            echo '<tr>';
+            echo '<td>'.  $rez['id'] . '</td>';
+            echo '<td>'.  $rez['nume_produs'] . '</td>';
+            echo '<td>'.  $rez['id_categorii'] . '</td>';
+            echo '<td>' . $rez['pret'] . '</td>';
+            echo '<td>'.  $rez['data_expirare'] . '</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+    }
+?>
+
+

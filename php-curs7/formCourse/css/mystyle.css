@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+  }
+  
+  html {
+    font-family: 'Nunito', sans-serif;
+  }
+
+
+  /*---------------------------------------------------------------------------------------------*/
+
+  .common_title{
+    color:DarkGoldenRod ;
+    text-align:center ;
+    margin:1.5em 0;
+  }
+
+  .section_common{
+    margin:1.5em 0;
+    padding: 1.5em 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  @media only screen and (max-width: 960px) {
+    .section_common{
+      margin:1.5em 1em;
+    }
+  }
+
+
+#section_one{
+  background-color: bisque;
+}
+
+
+  .termsConditionsLink{
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-size: 1.5rem;
+  }
+
+  /* .section_common label{
+    border:1px solid yellow;
+  } */
+
+  /*----------------------------------------input-------------------------------------------*/
+
+  .section_common input{
+    border:1px solid indigo;
+    margin-bottom: 1.5em;
+    border-radius: 5px;
+  }
+
+ 
+  
+
+  @media only screen and (max-width: 959px) {
+    .section_common input{
+      font-size: 16px;
+    }
+
+    .imgHome{
+      border:1px solid indigo;
+      margin-bottom: 1.5em;
+      border-radius: 5px;
+      border:1px solid gray ;
+       width:90%;
+    }
+
+  }
+
+  @media only screen and (min-width: 960px) {
+    .section_common input{
+      font-size: 1.5rem;
+    }
+
+    .imgHome{
+      border:1px solid indigo;
+      margin-bottom: 1.5em;
+      border-radius: 5px;
+      border:1px solid gray ;
+       width:50%;
+    }
+
+  }
+
+  .section_common input:focus{
+outline:0;
+  }
+
+ /*----------------------------------------input-------------------------------------------*/
+
+ /*----------------------------------------select---------textarea----------------------------------*/
+
+ @media only screen and (max-width: 959px) {
+  select , textarea{
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  select , textarea{
+    font-size: 1.3rem;
+  }
+}
+
+/*----------------------------------------select----------textarea---------------------------------*/
+
+
+
+  .submitTag{
+    background-color: chartreuse;
+    color:darkgreen;
+    padding: 0.5em;
+    cursor:pointer;
+  }
+
+  textarea{
+    width:100%;
+  }
+
+  /*----------php data from inputs------------------------------*/
+
+
+  .phpH3data{
+text-align: center;
+margin: 0.5em 0;
+color:olive;
+  }
+
+.phpH3dataNO{
+text-align: center;
+margin: 0.5em 0;
+color:tomato;
+  }
+
+
+  /*----------php data from inputs------------------------------*/
+
+  /*------------responsive------------------------------------------------*/
+
+  
+  /*-----------------------
+  https://www.w3schools.com/w3css/w3css_responsive.asp
+  ------------------------------------*/

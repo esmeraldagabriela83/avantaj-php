@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>index.html</title>
+
+
+      <!--ion icons-->
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      <!--ion icons-->
+
+    <!-- google fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+
+    <!-- google fonts -->
+
+
+
+     <!--font-awesome-->
+  <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--font-awesome-->
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+
+
+  <body>
+
+    <!-- https://getbootstrap.com/docs/5.2/components/scrollspy/#how-it-works -->
+
+    <nav id="navbar-example2" class="navbar bg-light px-3 mb-3">
+
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><strong>Tablet</strong><br><strong>Project</strong></a>
+        
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading1">Pills</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Sort</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="alphabetical.html">Alphabetical</a></li>
+              <li><a class="dropdown-item" href="byPrice.html">By price</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Info</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#scrollspyHeading3">Definition</a></li>
+              <li><a class="dropdown-item" href="#scrollspyHeading4">History</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#scrollspyHeading5">Classification</a></li>
+            </ul>
+          </li>
+
+        </ul>
+
+  
+
+      </div> 
+    </nav>
+
+      <a id="uppage" href="https://www.pexels.com/ro-ro/fotografie/abstract-imagini-abstracte-vitamine-farmacie-3683056/"  target="_blank">
+        <img src="./images/pills_index.jpg" class="img-fluid" alt="index_image_pills" id="img_index">
+      </a>
+
+   
+
+    
+      <div class="container">
+
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example p-3 rounded-2" tabindex="0">
+            
+            <h4 id="scrollspyHeading1">Pills</h4>
+
+            
+        
+          <!-- show all -->
+
+          <div id="pills_container"  style="
+                                            padding:0.5em ;
+                                            margin:0.5em ;      
+                                            /* background-color:MistyRose; */
+                                            display:flex ; align-items:center ; justify-content:center; flex-wrap:wrap"></div>
+          <button type="button" class="btn btn-primary mb-3 mt-3" id="showAllPillsBtn">Show all pills</button>
+          <hr>
+          <!-- show endocrine -->
+          <div id="pills_containerEndocrine"  style="
+                                                    padding:0.5em ;
+                                                    margin:0.5em ; 
+                                                    /* background-color:yellow; */
+                                                    display:flex ; align-items:center ; justify-content:center; flex-wrap:wrap"></div>
+          <button type="button" class="btn btn-secondary mb-3 mt-3"  id="endocrineProblemsBtn">Find pills for endocrine problems </button>
+          <hr>
+          <!-- show skin -->
+          <div id="pills_containerSkin"  style="
+                                                padding:0.5em ;
+                                                margin:0.5em ; 
+                                                /* background-color:gray; */
+                                                display:flex ; align-items:center ; justify-content:center; flex-wrap:wrap"></div>
+
+          <button type="button" class="btn btn-secondary mb-3 mt-3"  id="skinProblemsBtn">Find pills for skin problems</button>
+          <hr>
+          <!-- show infection -->
+          <div id="pills_containerInfection"  style="
+                                                padding:0.5em ;
+                                                margin:0.5em ; 
+                                                /* background-color:cyan; */
+                                                display:flex ; align-items:center ; justify-content:center; flex-wrap:wrap"></div>
+          <button type="button" class="btn btn-secondary mb-3 mt-3"  id="infectionProblemsBtn">Find pills for infections problems</button>
+          <hr>
+          <!-- stock -->
+          <!-- <button  type="button" class="btn btn-success mb-3 mt-3" id="yesStockBtn">In stock</button>
+          <button  type="button" class="btn btn-danger mb-3 mt-3" id="noStockBtn">No stock</button> -->
+
+          <!-- yes stock -->
+          <!-- https://getbootstrap.com/docs/5.2/components/collapse/ -->
+          <p>
+            <button class="btn btn-success mb-3 mt-3" id="yesStockBtn" 
+                    type="button" 
+                    data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+              In stock
+            </button>
+          </p>
+          <div>
+            <div class="collapse collapse-horizontal" id="collapseWidthExample">
+              <div class="card-body inStockDivContent" style="display:flex ; align-items:center ; justify-content:center; flex-wrap:wrap"></div>
+            </div>
+          </div>
+          <hr>
+          <!-- no stock -->
+          <p>
+            <button class="btn btn-danger mb-3 mt-3" id="noStockBtn" 
+                    type="button" 
+                    data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+              Not in stock
+            </button>
+          </p>
+          <div>
+            <div class="collapse collapse-horizontal" id="collapseWidthExample">
+              <div class="card-body noStockDivContent" style="display:flex ; align-items:center ; justify-content:center; flex-wrap:wrap"></div>
+            </div>
+          </div>
+          <hr>
+
+
+          
+            <h4 id="scrollspyHeading3">Definition</h4>
+            <p>
+              A medication (also called medicament, medicine, pharmaceutical drug, medicinal drug or simply drug) is a drug used to diagnose, cure, treat, or prevent disease.[1][2]<br>
+               Drug therapy (pharmacotherapy) is an important part of the medical field and relies on the science of pharmacology for continual advancement and on pharmacy for appropriate management.<br>
+
+              Drugs are classified in multiple ways. One of the key divisions is by level of control, which distinguishes prescription drugs (those that a pharmacist dispenses only on the order of a physician, physician assistant, or qualified nurse) from over-the-counter drugs (those that consumers can order for themselves). Another key distinction is between traditional small molecule drugs, usually derived from chemical synthesis, and biopharmaceuticals, which include recombinant proteins, vaccines, blood products used therapeutically (such as IVIG), gene therapy, monoclonal antibodies and cell therapy (for instance, stem cell therapies). Other ways to classify medicines are by mode of action, route of administration, biological system affected, or therapeutic effects. An elaborate and widely used classification system is the Anatomical Therapeutic Chemical Classification System. The World Health Organization keeps a list of essential medicines.
+              
+              Drug discovery and drug development are complex and expensive endeavors undertaken by pharmaceutical companies, academic scientists, and governments. As a result of this complex path from discovery to commercialization, partnering has become a standard practice for advancing drug candidates through development pipelines. Governments generally regulate what drugs can be marketed, how drugs are marketed, and in some jurisdictions, drug pricing. Controversies have arisen over drug pricing and disposal of used drugs.
+            </p>
+
+            <p>
+              <strong>Medication</strong> is a medicine or a chemical compound used to treat or cure illness. According to Encyclopædia Britannica, medication is "a substance used in treating a disease or relieving pain".[3]<br>
+
+              As defined by the National Cancer Institute, dosage forms of medication can include tablets, capsules, liquids, creams, and patches. Medications can be given in different ways, such as by mouth, by infusion into a vein, or by drops put into the ear or eye. A medication that does not contain an active ingredient and is used in research studies is called a placebo.[4]
+              <br>
+              In Europe, the term is "medicinal product", and it is defined by EU law as:
+              <br>
+              "Any substance or combination of substances presented as having properties for treating or preventing disease in human beings; or"
+              "Any substance or combination of substances which may be used in or administered to human beings either with a view to restoring, correcting or modifying physiological functions by exerting a pharmacological, immunological or metabolic action or to making a medical diagnosis."[5]: 36 
+              In the US, a "drug" is:
+              
+              A substance (other than food) intended to affect the structure or any function of the body.
+              A substance intended for use as a component of a medicine but not a device or a component, part, or accessory of a device.
+              A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease.
+              A substance recognized by an official pharmacopeia or formulary.
+              Biological products are included within this definition and are generally covered by the same laws and regulations, but differences exist regarding their manufacturing processes (chemical process versus biological process).[6]
+            </p>
+
+
+           
+            <!-- toasts -->
+            <button type="button" class="btn btn-primary my-3" id="liveToastBtn">Show insulin info</button><br>
+
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+              <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                  
+                  <strong class="me-auto">Insulin</strong>
+                  
+                  <!-- <small>11 mins ago</small> -->
+                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+
+                </div>
+                <div class="toast-body" style="height:auto">
+                  
+                  <p>
+                    Insulin from Latin insula, 'island' is a peptide hormone produced by beta cells of the pancreatic islets encoded in humans by the INS gene.
+                  </p>
+                  <!-- <img src="./images/insulin.jpg" class="rounded" alt="pill_img_toast" style="width:50%"> -->
+
+                </div>
+              </div>
+            </div>
+            <!-- toasts -->
+
+          <hr>
+            
+            <!-- toasts -->
+            <button type="button" class="btn btn-primary my-3" id="liveToastBtnAntibiotics">Show antibiotics info</button>
+
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+              <div id="liveToastAntibiotics" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                  
+                  <strong class="me-auto">Antibiotics</strong>
+                  
+                  <!-- <small>11 mins ago</small> -->
+                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+
+                </div>
+                <div class="toast-body" style="height:auto">
+                  
+                  <p>
+                    An antibiotic is a type of antimicrobial substance active against bacteria.
+                  </p>
+                  <!-- <img src="./images/insulin.jpg" class="rounded" alt="pill_img_toast" style="width:50%"> -->
+
+                </div>
+              </div>
+            </div>
+            <!-- toasts -->
+
+                   
+            <h4 id="scrollspyHeading4">History</h4>
+            <p>
+            <strong>Prescription drug history</strong><br>
+
+            Historians write in the context of their own time, and with due regard to the current dominant ideas of how to interpret the past, and sometimes write to provide lessons for their own society. In the words of Benedetto Croce, "All history is contemporary history". History is facilitated by the formation of a "true discourse of past" through the production of narrative and analysis of past events relating to the human race.[22] <br>
+            The modern discipline of history is dedicated to the institutional production of this discourse.
+           
+            </p>
+
+
+
+            <!-- collapse -->
+            <p>
+              <a class="btn btn-primary link_btn" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Antibiotics</a>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Lithium</button>
+              <button class="btn btn-primary" 
+                      type="button" 
+                      data-bs-toggle="collapse" 
+                      data-bs-target=".multi-collapse" 
+                      aria-expanded="false" 
+                      aria-controls="multiCollapseExample1 multiCollapseExample2">Antibiotics and Lithium</button>
+            </p>
+            <div class="row">
+              <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                  <div class="card card-body">
+                  Antibiotics first arrived on the medical scene in 1932 thanks to Gerhard Domagk;[29] and were coined the "wonder drugs". The introduction of the sulfa drugs led to the mortality rate from pneumonia in the U.S. to drop from 0.2% each year to 0.05% by 1939.[30] Antibiotics inhibit the growth or the metabolic activities of bacteria and other microorganisms by a chemical substance of microbial origin. Penicillin, introduced a few years later, provided a broader spectrum of activity compared to sulfa drugs and reduced side effects. Streptomycin, found in 1942, proved to be the first drug effective against the cause of tuberculosis and also came to be the best known of a long series of important antibiotics. A second generation of antibiotics was introduced in the 1940s: aureomycin and chloramphenicol. Aureomycin was the best known of the second generation.
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample2">
+                  <div class="card card-body">
+                  Lithium was discovered in the 19th century for nervous disorders and its possible mood-stabilizing or prophylactic effect; it was cheap and easily produced. As lithium fell out of favor in France, valpromide came into play. This antibiotic was the origin of the drug that eventually created the mood stabilizer category. Valpromide had distinct psychotrophic effects that were of benefit in both the treatment of acute manic states and in the maintenance treatment of manic depression illness. Psychotropics can either be sedative or stimulant; sedatives aim at damping down the extremes of behavior. Stimulants aim at restoring normality by increasing tone. Soon arose the notion of a tranquilizer which was quite different from any sedative or stimulant. The term tranquilizer took over the notions of sedatives and became the dominant term in the West through the 1980s. In Japan, during this time, the term tranquilizer produced the notion of a psyche-stabilizer and the term mood stabilizer vanished.[31]
+
+                    Premarin (conjugated estrogens, introduced in 1942) and Prempro (a combination estrogen-progestin pill, introduced in 1995) dominated the hormone replacement therapy (HRT) during the 1990s. HRT is not a life-saving drug, nor does it cure any disease. HRT has been prescribed to improve one's quality of life.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- collapse -->
+
+
+
+            <h4 id="scrollspyHeading5">Classification</h4>
+
+            <h5>For endocrine problems</h5>
+            <p>
+              Androgens, antiandrogens, estrogens, gonadotropin, corticosteroids, human growth hormone, insulin, antidiabetics (sulfonylureas, biguanides/metformin, thiazolidinediones, insulin), thyroid hormones, antithyroid drugs, calcitonin, diphosphonate, vasopressin analogues.
+            </p>
+
+            <h5>For the skin</h5>
+            <p>
+              Emollients, anti-pruritics, antifungals, antiseptics, scabicides, pediculicides, tar products, vitamin A derivatives, vitamin D analogues, keratolytics, abrasives, systemic antibiotics, topical antibiotics, hormones, desloughing agents, exudate absorbents, fibrinolytics, proteolytics, sunscreens, antiperspirants, corticosteroids, immune modulators.
+            </p>
+
+            <h5>For infections and infestations</h5>
+            <p>
+              Antibiotics, antifungals, antileprotics, antituberculous drugs, antimalarials, anthelmintics, amoebicides, antivirals, antiprotozoals, probiotics, prebiotics, antitoxins, and antivenoms.
+            </p>
+
+          </div>
+
+      </div>
+
+    <!-- https://getbootstrap.com/docs/5.2/components/scrollspy/#how-it-works -->
+
+    <div class="container">
+      <hr>
+    </div>
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="contact.php"  class="btn btn-primary"  role="button" id="contactLinkPage">
+        Contact
+      </a>
+    </div>
+
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="patient.php"  class="btn btn-primary"  role="button" id="patientLinkPage" style="margin:1.5em 0">
+        Patient 
+      </a>
+    </div>
+
+   
+   
+    <div class="container">
+      <hr>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div id="icons">
+          <div class="footerIcons"><a href="https://facebook.com/" target="_blank">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a></div>
+          <div class="footerIcons"><a href="https://instagram.com/" target="_blank">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a></div>
+          <div class="footerIcons"><a href="https://twitter.com/" target="_blank">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a></div>
+        </div>
+      </div>
+
+    <div class="container">
+      
+      <!-- https://getbootstrap.com/docs/5.2/components/collapse/ -->
+
+    <!-- collapse -->
+    <p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+        Toggle source links
+      </button>
+    </p>
+
+    <div style="min-height: auto">
+      <div class="collapse collapse-horizontal" id="collapseWidthExample">
+        <div class="card card-body" style="width: 70%">
+          <a  href="https://en.wikipedia.org/wiki/Medication" target="_blank">Medication</a><br>
+          <a  href="https://en.wikipedia.org/wiki/Medication" target="_blank">Definition</a><br>
+          <a  href="https://en.wikipedia.org/wiki/Medication#History" target="_blank">History</a><br>
+          <a  href="https://en.wikipedia.org/wiki/History" target="_blank">History</a><br>
+          <a  href="https://en.wikipedia.org/wiki/Medication#Classification" target="_blank">Classification</a><br>
+          <a  href="https://en.wikipedia.org/wiki/Insulin" target="_blank">Insulin</a><br>
+          <a  href="https://en.wikipedia.org/wiki/Antibiotic" target="_blank">Antibiotics</a>
+        </div>
+      </div>
+    </div>
+    <!-- collapse -->
+
+    </div>
+
+    <a href="#uppage" style=" position: fixed;
+                              bottom: 0;
+                              right: 0;
+                              width: auto">
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+        <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+      </svg>              
+    </a> 
+   
+     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="javascript/index.js"></script>
+    <script src="javascript/toast.js"></script>
+    <script src="javascript/toastAntibiotics.js"></script>
+
+ 
+
+  </body>
+</html>

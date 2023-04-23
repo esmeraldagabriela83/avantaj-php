@@ -53,9 +53,9 @@ if(isset($_POST['adauga'])){
 
 
     echo '<h3>produsul tau este:' . $produs . '</h3>';
-    echo '<h3>produsul tau este:' . $categorie . '</h3>';
-    echo '<h3>produsul tau este:' . $pret . '</h3>';
-    echo '<h3>produsul tau este:' . $date . '</h3>';
+    echo '<h3>categoria produsului introdus este:' . $categorie . '</h3>';
+    echo '<h3>pretul produsului tau este:' . $pret . '</h3>';
+    echo '<h3>data de expirare a produsului tau este:' . $date . '</h3>';
 }
 
 ?>

@@ -193,7 +193,7 @@ Add your recipe or file
 
 
 
-<div class="container" style="background-color:PowderBlue">
+<div class="container">
     <?php 
     
 
@@ -212,71 +212,110 @@ Add your recipe or file
 
         //---------------------------------------
 
-  // INSERAM datele din formular
+        // afisam datele din formular
 
-  echo '<h5>Form data:</h5>';
+        echo '<h5>Form data:</h5>';
 
+      
+        if(isset($_POST['bifa']) && isset($_POST['adauga'])){
 
-  if(isset($_POST['bifa']) && isset($_POST['adauga'])){
+          ///1afisare in pagina
 
-    ///afisare in pagina
+          echo '<div>
 
-    echo '<div class="container">
+          <h5>you clicked the submit btn:</h5>
+          <h5>Username is : ' . $_POST['nume'] . '.</h5>
+          <h5>Categorie is : ' . $_POST['categorie'] . '.</h5>
+          <h5>Email address is : ' . $_POST['email'] . '.</h5>
+          <h5>Phone: ' . $_POST['phone'] . '</h5>
+          <h5>Age: ' . $_POST['age'] . '</h5>
+          <h5>Birth day: ' . $_POST['data_nastere'] . '</h5>
+          <h5>Comment:  '. $_POST['patient_comment'] . '</h5>
+      <hr>
+          </div>';
 
-    <h5>you clicked the submit btn:</h5>
-    <h5>Username is : ' . $_POST['nume'] . '.</h5>
-    <h5>Categorie is : ' . $_POST['categorie'] . '.</h5>
-    <h5>Email address is : ' . $_POST['email'] . '.</h5>
-    <h5>Phone: ' . $_POST['phone'] . '</h5>
-    <h5>Age: ' . $_POST['age'] . '</h5>
-    <h5>Birth day: ' . $_POST['data_nastere'] . '</h5>
-    <h5 style="width:100%">Comment:  '. $_POST['patient_comment'] . '</h5>
+      //afisare in pagina imagine
+      $fisierul = $_FILES['fisier'];
+      //print_r($fisierul);
+      echo '<br>' ;
+      //name este cheie predefinita
 
-    </div>';
+      $nume_nou = 'uploads/' . microtime() . " - " . $fisierul['name'];
 
-    // echo '<h5>you clicked the submit btn:</h5>';
-    // echo '<h5>Username is : ' . $_POST['nume'] . '.</h5>' ;
-    // echo '<h5>Categorie is : ' . $_POST['categorie'] . '.</h5>' ;
-    // echo '<h5>Email address is : ' . $_POST['email'] . '.</h5>' ;
+      // incarcam fisierul din formular (temporar in browser)
+      // in locatia aleasa de catre noi (uploads/nume...) folder-ul uploads fiind creat manual
+      move_uploaded_file( $fisierul['tmp_name'], $nume_nou );
+      // echo 'calea fisierului:  uploads/' . $fisierul['name'];
 
-    // echo  '<h5>Phone: ' . $_POST['phone'] . '</h5>' ;
-    // echo  '<h5>Age: ' . $_POST['age'] . '</h5>' ;
-    // echo  '<h5>Birth day: ' . $_POST['data_nastere'] . '</h5>' ;
-    // echo  '<h5>Comment: ' . $_POST['patient_comment'] . '</h5>' ;
+      // echo '<p style="text-align:center ; padding:1em">' . $fisierul['type'] . '</p>';
 
-
-
-
-    $fisierul = $_FILES['fisier'];
-    //print_r($fisierul);
-    echo '<br>' ;
-//name este cheie predefinita
-
-$nume_nou = 'uploads/' . microtime() . " - " . $fisierul['name'];
-
-// incarcam fisierul din formular (temporar in browser)
-// in locatia aleasa de catre noi (uploads/nume...) folder-ul uploads fiind creat manual
-move_uploaded_file( $fisierul['tmp_name'], $nume_nou );
-// echo 'calea fisierului:  uploads/' . $fisierul['name'];
-
-// echo '<p style="text-align:center ; padding:1em">' . $fisierul['type'] . '</p>';
-
-if ($fisierul['type'] == 'image/jpeg' ||
-    $fisierul['type'] == 'image/jpg' ||
-    $fisierul['type'] == 'image/png'||
-    $fisierul['type'] == 'image/gif' ||
-    $fisierul['type'] == 'image/svg + xml'   ){
-      echo '<div style="display:flex ; align-items:center ; justify-content:center ; padding:1em">' ;
-        echo '<img src="' .$nume_nou . '" alt="my-photo2" style="height: 11em ; border-radius: 10px ; box-shadow: 1px 1px 1.5px 1.5px gray" />' ;
-      echo '</div>' ;
-}  else{
-    echo '<a href="' . $nume_nou . '" target="_blank">view FILE</a>';
-}
+      if ($fisierul['type'] == 'image/jpeg' ||
+      $fisierul['type'] == 'image/jpg' ||
+      $fisierul['type'] == 'image/png'||
+      $fisierul['type'] == 'image/gif' ||
+      $fisierul['type'] == 'image/svg + xml'   ){
+        echo '<div class="container">' ;
+          echo '<img src="' .$nume_nou . '" alt="my-photo2" 
+                    style="height: 11em ;
+                    margin-top:0.5em; margin-bottom:0.5em;
+                    border-radius: 10px ; 
+                    box-shadow: 1px 1px 1.5px 1.5px gray" />' ;
+        echo '</div>' ;
+      }  else{
+      echo '<a href="' . $nume_nou . '" target="_blank">view FILE</a>';
+      }
 
 
+      //afisare in pagina imagine
 
 
-///afisare in pag
+      ///1afisare in pag
+
+      //2sent email when submit button
+      $headers = 'From: tablet_php@mihaelagabriela.ro' . "\r\n" .
+      // 'Reply-To: '. $_POST['email'] . "\r\n" .
+      'X-Mailer: PHP/' . phpversion();
+
+
+      mail('esmeraldagabriela83@yahoo.com' ,
+      'Mail de pe patient_php/patient.php' ,
+      'Name of patient is: ' . $_POST['nume'] .
+      ' Category of patient:  ' . $_POST['categorie'] .
+      ' Email of patient:  ' . $_POST['email'] .
+      ' Phone of patient:  ' . $_POST['phone'] .
+      ' Age :  ' . $_POST['age'] .
+      ' Data nasterii:  ' . $_POST['data_nastere'] .
+      ' Comment :  ' . $_POST['patient_comment'] );
+
+      //2sent email when submit button   
+
+
+
+       // INSERAM PRODUSE - INSERT
+        //definire variabile pt informatiile din tabel, pt a putea fi inserate cu mysqli_query()
+
+        $name = $_POST['nume'];
+        $select_patient = $_POST['categorie'];
+        $email = $_POST['email'];
+        $tel = $_POST['phone'];
+        $age = $_POST['age'];
+        
+        $birth_date = $_POST['data_nastere'];
+        $comment = $_POST['patient_comment'];
+
+    
+        $image = $nume_nou;
+
+        
+        // INSERAM PRODUSE - INSERT
+        //register cu INSERT
+        // pasul 4.2 - inseram variabilele cu informatii din formular in baza de date
+
+        mysqli_query($c_db, "INSERT INTO patienttable (name, select_patient, email, tel, age, birth_date , comment, image) 
+                                        VALUES ('$name', '$select_patient', '$email' , '$tel' , '$age','$birth_date' , '$comment' , '$image' )");
+
+        // end INSERARE PRODUSE -INSERT
+
   }
    
         //---------------------------------------
@@ -288,17 +327,32 @@ if ($fisierul['type'] == 'image/jpeg' ||
     ?>
 </div>
 
+<div class="container">
+<hr>
+</div>
+
 <!-- https://github.com/esmeraldagabriela83/php2-pizza/blob/main/php-form-pizza/contact.php -->
 <!-- https://mihaelagabriela.ro/pizza-php/contact.php -->
 
 <!-- https://mihaelagabriela.ro/magazinMixt/magazin.php -->
 <!-- https://github.com/esmeraldagabriela83/avantaj-php/blob/main/magazinMixt/magazin.php -->
 
-<div class="container">
-      <hr>
+
+
+
+
+
+  <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="allPatients.php"  class="btn btn-primary"  role="button" id="allPatientaLinkPage">
+        All patients
+      </a>
     </div>
 
-
+<div class="container">
+  <hr>
+</div>
 
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->

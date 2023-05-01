@@ -105,7 +105,7 @@ if(isset($_POST['nume'])){echo $_POST['nume'];}
 <!----------------->
 
 
-          <label for="username">Email</label><br>
+          <label for="email">Email</label><br>
           <input type="email" name="email" class="form-control" id="email" value="
 <?php
 //ca sa ramana bifat de catre user
@@ -291,7 +291,7 @@ Add your recipe or file
 
 
 
-       // INSERAM PRODUSE - INSERT
+       // INSERAM patients - INSERT
         //definire variabile pt informatiile din tabel, pt a putea fi inserate cu mysqli_query()
 
         $name = $_POST['nume'];
@@ -307,14 +307,14 @@ Add your recipe or file
         $image = $nume_nou;
 
         
-        // INSERAM PRODUSE - INSERT
+        // INSERAM patients - INSERT
         //register cu INSERT
         // pasul 4.2 - inseram variabilele cu informatii din formular in baza de date
 
         mysqli_query($c_db, "INSERT INTO patienttable (name, select_patient, email, tel, age, birth_date , comment, image) 
                                         VALUES ('$name', '$select_patient', '$email' , '$tel' , '$age','$birth_date' , '$comment' , '$image' )");
 
-        // end INSERARE PRODUSE -INSERT
+        // end INSERARE patients -INSERT
 
   }
    

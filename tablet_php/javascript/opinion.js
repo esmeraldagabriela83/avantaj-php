@@ -40,20 +40,45 @@ this.style.backgroundSize="cover";
 });
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const nameUser=document.getElementById("nameUser");
+console.log("nameUser is:" , nameUser);
+///
+
+const emailUser=document.getElementById("emailUser");
+console.log("emailUser is:" , emailUser);
+///
+
+const phoneUser=document.getElementById("phoneUser");
+console.log("phoneUser" , phoneUser);
+///
+
+const messageUser=document.getElementById("messageUser");
+console.log("messageUser" , messageUser);
+///
+
+
+const submit=document.getElementById("submit");
+console.log("submit" , submit);
+///
+
+const sentFormOpinion=document.getElementById("sentFormOpinion");
+console.log("sentFormOpinion is : " ,sentFormOpinion );
+///
 
 
 
+submit.addEventListener("click" , function(event){
+    event.preventDefault();
 
+    console.log("nameUser value is : " , nameUser.value);
+    console.log("emailUser value is : " , emailUser.value);
+    console.log("phoneUser value is : " , phoneUser.value);
+    console.log("messageUser value is : " , messageUser.value);
 
+    sentFormOpinion.innerText="Sent form";
 
-
-
-
-
-
-
-
-
-
+});
 
 

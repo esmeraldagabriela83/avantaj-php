@@ -177,7 +177,7 @@ body { margin: 0; padding: 0; }
     
       <div class="container" style="margin-top:2em">
         
-<form action="contact.html" method="POST">
+<form action="contact.php" method="POST">
 
   <div style="display:flex; align-items:start; justify-content:center ; flex-direction:column">
 
@@ -227,7 +227,7 @@ if (isset($_POST['send_mail'])){
   'Reply-To: '. $_POST['email'] . "\r\n" .
   'X-Mailer: PHP/' . phpversion();
 
-  mail('esmeraldagabriela83@yahoo.com' , 'Mail de pe tablet_php site' , $_POST['name'] . 
+  mail('esmeraldagabriela83@yahoo.com' , 'Mail de pe tablet_php/contact site' , $_POST['name'] . 
                                          ' hello from user with email:  ' . $_POST['email'] . 
                                          ' hello from user with phone:  ' . $_POST['phone'] .
                                          ' message from user: ' . $_POST['message']);

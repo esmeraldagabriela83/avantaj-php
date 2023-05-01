@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>patient.php</title>
+    <title>allPatients.php</title>
 
 
       <!--ion icons-->
@@ -45,7 +45,7 @@
         
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <a class="nav-link" href="#scrollspyHeading1">Pills</a>
+            <a class="nav-link" href="index.html">Pills</a>
           </li>
 
           <li class="nav-item dropdown">
@@ -79,6 +79,7 @@
 
       <div class="container">
           <h1>Patients data</h1>
+          <hr>
       </div>
       
 
@@ -116,7 +117,7 @@
 
 
 
-   <div style="padding:1.5em 0 1.5em 0 ; margin:1.5em 0 ; text-align:center">
+   <div style="padding:1.5em 0 1.5em 0 ; margin:1em">
 
 
 <?php
@@ -128,7 +129,12 @@
 
 
  while($rez =  mysqli_fetch_assoc($selectie_db)){
-     echo '<ol class="container" style="border:1px solid green ; padding:1em 0 ; border-radius:10px ; background-color:floralwhite ; box-shadow:1px 1.5px 1.5px gray">';
+     echo '<ol class="container" 
+               style="border:1px solid gray ;
+                padding:1em;
+                border-radius:10px ;
+                background-color:floralwhite ;
+                box-shadow: 1px 1px 3px #888888">';
      echo '<li>id: '.  $rez['id'] . '</li>';
      echo '<li>name: '.  $rez['name'] . '</li>';
      echo '<li>select patient: '.  $rez['select_patient'] . '</li>';
@@ -141,16 +147,20 @@
      echo '<li>comment: '.  $rez['comment'] . '</li>';
      
      echo '<li>image: '.  $rez['image'] . '</li>';
-     echo '</ol>';
+   
 
-     echo '<div style="display:flex ; align-items:center ; justify-content:center ; padding:1em">' ;
+     echo '<li style="display:flex ; align-items:center ; justify-content:center">' ;
           $ext = explode('.', $rez['image']);
           $ext1 = count($ext)-1;
           if (strtolower( $ext[$ext1]) != 'jpg' && strtolower( $ext[$ext1]) != 'jpeg' && strtolower( $ext[$ext1])!= 'png' && strtolower( $ext[$ext1])!= 'gif' && strtolower( $ext[$ext1])!= 'svg')
                       echo '<a href="' . $rez['image'] . '" download>descarca</a>' ;
           else
-                      echo '<img src="' . $rez['image'] . '" alt="my-photo" style="height: 11em ; border-radius: 10px ; box-shadow: 1px 1px 1.5px 1.5px gray" />' ;
-     echo '</div>' ;
+          echo '<div style="margin-top:5em">';
+                      echo '<img src="' . $rez['image'] . '" alt="my-photo" style="height: 10em ; border-radius: 10px ; box-shadow: 1px 1px 3px #888888" />' ;
+          echo '</div>';
+                      echo '</li>' ;
+
+     echo '</ol>';
  }
 
 
@@ -175,7 +185,7 @@
    <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="patient.php"  class="btn btn-primary"  role="button" id="patienttLinkPage">
+      <a href="patient.php"  class="btn btn-primary link_btn"  role="button" id="patienttLinkPage">
         Patient
       </a>
     </div>
@@ -189,7 +199,7 @@
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="contact.php"  class="btn btn-primary"  role="button" id="contactLinkPage">
+      <a href="contact.php"  class="btn btn-primary link_btn"  role="button" id="contactLinkPage">
         Contact
       </a>
     </div>

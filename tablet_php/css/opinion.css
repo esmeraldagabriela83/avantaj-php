@@ -1,0 +1,45 @@
+form#opinion #inputsOpinion{
+    border:3px solid red;
+    
+    display:flex;
+    align-items:center;
+    justify-content:space-between ; 
+    /* flex-direction:column; */
+}
+
+form#opinion #inputsOpinion div.divInput{
+    margin:1em;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 419px) {
+    form#opinion #inputsOpinion div.divInput{
+        width:100%;
+        border:3px solid violet;
+    }
+}
+
+/*---------------------------------------------*/
+
+@media only screen and (min-width: 420px) and (max-width: 1023px) {
+    form#opinion #inputsOpinion div.divInput{
+        width:50%;
+        border:3px solid cornflowerblue;
+    }
+}
+
+/*---------------------------------------------*/
+
+@media only screen and (min-width: 1024px) {
+    form#opinion #inputsOpinion div.divInput{
+        width:30%;
+        border:3px solid darkcyan;
+    }
+}
+
+
+
+
+
+

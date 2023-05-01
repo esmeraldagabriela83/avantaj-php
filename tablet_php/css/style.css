@@ -86,9 +86,11 @@
 
 
   /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-nav , button , #contactLinkPage{
-    box-shadow: 1px 1px 3px #888888;
+nav , button {
+  box-shadow: 1px 1px 3px #888888; 
 }
+
+
 
 /*logo*/
 nav strong{
@@ -126,7 +128,7 @@ a.link_btn{
   box-shadow: 1px 1px 3px #888888;
 }
 
-/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------map--------------------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -165,6 +167,35 @@ box-shadow: 1px 1px 3px #888888;
  }
 
 
-/*-----------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------map-----------------------------------------------------------------------------------------------------------------------------*/
+
+
+/*---TERMS CONDITIONS---------------------------------------------------------*/
+#img_terms_cond{
+  /* border:3px solid red; */
+  margin-top: -30%;
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-image: url(../images/terms_cond_img.jpg);
+  background-position: center;
+  background-size: cover;
+  background-image: "https://images.unsplash.com/photo-1573883429746-084be9b5cfca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80";
+  }
+
+#img_terms_cond:hover{
+  /* border:3px solid green; */
+  background-image: url(../images/hover_terms_cond.jpg);
+  transition: width 5s;
+}
+/*---TERMS CONDITIONS---------------------------------------------------------*/
+
+
+
+
+
+
+
+
 
 

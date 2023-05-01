@@ -1,0 +1,72 @@
+
+/*------------------single list------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+
+#singleList li span, #singleList2 li span{
+font-size: 1.5rem;
+font-weight: bold;
+}
+
+#singleList li svg{
+    margin-top:-7px;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#singleList2 li{
+/* border:3px solid green; */
+position:relative;
+}
+
+/* before and before hover effect */
+
+ul#singleList2 li::before{
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    /* border:3px solid #6c757d; */
+
+
+    background-repeat: no-repeat;
+    background-image: url(../images/terms_cond_img.jpg);
+    background-position: center;
+    background-size: cover;
+
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px #888888;
+    left:-2em;
+    top:3px;
+    
+    position:absolute;
+  }
+
+  ul#singleList2 li:hover::before{
+    transition: 1s;
+    background-image: url(../images/hover_terms_cond.jpg);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

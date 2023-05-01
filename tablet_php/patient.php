@@ -45,7 +45,7 @@
         
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <a class="nav-link" href="#scrollspyHeading1">Pills</a>
+            <a class="nav-link" href="index.html">Pills</a>
           </li>
 
           <li class="nav-item dropdown">
@@ -183,8 +183,8 @@ Add your recipe or file
 <input type="submit"
        name="adauga" 
        value="Add patient"
-       class="btn btn-primary"
-       style="margin:0.5em 0" />
+       class="btn btn-success"
+       style="margin:0.5em 0;  box-shadow: 1px 1px 3px #888888;" />
 
 </form>
 <!-- form add patient -->
@@ -208,13 +208,13 @@ Add your recipe or file
         echo 'NU s-a conectat la baza de date';
         exit;
     } else {
-        echo '<h5>Successful connection</h5>' ;
+        //echo '<h5>Successful connection</h5>' ;
 
         //---------------------------------------
 
         // afisam datele din formular
 
-        echo '<h5>Form data:</h5>';
+        // echo '<h5>Form data:</h5>';
 
       
         if(isset($_POST['bifa']) && isset($_POST['adauga'])){
@@ -345,7 +345,7 @@ Add your recipe or file
   <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="allPatients.php"  class="btn btn-primary"  role="button" id="allPatientaLinkPage">
+      <a href="allPatients.php"  class="btn btn-primary link_btn"  role="button" id="allPatientaLinkPage">
         All patients
       </a>
     </div>
@@ -357,7 +357,7 @@ Add your recipe or file
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="contact.php"  class="btn btn-primary"  role="button" id="contactLinkPage">
+      <a href="contact.php"  class="btn btn-primary link_btn"  role="button" id="contactLinkPage">
         Contact
       </a>
     </div>

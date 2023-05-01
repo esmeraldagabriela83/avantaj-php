@@ -45,6 +45,9 @@ body { margin: 0; padding: 0; }
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet">
+
+
+
 </head>
 
 
@@ -99,12 +102,14 @@ body { margin: 0; padding: 0; }
         <img src="./images/carousel1.jpg" class="d-block w-100" alt="antibiotics_img_carousel" style="width:100%">
       </a>
       <div class="carousel-caption d-none d-md-block">
-          <h5 style="color:#0d6efd ; text-shadow: 1px 1px 3px #888888;">Antibiotics</h5>  
-        <p style="color:dimgray" class="btn btn-info">
-          An antibiotic is a type of antimicrobial substance active against bacteria. <br>
-          It is the most important type of antibacterial agent for fighting bacterial infections, and antibiotic medications are widely used in the treatment and prevention of such infections.<br>
-          They may either kill or inhibit the growth of bacteria. A limited number of antibiotics also possess antiprotozoal activity.
+          <h5 class="text-dark bg-body" style="padding:0.5em; border-radius:5px">Antibiotics</h5>  
+          <a href="https://en.wikipedia.org/wiki/Antibiotic" target="_blank">
+          <p style="color:dimgray" class="btn btn-info">
+        An antibiotic is a type of antimicrobial substance active against bacteria.
+        It is the most important type of antibacterial agent for fighting bacterial infections, and antibiotic medications are widely used in the treatment and prevention of such infections.[1][2] They may either kill or inhibit the growth of bacteria. A limited number of antibiotics also possess antiprotozoal activity.[3][4] Antibiotics are not effective against viruses such as the common cold or influenza;[5] drugs which inhibit growth of viruses are termed antiviral drugs or antivirals rather than antibiotics.
+        They are also not effective against fungi; drugs which inhibit growth of fungi are called antifungal drugs.
         </p>
+          </a>
       </div>
     </div>
     <div class="carousel-item">
@@ -112,11 +117,13 @@ body { margin: 0; padding: 0; }
         <img src="./images/carousel2.jpg" class="d-block w-100" alt="drugs_img_carousel" style="width:100%">
       </a>
       <div class="carousel-caption d-none d-md-block">
-        <h5 style="color:#0d6efd ; text-shadow: 1px 1px 3px #888888;">Drugs</h5>
+        <h5 class="text-dark bg-body" style="padding:0.5em; border-radius:5px">Drugs</h5>
+        <a href="https://en.wikipedia.org/wiki/Drug" target="_blank">
         <p style="color:dimgray" class="btn btn-info">
-          There are many hundreds of thousands of possible drugs.<br>
-          Any chemical substance with biological activity may be considered a drug. This list categorises drugs alphabetically and also by other categorisations.
+        A drug is any chemical substance that causes a change in an organism's physiology or psychology when consumed.
+        Drugs are typically distinguished from food and substances that provide nutritional support. Consumption of drugs can be via inhalation, injection, smoking, ingestion, absorption via a patch on the skin, suppository, or dissolution under the tongue.
         </p>
+        </a>
       </div>
     </div>
     <div class="carousel-item">
@@ -124,12 +131,14 @@ body { margin: 0; padding: 0; }
         <img src="./images/carousel3.jpg" class="d-block w-100" alt="insulin_img_carousel" style="width:100%">
       </a>
       <div class="carousel-caption d-none d-md-block">
-        <h5 style="color:#0d6efd ; text-shadow: 1px 1px 3px #888888;">Insulin</h5>
+        <h5 class="text-dark bg-body" style="padding:0.5em; border-radius:5px">Insulin</h5>
+        <a href="https://en.wikipedia.org/wiki/Insulin" target="_blank">
         <p style="color:dimgray" class="btn btn-info">
-          Insulina este un hormon, secretat de celulele beta ale pancreasului, ce participă la metabolismul glucidelor. <br>
-          Insulina este cel mai important hormon în metabolismul glucidelor. Insulina contribuie în primul rând la micșorarea concentrației glucozei în sânge.<br>
-          Aceasta mărește permeabilitatea membranei celulare pentru glucoză. Insulina are o acțiunea antagonistă glucagonului.
+         Insulin is a peptide hormone produced by beta cells of the pancreatic islets encoded in humans by the INS gene. 
+         It is considered to be the main anabolic hormone of the body. It regulates the metabolism of carbohydrates, fats and protein by promoting the absorption of glucose from the blood into liver, fat and skeletal muscle cells.[8] In these tissues the absorbed glucose is converted into either glycogen via glycogenesis or fats (triglycerides) via lipogenesis, or, in the case of the liver, into both.[8]
+         Glucose production and secretion by the liver is strongly inhibited by high concentrations of insulin in the blood.
         </p>
+        </a>
       </div>
     </div>
   </div>
@@ -151,6 +160,10 @@ body { margin: 0; padding: 0; }
   <div class="container">
     <h3 class="primary my-3">Find us on the map</h3>
 
+   
+      <hr>
+  
+
     <div id="makeMap">
       <div id='map'></div>
     </div>
@@ -160,31 +173,45 @@ body { margin: 0; padding: 0; }
 
 <!-- map -->
 
-    <div class="container">
-      <hr>
-    </div>
+  
     
-      <div class="container">
+      <div class="container" style="margin-top:2em">
         
 <form action="contact.html" method="POST">
 
-  <label for="name">Name</label><br>
-  <input type="text" name="name" class="form-control" id="name" required>
+  <div style="display:flex; align-items:start; justify-content:center ; flex-direction:column">
 
-  <label for="email">Email</label><br>
-  <input type="email" name="email" class="form-control" id="email"  required>
+      <div>
+      <label for="name">Name</label><br>
+        <input type="text" name="name" class="form-control" id="name" required style="width:50vw">
+      </div>
+        
+      <div>
+      <label for="email">Email</label><br>
+        <input type="email" name="email" class="form-control" id="email"  required style="width:50vw">
+      </div>
 
-  <label for="message">Message</label><br>
-  <textarea name="message" class="form-control" id="message"  required></textarea>
+      <div>
+      <label for="phone">Phone</label><br>
+        <input type="tel" name="phone" class="form-control" id="phone"  required style="width:50vw">
+      </div>
+
+      <div>
+      <label for="message">Message</label><br>
+        <textarea name="message" class="form-control" id="message"  required style="width:50vw"></textarea>
+      </div>
+
+  </div>
 
 
 
-  <button class="btn btn-primary"
+
+  <button class="btn btn-success"
           type="submit"
           name="send_mail"
           id="submit" 
           style="margin-top:3em ; margin-bottom:1.5em">
-  Submit Form
+  Submit Form Contact
   </button>
 
 </form>
@@ -202,13 +229,13 @@ if (isset($_POST['send_mail'])){
 
   mail('esmeraldagabriela83@yahoo.com' , 'Mail de pe tablet_php site' , $_POST['name'] . 
                                          ' hello from user with email:  ' . $_POST['email'] . 
+                                         ' hello from user with phone:  ' . $_POST['phone'] .
                                          ' message from user: ' . $_POST['message']);
 }
 
 ?>
 
 
-        <hr>
 
         <p id="sentForm"></p>
         
@@ -230,6 +257,36 @@ if (isset($_POST['send_mail'])){
     <div class="container">
       <hr>
     </div>
+
+
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="patient.php"  class="btn btn-primary link_btn "  role="button" id="patientLinkPage" style="margin:1.5em 0">
+        Patient 
+      </a>
+    </div>
+
+
+
+    
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="allPatients.php"  class="btn btn-primary link_btn"  role="button" id="patientLinkPage" style="margin:1.5em 0">
+      All  patients 
+      </a>
+    </div>
+
+   
+   
+    <div class="container">
+      <hr>
+    </div>
+
+
+
    
 
     <footer>
@@ -252,7 +309,8 @@ if (isset($_POST['send_mail'])){
       <!-- https://getbootstrap.com/docs/5.2/components/collapse/ -->
 
     <!-- collapse -->
-    <p>
+
+    <!-- <p>
       <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
         Toggle source links
       </button>
@@ -266,7 +324,8 @@ if (isset($_POST['send_mail'])){
           <a href="https://ro.wikipedia.org/wiki/Insulin%C4%83" target="_blank">Insulin</a>
         </div>
       </div>
-    </div>
+    </div> -->
+
     <!-- collapse -->
 
     </div>

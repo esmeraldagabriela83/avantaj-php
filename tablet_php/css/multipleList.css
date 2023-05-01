@@ -1,0 +1,36 @@
+/*------------------------------terms cond lists -----------------------------------------------------------------------------*/
+
+/*-------------------------------------------*/
+
+/* list three */
+
+ul.listThree li{
+    /* border:3px solid blueviolet; */
+    position:relative;
+  }
+  
+  
+  /* before and before hover effect */
+  ul.listThree li::before{
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px #888888;
+    left:-15px;
+    top:5px;
+    transition: 1s;
+    background-color: #6c757d;
+    position:absolute;
+  }
+  
+  ul.listThree li:hover::before{
+    background-color: #ffc107;
+  }
+  
+  
+  
+  /*------------------------------terms cond lists -----------------------------------------------------------------------------*/
+  
+  

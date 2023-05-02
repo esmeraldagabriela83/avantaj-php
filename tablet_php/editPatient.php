@@ -225,9 +225,9 @@ Edit your recipe or file
 
         //---------------------------------------
 
-        // afisam datele din formular
+       //-------------------------------------------------------//afisam datele din formular
 
-       echo '<h5>Form data EDIT:</h5>';
+       //echo '<h5>Form data EDIT:</h5>';
 
       // ACTUALIZARE PRODUSE -  UPDATE
         if(isset($_POST['bifa']) && isset($_POST['edit'])){
@@ -237,7 +237,7 @@ Edit your recipe or file
           echo '<div>
 
           <h5>you clicked the submit edit btn:</h5>
-          <h5>ID edited patient: ' . $_POST['id_produs'] . '.</h5>
+          <h5>ID edited patient: ' . $_POST['id_patient'] . '.</h5>
           <h5>Username2 is : ' . $_POST['nume2'] . '.</h5>
           <h5>Categorie2 is : ' . $_POST['categorie2'] . '.</h5>
           <h5>Email2 address is : ' . $_POST['email2'] . '.</h5>
@@ -248,7 +248,7 @@ Edit your recipe or file
       <hr>
           </div>';
 
-      //afisare in pagina imagine
+      //---------------------------------------------------------//afisare in pagina imagine
       $fisierul = $_FILES['fisier2'];
       //print_r($fisierul2);
       echo '<br>' ;
@@ -280,12 +280,12 @@ Edit your recipe or file
       }
 
 
-      //afisare in pagina imagine
+      //-----------------------------------------------------------//afisare in pagina imagine
 
 
       ///1afisare in pag
 
-      //2sent email when submit button
+      //---------------------------//2sent email when submit button
       $headers = 'From: tablet_php@mihaelagabriela.ro' . "\r\n" .
       // 'Reply-To: '. $_POST['email'] . "\r\n" .
       'X-Mailer: PHP/' . phpversion();
@@ -302,11 +302,13 @@ Edit your recipe or file
       ' Data2 nasterii:  ' . $_POST['data_nastere2'] .
       ' Comment2 :  ' . $_POST['patient_comment2'] );
 
-      //2sent email when submit button   
+     //-------------------------------//2sent email when submit button   
+  }
+   
+        //---------------------------------------
 
 
-
-       // UPDATE patients - INSERT
+// UPDATE patients - UPDATE
         //definire variabile pt informatiile din tabel, pt a putea fi inserate cu mysqli_query()
         $id_patient = $_POST['id_patient'];
 
@@ -329,20 +331,12 @@ Edit your recipe or file
                                                     email='$email',
                                                     tel='$tel',
                                                     age='$age',
-                                                    birth_date='$data',
+                                                    birth_date='$birth_date',
                                                     comment='$comment',
                                                     image='$image'  WHERE id='$id_patient' ");
 
-        
-        
-
-        
-
         // end UPDATE PATIENTS -UPDATE
 
-  }
-   
-        //---------------------------------------
 
            }
 

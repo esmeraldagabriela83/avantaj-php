@@ -339,6 +339,18 @@ Add your recipe or file
 
 
 
+<div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="editPatient.php"  class="btn btn-primary link_btn"  role="button" id="editPatientaLinkPage">
+        Edit patient
+      </a>
+    </div>
+
+<div class="container">
+  <hr>
+</div>
+
 
 
 

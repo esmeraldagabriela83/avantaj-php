@@ -104,6 +104,14 @@
          exit;
      } else {
          echo '<h5>Successful connection</h5>' ;
+
+  // STERGERE PRODUSE
+  if (isset($_POST['sterge'])){
+    $id_patient = $_POST['id'];
+    mysqli_query($c_db,"DELETE FROM patienttable WHERE id='$id_patient'");
+    }
+    // end STERGERE PRODUSE
+
      }
          //---------------------------------------
 
@@ -161,6 +169,26 @@
                       echo '</li>' ;
 
      echo '</ol>';
+
+
+// STERGERE PATIENT/PRODUS
+//<!-- delete products form -->
+
+  echo '<div class="container" style="display:flex; align-items:center; justify-content:start">'; ?>
+  <form action="allPatients.php" method="post">
+      <input type="hidden" name="id" value="<?php echo $rez['id'] ?>"/>
+      <input type="submit" name="sterge" value="delete" class="btn btn-danger m-3"/>
+  </form>
+  <?php 
+  echo '</div>';
+
+
+  echo '<div class="container">
+  <hr>
+ </div>';
+
+//<!-- delete products form -->
+//STERGERE PATIENT/PRODUS
  }
 
 
@@ -170,7 +198,6 @@
 
 
 ?>
-
 
   </div>
 

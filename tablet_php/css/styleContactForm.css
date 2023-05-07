@@ -1,0 +1,61 @@
+
+/*------mobile---------*/
+
+@media only screen and (max-width: 419px) {
+
+       form label input.form-control{
+        width:17em;
+        /* border:3px solid orange; */
+       }
+
+    form label input.form-control, form div textarea.form-control{
+        background-color: LightCyan;  
+    }
+
+}
+
+/*------tablet---------*/
+
+@media only screen and (min-width: 420px) and (max-width: 1023px) {
+
+    form label{
+        margin:0.3em;
+    }
+
+    form label input.form-control{
+        width:20em;
+        /* border:3px solid darkmagenta; */
+       }
+
+    form label input.form-control, form div textarea.form-control{
+        background-color: rgb(203, 254, 237) ;  
+    }
+
+}
+
+
+/*------screen---------*/
+
+@media only screen and (min-width: 1024px) {
+
+    form label{
+        margin:0.5em;
+    }
+
+    form div#inputsContact label input{
+        /* border:3px solid yellowgreen; */
+        width:35em;
+       }
+
+       /*----------------------------*/
+
+    form label input.form-control, form div textarea.form-control{
+        background-color: OldLace  ; 
+    }
+
+    form label input.form-control:focus, form div textarea.form-control:focus{
+        background-color: Moccasin  ;
+        color: #495057;
+    }
+
+}

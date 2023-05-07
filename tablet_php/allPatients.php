@@ -231,6 +231,16 @@
       </a>
     </div>
 
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="opinion.php"  class="btn btn-primary link_btn"  role="button" id="opinionLinkPage" style="margin-top:1.5em">
+        Opinion
+      </a>
+    </div>
+
+
     <div class="container">
       <hr>
     </div>

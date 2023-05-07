@@ -44,8 +44,10 @@ body { margin: 0; padding: 0; }
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
     <link href="css/style.css" rel="stylesheet">
 
+    <link href="css/styleContactForm.css" rel="stylesheet">
 
 
 </head>
@@ -175,34 +177,54 @@ body { margin: 0; padding: 0; }
 
   
     
-      <div class="container" style="margin-top:2em">
+<div class="container" style="margin-top:2em">
         
 <form action="contact.php" method="POST">
 
-  <div style="display:flex; align-items:start; justify-content:center ; flex-direction:column">
+  <div id="inputsContact">
 
-      <div>
-      <label for="name">Name</label><br>
-        <input type="text" name="name" class="form-control" id="name" required style="width:50vw">
-      </div>
+   
+      <label for="name">Name
+        <input type="text" name="name" class="form-control" id="name" required>
+      </label>
+
+      
+      <label for="age">Age
+        <input type="number" name="age" class="form-control" id="age" required>
+      </label>
         
-      <div>
-      <label for="email">Email</label><br>
-        <input type="email" name="email" class="form-control" id="email"  required style="width:50vw">
-      </div>
+      
+      <label for="email">Email
+        <input type="email" name="email" class="form-control" id="email"  required>
+      </label>
 
-      <div>
-      <label for="phone">Phone</label><br>
-        <input type="tel" name="phone" class="form-control" id="phone"  required style="width:50vw">
-      </div>
+      
+      <label for="phone">Phone
+        <input type="tel" name="phone" class="form-control" id="phone"  required>
+      </label>
 
-      <div>
-      <label for="message">Message</label><br>
-        <textarea name="message" class="form-control" id="message"  required style="width:50vw"></textarea>
-      </div>
+      
+      <label for="drName">Doctor
+        <input type="text" name="drName" class="form-control" id="drName"  required>
+      </label>
+
+      
+      <label for="disease">Disease
+        <input type="text" name="disease" class="form-control" id="disease"  required>
+      </label>
+
+      
+      <label for="medication">Medication
+        <input type="text" name="medication" class="form-control" id="medication"  required>
+      </label>
 
   </div>
 
+
+ <div>
+        <label for="message">Message</label><br>
+          <textarea name="message" class="form-control" id="message"  required></textarea><br>
+</div>      
 
 
 
@@ -227,9 +249,13 @@ if (isset($_POST['send_mail'])){
   'Reply-To: '. $_POST['email'] . "\r\n" .
   'X-Mailer: PHP/' . phpversion();
 
-  mail('esmeraldagabriela83@yahoo.com' , 'Mail de pe tablet_php/contact site' , $_POST['name'] . 
+  mail('esmeraldagabriela83@yahoo.com' , 'Mail de pe tablet_php/contact site' , $_POST['name'] .
+                                         ' hello from user with age:  ' . $_POST['age'] . 
                                          ' hello from user with email:  ' . $_POST['email'] . 
                                          ' hello from user with phone:  ' . $_POST['phone'] .
+                                         ' hello from user with name of doctor:  ' . $_POST['drName'] .
+                                         ' hello from user with disease:  ' . $_POST['disease'] .
+                                         ' hello from user with medication:  ' . $_POST['medication'] .
                                          ' message from user: ' . $_POST['message']);
 }
 
@@ -239,8 +265,7 @@ if (isset($_POST['send_mail'])){
 
         <p id="sentForm"></p>
         
-
-      </div>
+</div>
 
       <!-- 
 
@@ -337,6 +362,8 @@ if (isset($_POST['send_mail'])){
     <script src="javascript/map.js"></script>
 
     <script src="javascript/contact.js"></script>
+
+    <script src="javascript/contactMore.js"></script>
  
 
   </body>

@@ -360,12 +360,28 @@ Edit your recipe or file
     </div>
 
 
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="ascendPatients.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientLinkPage">
+     Ascend patients
+      </a>
+    </div>
+
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="descendPatients.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientLinkPage" style="margin:1.5em 0">
+     Descend patients
+      </a>
+    </div>
 
     
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="allPatients.php"  class="btn btn-primary link_btn"  role="button" id="patientLinkPage" style="margin:1.5em 0">
+      <a href="allPatients.php"  class="btn btn-primary link_btn"  role="button" id="patientLinkPage">
       All  patients 
       </a>
     </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>allPatients.php</title>
+    <title>descendPatients.php</title>
 
 
       <!--ion icons-->
@@ -73,12 +73,12 @@
       </div> 
     </nav>
 
-      <a id="uppageAllPatients"  href="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
-        <img src="./images/patientsImg.jpg" class="img-fluid" alt="patients_image" id="img_patients">
+      <a id="uppageDescend" href="https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
+        <img src="./images/descendPatients.jpg" class="img-fluid" alt="descend_patients_image" id="descend_img_patients">
       </a>
 
       <div class="container">
-          <h1>Patients data</h1>
+          <h1>Descend patients</h1>
           <hr>
       </div>
       
@@ -104,14 +104,6 @@
          exit;
      } else {
          echo '<h5>Successful connection</h5>' ;
-
-  // STERGERE PRODUSE
-  if (isset($_POST['sterge'])){
-    $id_patient = $_POST['id'];
-    mysqli_query($c_db,"DELETE FROM patienttable WHERE id='$id_patient'");
-    }
-    // end STERGERE PRODUSE
-
      }
          //---------------------------------------
 
@@ -121,10 +113,6 @@
 
   
 
-
-
-
-
    <div style="padding:1.5em 0 1.5em 0 ; margin:1em">
 
 
@@ -132,7 +120,7 @@
 
 //log in cu select
  // AFISAM din tabel datele introduse de user
- $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable");
+ $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable ORDER BY age DESC");
         
 
 
@@ -171,24 +159,6 @@
      echo '</ol>';
 
 
-// STERGERE PATIENT/PRODUS
-//<!-- delete products form -->
-
-  echo '<div class="container" style="display:flex; align-items:center; justify-content:start">'; ?>
-  <form action="allPatients.php" method="post">
-      <input type="hidden" name="id" value="<?php echo $rez['id'] ?>"/>
-      <input type="submit" name="sterge" value="Delete" class="btn btn-danger m-3"/>
-  </form>
-  <?php 
-  echo '</div>';
-
-
-  echo '<div class="container">
-  <hr>
- </div>';
-
-//<!-- delete products form -->
-//STERGERE PATIENT/PRODUS
  }
 
 
@@ -212,8 +182,16 @@
    <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="patient.php"  class="btn btn-primary link_btn"  role="button" id="patienttLinkPage">
+      <a href="patient.php"  class="btn btn-primary link_btn"  role="button" id="patientLinkPage">
         Patient
+      </a>
+    </div>
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="allPatients.php"  class="btn btn-primary link_btn"  role="button" id="allPatientsLinkPage" style="margin:1.5em 0">
+        All patients
       </a>
     </div>
 
@@ -221,28 +199,17 @@
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="editPatient.php"  class="btn btn-primary link_btn"  role="button" id="editPatientLinkPage" style="margin:1.5em 0">
+      <a href="editPatient.php"  class="btn btn-primary link_btn"  role="button" id="editPatientLinkPage">
         Edit patient
       </a>
     </div>
 
 
-
-    
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="ascendPatients.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientLinkPage">
-       Ascend patients
-      </a>
-    </div>
-
-
-    <div class="container">
-      <!-- <a href="contact.html">Contact</a><br> -->
-                
-      <a href="descendPatients.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientLinkPage" style="margin:1.5em 0">
-       Descend patients
+      <a href="ascendPatients.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientsLinkPage" style="margin:1.5em 0">
+        Ascend patients
       </a>
     </div>
 
@@ -290,8 +257,7 @@
         </div>
       </div>
 
-      
-      <a href="#uppageAscend" style=" position: fixed;
+    <a href="#uppageDescend" style=" position: fixed;
                               bottom: 0;
                               right: 0;
                               width: auto">
@@ -299,7 +265,6 @@
         <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
       </svg>              
     </a> 
-
    
      </footer>
 

@@ -292,7 +292,7 @@ Edit your recipe or file
 
 
       mail('esmeraldagabriela83@yahoo.com' ,
-      'Mail de pe editPatientt_php/editPatient.php' ,
+      'Mail de pe editPatient_php/editPatient.php' ,
       'ID of patient is: ' . $_POST['id_patient'] .
       'Name2 of patient is: ' . $_POST['nume2'] .
       ' Category2 of patient:  ' . $_POST['categorie2'] .
@@ -364,7 +364,7 @@ Edit your recipe or file
       <!-- <a href="contact.html">Contact</a><br> -->
                 
       <a href="ascendPatients.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientLinkPage">
-     Ascend patients
+     Ascend patients by age
       </a>
     </div>
 
@@ -373,7 +373,25 @@ Edit your recipe or file
       <!-- <a href="contact.html">Contact</a><br> -->
                 
       <a href="descendPatients.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientLinkPage" style="margin:1.5em 0">
-     Descend patients
+     Descend patients by age
+      </a>
+    </div>
+
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="ascendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientNameLinkPage">
+        Ascend patients by name
+      </a>
+    </div>
+
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="descendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientNameLinkPage" style="margin:1.5em 0">
+        Descend patients by name
       </a>
     </div>
 
@@ -381,7 +399,7 @@ Edit your recipe or file
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="allPatients.php"  class="btn btn-primary link_btn"  role="button" id="patientLinkPage">
+      <a href="allPatients.php"  class="btn btn-primary link_btn"  role="button" id="patientLinkPage" style="margin:1.5em 0">
       All  patients 
       </a>
     </div>

@@ -226,6 +226,10 @@
       </a>
     </div>
 
+    
+    <div class="container">
+        <hr>
+    </div>
 
 
     
@@ -233,7 +237,7 @@
       <!-- <a href="contact.html">Contact</a><br> -->
                 
       <a href="ascendPatients.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientLinkPage">
-       Ascend patients
+       Ascend patients by age
       </a>
     </div>
 
@@ -242,10 +246,42 @@
       <!-- <a href="contact.html">Contact</a><br> -->
                 
       <a href="descendPatients.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientLinkPage" style="margin:1.5em 0">
-       Descend patients
+       Descend patients by age
       </a>
     </div>
 
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="ascendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientNameLinkPage">
+        Ascend patients by name
+      </a>
+    </div>
+
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="descendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientNameLinkPage" style="margin:1.5em 0">
+        Descend patients by name
+      </a>
+    </div>
+
+
+
+
+    <div class="container">
+      <hr>
+    </div>
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="selectPatientsByAge.php"  class="btn btn-primary link_btn"  role="button" id="selectPatientsLinkPage" style="margin:1.5em 0">
+      Select patients by age
+      </a>
+    </div>
 
 
     <div class="container">

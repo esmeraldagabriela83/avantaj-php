@@ -78,7 +78,7 @@
       </a>
 
       <div class="container">
-          <h1>Descend patients</h1>
+          <h1>Descend patients by age</h1>
           <hr>
       </div>
       
@@ -209,10 +209,18 @@
       <!-- <a href="contact.html">Contact</a><br> -->
                 
       <a href="ascendPatients.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientsLinkPage" style="margin:1.5em 0">
-        Ascend patients
+        Ascend patients by age
       </a>
     </div>
 
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="ascendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientNameLinkPage">
+        Ascend patients by name
+      </a>
+    </div>
 
 
     <div class="container">

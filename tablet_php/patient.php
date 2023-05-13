@@ -347,25 +347,24 @@ Add your recipe or file
       </a>
     </div>
 
-<div class="container">
-  <hr>
-</div>
-
 
   <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="allPatients.php"  class="btn btn-primary link_btn"  role="button" id="allPatientaLinkPage">
+      <a href="allPatients.php"  class="btn btn-primary link_btn"  role="button" id="allPatientaLinkPage" style="margin-top:1.5em">
         All patients
       </a>
     </div>
 
+    <div class="container">
+     <hr>
+    </div>
 
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="ascendPatients.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientaLinkPage" style="margin:1.5em 0">
-        Ascend patients
+      <a href="ascendPatients.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientaLinkPage" style="margin-bottom:1.5em">
+        Ascend patients by age
       </a>
     </div>
 
@@ -375,7 +374,25 @@ Add your recipe or file
       <!-- <a href="contact.html">Contact</a><br> -->
                 
       <a href="descendPatients.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientaLinkPage">
-        Descend patients
+        Descend patients by age
+      </a>
+    </div>
+
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="ascendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientNameLinkPage" style="margin:1.5em 0">
+        Ascend patients by name
+      </a>
+    </div>
+
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="descendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientNameLinkPage">
+        Descend patients by name
       </a>
     </div>
 

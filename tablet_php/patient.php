@@ -141,6 +141,13 @@ if(isset($_POST['phone'])){echo $_POST['phone'] ; }
                 }
                 ?> "/><br/>
 <!----------------->   
+
+<!---------------------------------------------------->
+
+<!-- https://www.w3schools.com/tags/att_input_type_password.asp -->
+
+<!---------------------------------------------------->
+
     <label for="comment">Write your comment</label><br>
             <textarea id="comment" placeholder="Comment" name="patient_comment" class="form-control" style="width:100%" required >
     <?php

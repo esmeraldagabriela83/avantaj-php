@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>showPatientByID.php</title>
+    <title>showPatientByTel.php</title>
 
 
       <!--ion icons-->
@@ -73,33 +73,34 @@
       </div> 
     </nav>
 
-      <a id="uppageAscend" href="https://images.pexels.com/photos/4483327/pexels-photo-4483327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
-        <img src="./images/showPatient.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
+      <a id="uppageAscend" href="https://images.pexels.com/photos/10600743/pexels-photo-10600743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
+        <img src="./images/telPatient.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
       </a>
 
       <div class="container">
-          <h1>Show patient by ID</h1>
+          <h1>Show patient by tel</h1>
           <hr>
       </div>
       
 
 
 <div class="container">
-    <form id="formShowPatient" class="form" action="showPatient.php" method="POST">
+    <form id="formShowPatientTel" class="form" action="showPatientTel.php" method="POST">
 
-    <label for="patientID">Patient id</label><br>
-                <input type="text" name="patientIDUserWritten"  class="form-control"  id="patientID" value="<?php
-                if( isset($_POST['patientIDUserWritten']) ){
-                echo $_POST['patientIDUserWritten'] ;
-                }
-                ?>"/><br/>
+
+    <label for="user-phone" style="margin:1em 0">Write your phone number</label><br>
+
+<input type="tel" id="user-phone" name="phone" class="form-control"  size="30" maxlength="10" value="<?php
+//ca sa ramana bifat de catre user
+if(isset($_POST['phone'])){echo $_POST['phone'] ; }
+ ?>" required />
 
 
     <input class="btn btn-success" 
            type="submit"
-           name="showPatientID"
-           value="Show patient" 
-           style="margin-bottom:1.5em"/>
+           name="showPatientTel"
+           value="Show patient by tel" 
+           style="margin:1.5em"/>
 
         </form>
 </div>
@@ -124,19 +125,19 @@
 //---------------------------------------
 
 
-if(isset($_POST['showPatientID'])){
+if(isset($_POST['showPatientTel'])){
 
 
-    echo '<h3>You set patient ID</h3>' ;
 
-    echo '<h3>Your patient ID is : ' . $_POST['patientIDUserWritten'] . '</h3>';
 
-    $patientIDUserWritten=$_POST['patientIDUserWritten'];
+    echo '<h3>Your patient tel is : ' . $_POST['phone'] . '</h3>';
+
+    $phone=$_POST['phone'];
    
 
           //log in cu select
         // daca da - realizam un query SELECT pe baza de date
-        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable WHERE id = $patientIDUserWritten");
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable WHERE tel = $phone");
 
 
 

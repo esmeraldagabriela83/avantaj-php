@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>showPatientByID.php</title>
+    <title>orderSelect.php</title>
 
 
       <!--ion icons-->
@@ -73,35 +73,64 @@
       </div> 
     </nav>
 
-      <a id="uppageAscend" href="https://images.pexels.com/photos/4483327/pexels-photo-4483327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
-        <img src="./images/showPatient.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
+      <a id="uppageAscend" href="https://images.pexels.com/photos/3873176/pexels-photo-3873176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
+        <img src="./images/orderSelect.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
       </a>
 
       <div class="container">
-          <h1>Show patient by ID</h1>
+          <h1>Order by your selection</h1>
           <hr>
       </div>
       
 
 
 <div class="container">
-    <form id="formShowPatient" class="form" action="showPatient.php" method="POST">
+<form id="formOrderSelect" class="form" action="orderSelect.php" method="POST">
 
-    <label for="patientID">Patient id</label><br>
-                <input type="text" name="patientIDUserWritten"  class="form-control"  id="patientID" value="<?php
-                if( isset($_POST['patientIDUserWritten']) ){
-                echo $_POST['patientIDUserWritten'] ;
-                }
-                ?>"/><br/>
+<select name="orderPatient" class="form-control" >
+
+                  <option value="name ASC" <?php
+                      if(isset($_POST['orderPatient']) && $_POST['orderPatient'] == 'name ASC') {
+                          echo 'selected="selected"';
+                      }
+                  ?> >Ascend by name patient</option>
+
+                  <option value="name DESC" <?php
+                      if(isset($_POST['orderPatient']) && $_POST['orderPatient'] == 'name DESC') {
+                          echo 'selected="selected"';
+                      }
+                  ?> >Downward by name patient</option>
+
+                  <option value="age ASC" <?php
+                      if(isset($_POST['orderPatient']) && $_POST['orderPatient'] == 'age ASC') {
+                          echo 'selected="selected"';
+                      }
+                  ?> >Ascend by age</option>
+
+                  <option value="age DESC"<?php
+                      if(isset($_POST['orderPatient']) && $_POST['orderPatient'] == 'age DESC') {
+                          echo 'selected="selected"';
+                      }
+                  ?> >Downward by age</option>
+
+                  <option value="birth_date"<?php
+                      if(isset($_POST['orderPatient']) && $_POST['orderPatient'] == 'birth_date') {
+                          echo 'selected="selected"';
+                      }
+                  ?> >Birth date</option>
+
+              </select>
 
 
-    <input class="btn btn-success" 
-           type="submit"
-           name="showPatientID"
-           value="Show patient" 
-           style="margin-bottom:1.5em"/>
+              <input type="submit" 
+                     value="Order patients"
+                     name="showOrderPatient" 
+                     class="btn btn-success" 
+                     style="cursor: pointer; padding:0.5em ; margin:1.5em 0"/>
 
-        </form>
+
+
+</form>
 </div>
 
 
@@ -124,19 +153,21 @@
 //---------------------------------------
 
 
-if(isset($_POST['showPatientID'])){
+if(isset($_POST['showOrderPatient'])){
 
 
-    echo '<h3>You set patient ID</h3>' ;
+    echo '<h3>You made your choice</h3>' ;
 
-    echo '<h3>Your patient ID is : ' . $_POST['patientIDUserWritten'] . '</h3>';
+    echo '<h3>Your choice is ' . $_POST['orderPatient'] . '</h3>' ;
 
-    $patientIDUserWritten=$_POST['patientIDUserWritten'];
-   
+$mySelect=$_POST['orderPatient'];
+
+
+
 
           //log in cu select
         // daca da - realizam un query SELECT pe baza de date
-        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable WHERE id = $patientIDUserWritten");
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable ORDER BY $mySelect");
 
 
 

@@ -149,7 +149,16 @@ if(isset($_POST['phone2'])){echo $_POST['phone2'] ; }
                 echo $_POST['data_nastere2'] ;
                 }
                 ?> "/><br/>
-<!----------------->   
+<!----------------->  
+
+
+<!---------------------------------------------------->
+
+<!-- https://www.w3schools.com/tags/att_input_type_password.asp -->
+
+<!---------------------------------------------------->
+
+
     <label for="comment2">Write your comment</label><br>
             <textarea id="comment2" placeholder="Comment" name="patient_comment2" class="form-control" style="width:100%" required >
     <?php

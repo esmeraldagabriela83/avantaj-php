@@ -294,6 +294,14 @@ if (isset($_POST['send_mail'])){
     </div>
 
 
+    
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="editPatient.php"  class="btn btn-primary link_btn "  role="button" id="editPatientLinkPage" style="margin:1.5em 0">
+        Edit patient 
+      </a>
+    </div>
 
     
     <div class="container">

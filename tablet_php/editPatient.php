@@ -156,10 +156,24 @@ if(isset($_POST['phone2'])){echo $_POST['phone2'] ; }
 
 <!-- https://www.w3schools.com/tags/att_input_type_password.asp -->
 
+
+
+<label for="password1232">Password</label>
+          <input type="password"
+                 class="form-control" 
+                 id="password1232" 
+                 name="password2" value="
+          <?php
+          //ca sa ramana bifat de catre user
+          if(isset($_POST['password2'])){echo $_POST['password2'] ; }
+           ?>
+          " required />
+
+
 <!---------------------------------------------------->
 
 
-    <label for="comment2">Write your comment</label><br>
+    <label for="comment2" style="margin-top:1.5em">Write your comment</label><br>
             <textarea id="comment2" placeholder="Comment" name="patient_comment2" class="form-control" style="width:100%" required >
     <?php
     if (isset($_POST['patient_comment2'])){echo $_POST['patient_comment2'];}
@@ -253,6 +267,7 @@ Edit your recipe or file
           <h5>Phone2: ' . $_POST['phone2'] . '</h5>
           <h5>Age2: ' . $_POST['age2'] . '</h5>
           <h5>Birth day2: ' . $_POST['data_nastere2'] . '</h5>
+          <h5>Password2: ' . $_POST['password2'] . '</h5>
           <h5>Comment2:  '. $_POST['patient_comment2'] . '</h5>
       <hr>
           </div>';
@@ -309,6 +324,7 @@ Edit your recipe or file
       ' Phone2 of patient:  ' . $_POST['phone2'] .
       ' Age2 :  ' . $_POST['age2'] .
       ' Data2 nasterii:  ' . $_POST['data_nastere2'] .
+      ' Password2:  ' . $_POST['password2'] .
       ' Comment2 :  ' . $_POST['patient_comment2'] );
 
      //-------------------------------//2sent email when submit button   
@@ -328,6 +344,7 @@ Edit your recipe or file
         $age = $_POST['age2'];
         
         $birth_date = $_POST['data_nastere2'];
+        $password = $_POST['password2'];
         $comment = $_POST['patient_comment2'];
 
     
@@ -341,6 +358,7 @@ Edit your recipe or file
                                                     tel='$tel',
                                                     age='$age',
                                                     birth_date='$birth_date',
+                                                    password='$password',
                                                     comment='$comment',
                                                     image='$image'  WHERE id='$id_patient' ");
 

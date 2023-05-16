@@ -73,7 +73,7 @@
       </div> 
     </nav>
 
-      <a id="uppageAscend" href="https://images.pexels.com/photos/10600743/pexels-photo-10600743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
+      <a id="uppage" href="https://images.pexels.com/photos/10600743/pexels-photo-10600743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
         <img src="./images/telPatient.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
       </a>
 
@@ -334,7 +334,7 @@ echo '</ol>';
         </div>
       </div>
 
-    <a href="#uppageAscend" style=" position: fixed;
+    <a href="#uppage" style=" position: fixed;
                               bottom: 0;
                               right: 0;
                               width: auto">

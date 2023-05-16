@@ -146,9 +146,23 @@ if(isset($_POST['phone'])){echo $_POST['phone'] ; }
 
 <!-- https://www.w3schools.com/tags/att_input_type_password.asp -->
 
+
+
+          <label for="password123">Password</label>
+          <input type="password"
+                 class="form-control" 
+                 id="password123" 
+                 name="password" value="
+          <?php
+          //ca sa ramana bifat de catre user
+          if(isset($_POST['password'])){echo $_POST['password'] ; }
+           ?>
+          " required />
+
+
 <!---------------------------------------------------->
 
-    <label for="comment">Write your comment</label><br>
+    <label for="comment" style="margin-top:1.5em">Write your comment</label><br>
             <textarea id="comment" placeholder="Comment" name="patient_comment" class="form-control" style="width:100%" required >
     <?php
     if (isset($_POST['patient_comment'])){echo $_POST['patient_comment'];}
@@ -237,6 +251,7 @@ Add your recipe or file
           <h5>Phone: ' . $_POST['phone'] . '</h5>
           <h5>Age: ' . $_POST['age'] . '</h5>
           <h5>Birth day: ' . $_POST['data_nastere'] . '</h5>
+          <h5>Password: ' . $_POST['password'] . '</h5>
           <h5>Comment:  '. $_POST['patient_comment'] . '</h5>
       <hr>
           </div>';
@@ -292,6 +307,7 @@ Add your recipe or file
       ' Phone of patient:  ' . $_POST['phone'] .
       ' Age :  ' . $_POST['age'] .
       ' Data nasterii:  ' . $_POST['data_nastere'] .
+      ' Password:  ' . $_POST['password'] .
       ' Comment :  ' . $_POST['patient_comment'] );
 
       //2sent email when submit button   
@@ -308,6 +324,7 @@ Add your recipe or file
         $age = $_POST['age'];
         
         $birth_date = $_POST['data_nastere'];
+        $password = $_POST['password'];
         $comment = $_POST['patient_comment'];
 
     
@@ -318,8 +335,8 @@ Add your recipe or file
         //register cu INSERT
         // pasul 4.2 - inseram variabilele cu informatii din formular in baza de date
 
-        mysqli_query($c_db, "INSERT INTO patienttable (name, select_patient, email, tel, age, birth_date , comment, image) 
-                                        VALUES ('$name', '$select_patient', '$email' , '$tel' , '$age','$birth_date' , '$comment' , '$image' )");
+        mysqli_query($c_db, "INSERT INTO patienttable (name, select_patient, email, tel, age, birth_date , password , comment, image) 
+                                        VALUES ('$name', '$select_patient', '$email' , '$tel' , '$age','$birth_date' , '$password' , '$comment' , '$image' )");
 
         // end INSERARE patients -INSERT
 

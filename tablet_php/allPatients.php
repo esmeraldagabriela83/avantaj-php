@@ -153,6 +153,8 @@
      echo '<li>birth_date: ' . $rez['birth_date'] . '</li>';
 
      echo '<li>comment: '.  $rez['comment'] . '</li>';
+
+     echo '<li>password: '.  $rez['password'] . '</li>';
      
      echo '<li>image: '.  $rez['image'] . '</li>';
    
@@ -327,7 +329,7 @@
       </div>
 
       
-      <a href="#uppageAscend" style=" position: fixed;
+      <a href="#uppageAllPatients" style=" position: fixed;
                               bottom: 0;
                               right: 0;
                               width: auto">

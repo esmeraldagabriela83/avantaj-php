@@ -73,7 +73,7 @@
       </div> 
     </nav>
 
-      <a id="uppageAscendName" href="https://images.pexels.com/photos/4197564/pexels-photo-4197564.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
+      <a id="uppage" href="https://images.pexels.com/photos/4197564/pexels-photo-4197564.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
         <img src="./images/descendPatientName.jpg" class="img-fluid" alt="ascend_patients_image-name" id="ascend_img_patients-name">
       </a>
 
@@ -274,7 +274,7 @@
         </div>
       </div>
 
-    <a href="#uppageAscend" style=" position: fixed;
+    <a href="#uppage" style=" position: fixed;
                               bottom: 0;
                               right: 0;
                               width: auto">

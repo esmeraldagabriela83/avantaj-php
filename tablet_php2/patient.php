@@ -87,6 +87,7 @@
 
 
 <h1>Patient data</h1>
+<h3>This is a portfolio site.<br> Do not fill in your real data.</h3>
 
 <hr>
 
@@ -148,7 +149,7 @@ if(isset($_POST['phone'])){echo $_POST['phone'] ; }
 
 
 
-          <label for="password123">Password</label>
+          <label for="password123">Password number</label>
           <input type="password"
                  class="form-control" 
                  id="password123" 
@@ -220,9 +221,10 @@ Add your recipe or file
 
 
 //accesam baza de date
- $c_db = mysqli_connect('localhost', 'root', '', 'patientdb');
+ //$c_db = mysqli_connect('localhost', 'root', '', 'patientdb');
 // $c_db = mysqli_connect('localhost', 'tfaudmsg_magazinmixt_user', '^4EfxA9+)7as', 'tfaudmsg_magazinmixt');
 
+$c_db = mysqli_connect('localhost', 'tfaudmsg_tablet_user', 'Dvx&Z+^,mj0{', 'tfaudmsg_tablet');
 
 // verificare conexiune
     if(mysqli_connect_errno()){

@@ -80,7 +80,8 @@
 </div>
 
       <div class="container">
-        <h3 class="primary my-3">Edit patient</h3>
+        <h1 class="primary my-3">Edit patient</h1>
+        <h3>This is a portfolio site.<br> Do not fill in your real data.</h3>
           <hr>
       </div>
 
@@ -158,7 +159,7 @@ if(isset($_POST['phone2'])){echo $_POST['phone2'] ; }
 
 
 
-<label for="password1232">Password</label>
+<label for="password1232">Password number</label>
           <input type="password"
                  class="form-control" 
                  id="password1232" 
@@ -235,9 +236,10 @@ Edit your recipe or file
     <?php 
     
 //accesam baza de date
- $c_db = mysqli_connect('localhost', 'root', '', 'patientdb');
+ //$c_db = mysqli_connect('localhost', 'root', '', 'patientdb');
 // $c_db = mysqli_connect('localhost', 'tfaudmsg_magazinmixt_user', '^4EfxA9+)7as', 'tfaudmsg_magazinmixt');
 
+$c_db = mysqli_connect('localhost', 'tfaudmsg_tablet_user', 'Dvx&Z+^,mj0{', 'tfaudmsg_tablet');
 
 // verificare conexiune
     if(mysqli_connect_errno()){
@@ -426,7 +428,7 @@ Edit your recipe or file
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="allPatients.php"  class="btn btn-primary link_btn"  role="button" id="patientLinkPage" style="margin:1.5em 0">
+      <a href="allPatients.php"  class="btn btn-primary link_btn"  role="button" id="patientLinkPage">
       All  patients 
       </a>
     </div>

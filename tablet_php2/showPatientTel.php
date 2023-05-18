@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>old.php</title>
+    <title>showPatientByTel.php</title>
 
 
       <!--ion icons-->
@@ -73,23 +73,48 @@
       </div> 
     </nav>
 
-      <a id="uppage" href="https://images.pexels.com/photos/552774/pexels-photo-552774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
-        <img src="./images/old.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
+      <a id="uppage" href="https://images.pexels.com/photos/10600743/pexels-photo-10600743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
+        <img src="./images/telPatient.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
       </a>
 
       <div class="container">
-          <h1>Old</h1>
+          <h1>Show patient by tel</h1>
           <hr>
       </div>
+      
+
+
+<div class="container">
+    <form id="formShowPatientTel" class="form" action="showPatientTel.php" method="POST">
+
+
+    <label for="user-phone" style="margin:1em 0">Write your phone number</label><br>
+
+<input type="tel" id="user-phone" name="phone" class="form-control"  size="30" maxlength="10" value="<?php
+//ca sa ramana bifat de catre user
+if(isset($_POST['phone'])){echo $_POST['phone'] ; }
+ ?>" required />
+
+
+    <input class="btn btn-success" 
+           type="submit"
+           name="showPatientTel"
+           value="Show patient by tel" 
+           style="margin:1.5em"/>
+
+        </form>
+</div>
+
 
    <div class="container">
 
    <?php
 
    //accesam baza de date
- $c_db = mysqli_connect('localhost', 'root', '', 'patientdb');
+ //$c_db = mysqli_connect('localhost', 'root', '', 'patientdb');
  // $c_db = mysqli_connect('localhost', 'tfaudmsg_magazinmixt_user', '^4EfxA9+)7as', 'tfaudmsg_magazinmixt');
  
+ $c_db = mysqli_connect('localhost', 'tfaudmsg_tablet_user', 'Dvx&Z+^,mj0{', 'tfaudmsg_tablet');
  
  // verificare conexiune
      if(mysqli_connect_errno()){
@@ -100,9 +125,20 @@
 
 //---------------------------------------
 
+
+if(isset($_POST['showPatientTel'])){
+
+
+
+
+    echo '<h3>Your patient tel is : ' . $_POST['phone'] . '</h3>';
+
+    $phone=$_POST['phone'];
+   
+
           //log in cu select
         // daca da - realizam un query SELECT pe baza de date
-        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable WHERE select_patient=3");
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable WHERE tel = $phone");
 
 
 
@@ -154,8 +190,9 @@ echo '</ol>';
 
 }
 
+//---------------------------------------
 
-    
+     }
          
 
          ?>
@@ -231,15 +268,19 @@ echo '</ol>';
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="descendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientNameLinkPage" style="margin:1.5em 0">
+      <a href="descendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientNameLinkPage" style="margin-top:1.5em">
         Descend patients by name
       </a>
     </div>
 
     <div class="container">
+        <hr>
+    </div>
+    
+    <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="selectPatientsByAge.php"  class="btn btn-secondary link_btn"  role="button" id="selectPatientsByAgeLinkPage">
+      <a href="selectPatientsByAge.php"  class="btn btn-secondary link_btn"  role="button" id="selectPatientsByAgeLinkPage" style="margin-bottom:1.5em">
       Select patients by age
       </a>
     </div>
@@ -247,7 +288,7 @@ echo '</ol>';
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="selectPatientsAgeRange.php"  class="btn btn-secondary link_btn"  role="button" id="selectPatientsAgeRangeLinkPage" style="margin:1.5em 0">
+      <a href="selectPatientsAgeRange.php"  class="btn btn-secondary link_btn"  role="button" id="selectPatientsAgeRangeLinkPage">
       Select patients by age range
       </a>
     </div>

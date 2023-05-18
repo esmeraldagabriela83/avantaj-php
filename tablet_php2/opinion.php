@@ -122,27 +122,69 @@
         
       </form>
 
-
-
-      <?php
-
+<?php  
 // https://github.com/esmeraldagabriela83/avantaj-php/blob/main/php-curs7/form.php
-
-if (isset($_POST['send_mail'])){
- 
-  $headers = 'From: opinion@mihaelagabriela.ro' . "\r\n" .
-  'Reply-To: '. $_POST['emailUser'] . "\r\n" .
-  'X-Mailer: PHP/' . phpversion();
-
-  mail('esmeraldagabriela83@yahoo.com' , 'Mail de pe tablet_php/opinion site' , $_POST['nameUser'] . 
-                                         ' hello from user with email:  ' . $_POST['emailUser'] . 
-                                         ' hello from user with phone:  ' . $_POST['phoneUser'] .
-                                         ' message from user: ' . $_POST['messageUser']);
-}
-
 ?>
 
+    <!-- ------------------------- -->
 
+
+    <div class="container">
+    <?php 
+    
+
+
+//accesam baza de date
+ //$c_db = mysqli_connect('localhost', 'root', '', 'patientdb');
+// $c_db = mysqli_connect('localhost', 'tfaudmsg_magazinmixt_user', '^4EfxA9+)7as', 'tfaudmsg_magazinmixt');
+
+$c_db = mysqli_connect('localhost', 'tfaudmsg_tablet_user', 'Dvx&Z+^,mj0{', 'tfaudmsg_tablet');
+
+// verificare conexiune
+    if(mysqli_connect_errno()){
+        echo 'NU s-a conectat la baza de date';
+        exit;
+    } else {
+        echo '<h5>Successful connection</h5>' ;
+
+        //---------------------------------------
+
+        // afisam datele din formular
+
+        // echo '<h5>Form data:</h5>';
+
+      
+        if(isset($_POST['send_mail'])){
+
+        
+
+      //2sent email when submit button
+      $headers = 'From: tablet_php@mihaelagabriela.ro' . "\r\n" .
+      // 'Reply-To: '. $_POST['email'] . "\r\n" .
+      'X-Mailer: PHP/' . phpversion();
+
+
+      mail('esmeraldagabriela83@yahoo.com' ,
+      'Mail de pe opinion_php/patient.php' ,
+      'NameUser of patient is: ' . $_POST['nameUser'] .
+      ' emailUser :  ' . $_POST['emailUser'] .
+      ' PhoneUser of patient:  ' . $_POST['phoneUser'] .
+      ' MessageUser :  ' . $_POST['messageUser'] );
+
+      //2sent email when submit button   
+
+  }
+   
+        //---------------------------------------
+
+           }
+
+
+
+    ?>
+</div>
+
+    <!-- ------------------------- -->
 
       <p id="sentFormOpinion"></p>
 

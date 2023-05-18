@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>categoryPatient.php</title>
+    <title>adult.php</title>
 
 
       <!--ion icons-->
@@ -73,12 +73,12 @@
       </div> 
     </nav>
 
-      <a id="uppage" href="https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
-        <img src="./images/showCategory.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
+      <a id="uppageAscend" href="https://images.pexels.com/photos/4098375/pexels-photo-4098375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
+        <img src="./images/adult.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
       </a>
 
       <div class="container">
-          <h1>Categories</h1>
+          <h1>Adult</h1>
           <hr>
       </div>
 
@@ -87,9 +87,10 @@
    <?php
 
    //accesam baza de date
- $c_db = mysqli_connect('localhost', 'root', '', 'patientdb');
+ //$c_db = mysqli_connect('localhost', 'root', '', 'patientdb');
  // $c_db = mysqli_connect('localhost', 'tfaudmsg_magazinmixt_user', '^4EfxA9+)7as', 'tfaudmsg_magazinmixt');
  
+ $c_db = mysqli_connect('localhost', 'tfaudmsg_tablet_user', 'Dvx&Z+^,mj0{', 'tfaudmsg_tablet');
  
  // verificare conexiune
      if(mysqli_connect_errno()){
@@ -102,7 +103,7 @@
 
           //log in cu select
         // daca da - realizam un query SELECT pe baza de date
-        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable ORDER BY select_patient");
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable WHERE select_patient=2");
 
 
 
@@ -294,7 +295,7 @@ echo '</ol>';
         </div>
       </div>
 
-    <a href="#uppage" style=" position: fixed;
+    <a href="#uppageAscend" style=" position: fixed;
                               bottom: 0;
                               right: 0;
                               width: auto">

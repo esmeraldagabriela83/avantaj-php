@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>selectPatientPassword.php</title>
+    <title>young.php</title>
 
 
       <!--ion icons-->
@@ -73,47 +73,24 @@
       </div> 
     </nav>
 
-      <a id="uppage" href="https://images.pexels.com/photos/5829726/pexels-photo-5829726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
-        <img src="./images/password.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
+      <a id="uppage" href="https://images.pexels.com/photos/981619/pexels-photo-981619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
+        <img src="./images/young.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
       </a>
 
       <div class="container">
-          <h1>Find patient by password</h1>
+          <h1>Young</h1>
           <hr>
       </div>
-      
-
-
-<div class="container">
-    <form id="formShowSelectAge" class="form" action="showPatientPassword.php" method="POST">
-
-   
-    <label for="writePassword">Write password number</label><br>
-                <input type="password" name="userPassword"  class="form-control"  id="writePassword" value="<?php
-                if( isset($_POST['userPassword']) ){
-                echo $_POST['userPassword'] ;
-                }
-                ?>"/><br/>
-
-
-    <input class="btn btn-success" 
-           type="submit"
-           name="showPatientPassword"
-           value="Show patients with your written password" 
-           style="margin-bottom:1.5em"/>
-
-        </form>
-</div>
-
 
    <div class="container">
 
    <?php
 
    //accesam baza de date
- $c_db = mysqli_connect('localhost', 'root', '', 'patientdb');
+ //$c_db = mysqli_connect('localhost', 'root', '', 'patientdb');
  // $c_db = mysqli_connect('localhost', 'tfaudmsg_magazinmixt_user', '^4EfxA9+)7as', 'tfaudmsg_magazinmixt');
  
+ $c_db = mysqli_connect('localhost', 'tfaudmsg_tablet_user', 'Dvx&Z+^,mj0{', 'tfaudmsg_tablet');
  
  // verificare conexiune
      if(mysqli_connect_errno()){
@@ -124,17 +101,9 @@
 
 //---------------------------------------
 
-
-if(isset($_POST['showPatientPassword'])){
-
-    echo '<h3>Your password is : ' . $_POST['userPassword'] . '</h3>';
-
-    $userPassword=$_POST['userPassword'];
-   
-
           //log in cu select
         // daca da - realizam un query SELECT pe baza de date
-        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable WHERE password = $userPassword");
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable WHERE select_patient=1");
 
 
 
@@ -162,8 +131,6 @@ echo '<li>tel: ' . $rez['tel'] . '</li>';
 echo '<li>age: ' . $rez['age'] . '</li>';
 echo '<li>birth_date: ' . $rez['birth_date'] . '</li>';
 
-echo '<li>password: ' . $rez['password'] . '</li>';
-
 echo '<li>comment: '.  $rez['comment'] . '</li>';
 
 echo '<li>image: '.  $rez['image'] . '</li>';
@@ -188,9 +155,8 @@ echo '</ol>';
 
 }
 
-//---------------------------------------
 
-     }
+    
          
 
          ?>
@@ -271,10 +237,19 @@ echo '</ol>';
       </a>
     </div>
 
+
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="selectPatientsAgeRange.php"  class="btn btn-secondary link_btn"  role="button" id="selectPatientsAgeRangeLinkPage">
+      <a href="selectPatientsByAge.php"  class="btn btn-secondary link_btn"  role="button" id="selectPatientsByAgeLinkPage">
+      Select patients by age
+      </a>
+    </div>
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="selectPatientsAgeRange.php"  class="btn btn-secondary link_btn"  role="button" id="selectPatientsAgeRangeLinkPage" style="margin:1.5em 0">
       Select patients by age range
       </a>
     </div>

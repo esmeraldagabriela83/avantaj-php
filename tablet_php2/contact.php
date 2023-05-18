@@ -238,46 +238,76 @@ body { margin: 0; padding: 0; }
 
 </form>
 
-
-<?php
-
+<?php 
 // https://github.com/esmeraldagabriela83/avantaj-php/blob/main/php-curs7/form.php
-
-if (isset($_POST['send_mail'])){
- 
-  $headers = 'From: contact@mihaelagabriela.ro' . "\r\n" .
-  'Reply-To: '. $_POST['email'] . "\r\n" .
-  'X-Mailer: PHP/' . phpversion();
-
-  mail('esmeraldagabriela83@yahoo.com' , 'Mail de pe tablet_php/contact site' , $_POST['name'] .
-                                         ' hello from user with age:  ' . $_POST['age'] . 
-                                         ' hello from user with email:  ' . $_POST['email'] . 
-                                         ' hello from user with phone:  ' . $_POST['phone'] .
-                                         ' hello from user with name of doctor:  ' . $_POST['drName'] .
-                                         ' hello from user with disease:  ' . $_POST['disease'] .
-                                         ' hello from user with medication:  ' . $_POST['medication'] .
-                                         ' message from user: ' . $_POST['message']);
-}
-
 ?>
 
+<!-- ---------------- -->
 
+<div class="container">
+    <?php 
+    
+
+
+//accesam baza de date
+ //$c_db = mysqli_connect('localhost', 'root', '', 'patientdb');
+// $c_db = mysqli_connect('localhost', 'tfaudmsg_magazinmixt_user', '^4EfxA9+)7as', 'tfaudmsg_magazinmixt');
+
+$c_db = mysqli_connect('localhost', 'tfaudmsg_tablet_user', 'Dvx&Z+^,mj0{', 'tfaudmsg_tablet');
+
+// verificare conexiune
+    if(mysqli_connect_errno()){
+        echo 'NU s-a conectat la baza de date';
+        exit;
+    } else {
+        echo '<h5>Successful connection</h5>' ;
+
+        //---------------------------------------
+
+        // afisam datele din formular
+
+        // echo '<h5>Form data:</h5>';
+
+      
+        if(isset($_POST['send_mail'])){
+
+        
+
+      //2sent email when submit button
+      $headers = 'From: tablet_php@mihaelagabriela.ro' . "\r\n" .
+      // 'Reply-To: '. $_POST['email'] . "\r\n" .
+      'X-Mailer: PHP/' . phpversion();
+
+
+      mail('esmeraldagabriela83@yahoo.com' ,
+      'Mail de pe contact_php/patient.php' ,
+      'Name of patient is: ' . $_POST['name'] .
+      ' Age :  ' . $_POST['age'] .
+      ' Email of patient:  ' . $_POST['email'] .
+      ' Phone of patient:  ' . $_POST['phone'] .
+      ' DrName of patient:  ' . $_POST['drName'] .
+      ' Disease of patient:  ' . $_POST['disease'] .
+      ' Medication of patient:  ' . $_POST['medication'] .
+      ' Message :  ' . $_POST['message'] );
+
+      //2sent email when submit button   
+
+  }
+   
+        //---------------------------------------
+
+           }
+
+
+
+    ?>
+</div>
+
+<!-- ---------------- -->
 
         <p id="sentForm"></p>
         
 </div>
-
-      <!-- 
-
-        wordpress:
-        Web3forms - cheap, light and fast contact form for your website
-
-        https://getbootstrap.com/docs/5.2/forms/validation/#custom-styles
-        
-        How to send mail from HTML without using JavaScript? | Using Formspree  
-        https://www.youtube.com/watch?v=w9CdrXfjdLw&t=16s -->
-
-   
 
     <div class="container">
       <hr>

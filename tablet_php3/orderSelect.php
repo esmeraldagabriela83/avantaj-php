@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>categoryPatient.php</title>
+    <title>orderSelect.php</title>
 
 
       <!--ion icons-->
@@ -73,14 +73,66 @@
       </div> 
     </nav>
 
-      <a id="uppage" href="https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
-        <img src="./images/showCategory.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
+      <a id="uppage" href="https://images.pexels.com/photos/3873176/pexels-photo-3873176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
+        <img src="./images/orderSelect.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
       </a>
 
       <div class="container">
-          <h1>Categories</h1>
+          <h1>Order by your selection</h1>
           <hr>
       </div>
+      
+
+
+<div class="container">
+<form id="formOrderSelect" class="form" action="orderSelect.php" method="POST">
+
+<select name="orderPatient" class="form-control" >
+
+                  <option value="name ASC" <?php
+                      if(isset($_POST['orderPatient']) && $_POST['orderPatient'] == 'name ASC') {
+                          echo 'selected="selected"';
+                      }
+                  ?> >Ascend by name patient</option>
+
+                  <option value="name DESC" <?php
+                      if(isset($_POST['orderPatient']) && $_POST['orderPatient'] == 'name DESC') {
+                          echo 'selected="selected"';
+                      }
+                  ?> >Downward by name patient</option>
+
+                  <option value="age ASC" <?php
+                      if(isset($_POST['orderPatient']) && $_POST['orderPatient'] == 'age ASC') {
+                          echo 'selected="selected"';
+                      }
+                  ?> >Ascend by age</option>
+
+                  <option value="age DESC"<?php
+                      if(isset($_POST['orderPatient']) && $_POST['orderPatient'] == 'age DESC') {
+                          echo 'selected="selected"';
+                      }
+                  ?> >Downward by age</option>
+
+                  <option value="birth_date"<?php
+                      if(isset($_POST['orderPatient']) && $_POST['orderPatient'] == 'birth_date') {
+                          echo 'selected="selected"';
+                      }
+                  ?> >Birth date</option>
+
+</select>
+
+
+              <input type="submit" 
+                     value="Order patients"
+                     name="showOrderPatient" 
+                     class="btn btn-success" 
+                     style="cursor: pointer; padding:0.5em ; margin:1.5em 0"/>
+
+
+
+</form>
+</div>
+
 
    <div class="container">
 
@@ -101,9 +153,22 @@
 
 //---------------------------------------
 
+
+if(isset($_POST['showOrderPatient'])){
+
+
+    echo '<h3>You made your choice</h3>' ;
+
+    echo '<h3>Your choice is ' . $_POST['orderPatient'] . '</h3>' ;
+
+$mySelect=$_POST['orderPatient'];
+
+
+
+
           //log in cu select
         // daca da - realizam un query SELECT pe baza de date
-        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable ORDER BY select_patient");
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable ORDER BY $mySelect");
 
 
 
@@ -155,8 +220,9 @@ echo '</ol>';
 
 }
 
+//---------------------------------------
 
-    
+     }
          
 
          ?>
@@ -232,15 +298,19 @@ echo '</ol>';
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="descendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientNameLinkPage" style="margin:1.5em 0">
+      <a href="descendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientNameLinkPage" style="margin-top:1.5em">
         Descend patients by name
       </a>
     </div>
 
     <div class="container">
+        <hr>
+    </div>
+    
+    <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="selectPatientsByAge.php"  class="btn btn-secondary link_btn"  role="button" id="selectPatientsByAgeLinkPage">
+      <a href="selectPatientsByAge.php"  class="btn btn-secondary link_btn"  role="button" id="selectPatientsByAgeLinkPage" style="margin-bottom:1.5em">
       Select patients by age
       </a>
     </div>
@@ -248,36 +318,13 @@ echo '</ol>';
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="selectPatientsAgeRange.php"  class="btn btn-secondary link_btn"  role="button" id="selectPatientsAgeRangeLinkPage" style="margin:1.5em 0">
+      <a href="selectPatientsAgeRange.php"  class="btn btn-secondary link_btn"  role="button" id="selectPatientsAgeRangeLinkPage">
       Select patients by age range
       </a>
     </div>
 
     <div class="container">
         <hr>
-    </div>
-
-
-    <div class="container">
-      <!-- <a href="contact.html">Contact</a><br> -->
-                
-      <a href="contact.php"  class="btn btn-primary link_btn"  role="button" id="contactLinkPage">
-        Contact
-      </a>
-    </div>
-
-
-    <div class="container">
-      <!-- <a href="contact.html">Contact</a><br> -->
-                
-      <a href="opinion.php"  class="btn btn-primary link_btn"  role="button" id="opinionLinkPage" style="margin-top:1.5em">
-        Opinion
-      </a>
-    </div>
-
-
-    <div class="container">
-      <hr>
     </div>
 
     <footer>

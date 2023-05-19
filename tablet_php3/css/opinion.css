@@ -1,0 +1,64 @@
+
+
+
+/*---------------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 419px) {
+    form#opinion #inputsOpinion div.divInput{
+     
+        /* border:3px solid yellow; */
+    }
+
+    /*------------------------------------------*/
+
+    form#opinion #inputsOpinion{
+        /* border:3px solid red; */
+    
+        display:block;
+    }
+
+}
+
+/*---------------------------------------------*/
+
+@media only screen and (min-width: 420px) and (max-width: 1023px) {
+    form#opinion #inputsOpinion div.divInput{
+      
+        /* border:3px solid cornflowerblue; */
+    }
+
+    /*-------------------------------------------*/
+
+    form#opinion #inputsOpinion{
+        /* border:3px solid red; */
+    
+        display:block;
+    }
+
+}
+
+/*---------------------------------------------*/
+
+@media only screen and (min-width: 1024px) {
+    form#opinion #inputsOpinion div.divInput{
+        width:33%;
+        /* border:3px solid darkcyan; */
+    }
+
+    /*-----------------------------*/
+
+    form#opinion #inputsOpinion{
+        /* border:3px solid red; */
+    
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+}
+
+
+
+
+
+

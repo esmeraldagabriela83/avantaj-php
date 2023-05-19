@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>descendPatients.php</title>
+    <title>showPatientByID.php</title>
 
 
       <!--ion icons-->
@@ -73,22 +73,38 @@
       </div> 
     </nav>
 
-      <a id="uppageDescend" href="https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
-        <img src="./images/descendPatients.jpg" class="img-fluid" alt="descend_patients_image" id="descend_img_patients">
+      <a id="uppage" href="https://images.pexels.com/photos/4483327/pexels-photo-4483327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
+        <img src="./images/showPatient.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
       </a>
 
       <div class="container">
-          <h1>Descend patients by age</h1>
+          <h1>Show patient by ID</h1>
           <hr>
       </div>
       
 
-    <!-- https://getbootstrap.com/docs/5.2/components/scrollspy/#how-it-works -->
+
+<div class="container">
+    <form id="formShowPatient" class="form" action="showPatient.php" method="POST">
+
+    <label for="patientID">Patient id</label><br>
+                <input type="text" name="patientIDUserWritten"  class="form-control"  id="patientID" value="<?php
+                if( isset($_POST['patientIDUserWritten']) ){
+                echo $_POST['patientIDUserWritten'] ;
+                }
+                ?>"/><br/>
 
 
+    <input class="btn btn-success" 
+           type="submit"
+           name="showPatientID"
+           value="Show patient" 
+           style="margin-bottom:1.5em"/>
 
-  
-   
+        </form>
+</div>
+
+
    <div class="container">
 
    <?php
@@ -105,8 +121,78 @@
          exit;
      } else {
          echo '<h5>Successful connection</h5>' ;
+
+//---------------------------------------
+
+
+if(isset($_POST['showPatientID'])){
+
+
+    echo '<h3>You set patient ID</h3>' ;
+
+    echo '<h3>Your patient ID is : ' . $_POST['patientIDUserWritten'] . '</h3>';
+
+    $patientIDUserWritten=$_POST['patientIDUserWritten'];
+   
+
+          //log in cu select
+        // daca da - realizam un query SELECT pe baza de date
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable WHERE id = $patientIDUserWritten");
+
+
+
+
+//informatia din patientdb
+// prelucram raspunsul creand cate un array pentru fiecare rand returnat in urma query-ului
+//  mysqli_fetch_assoc() -> creeaza un array asociativ pentru fiecare rand unde cheia este numele coloanei iar valoarea este exact valoarea din dreptului acelei coloane
+// mysqli_fetch_assoc()  -> va returna false atunci cand nu mai sunt rezultate (daca sunt 0 rezultate sau dupa ultimul rand returnat)
+// while se declanseaza in continuu atat timp cat declaratia dintre () este true - daca este false, se opreste
+// $rez este variabila array pentru fiecare rand si este inventata de noi
+while($rez =  mysqli_fetch_assoc($selectie_db)){
+
+    echo '<ol class="container" 
+    style="border:1px solid gray ;
+     padding:1em;
+     border-radius:10px ;
+     background-color:floralwhite ;
+     box-shadow: 1px 1px 3px #888888">';
+echo '<li>id: '.  $rez['id'] . '</li>';
+echo '<li>name: '.  $rez['name'] . '</li>';
+echo '<li>select patient: '.  $rez['select_patient'] . '</li>';
+echo '<li>email: '.  $rez['email'] . '</li>';
+echo '<li>tel: ' . $rez['tel'] . '</li>';
+
+echo '<li>age: ' . $rez['age'] . '</li>';
+echo '<li>birth_date: ' . $rez['birth_date'] . '</li>';
+
+echo '<li>comment: '.  $rez['comment'] . '</li>';
+
+echo '<li>image: '.  $rez['image'] . '</li>';
+
+
+echo '<li style="display:flex ; align-items:center ; justify-content:center">' ;
+$ext = explode('.', $rez['image']);
+$ext1 = count($ext)-1;
+if (strtolower( $ext[$ext1]) != 'jpg' && strtolower( $ext[$ext1]) != 'jpeg' && strtolower( $ext[$ext1])!= 'png' && strtolower( $ext[$ext1])!= 'gif' && strtolower( $ext[$ext1])!= 'svg')
+           echo '<a href="' . $rez['image'] . '" download>descarca</a>' ;
+else
+echo '<div style="margin-top:5em">';
+           echo '<img src="' . $rez['image'] . '" alt="my-photo" style="height: 10em ; border-radius: 10px ; box-shadow: 1px 1px 3px #888888" />' ;
+echo '</div>';
+           echo '</li>' ;
+
+echo '</ol>';
+
+
+}
+//informatia din patientdb
+
+}
+
+//---------------------------------------
+
      }
-         //---------------------------------------
+         
 
          ?>
 
@@ -114,69 +200,9 @@
 
   
 
-   <div style="padding:1.5em 0 1.5em 0 ; margin:1em">
-
-
-<?php
-
-//log in cu select
- // AFISAM din tabel datele introduse de user
- $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable ORDER BY age DESC");
-        
-
-
- while($rez =  mysqli_fetch_assoc($selectie_db)){
-     echo '<ol class="container" 
-               style="border:1px solid gray ;
-                padding:1em;
-                border-radius:10px ;
-                background-color:floralwhite ;
-                box-shadow: 1px 1px 3px #888888">';
-     echo '<li>id: '.  $rez['id'] . '</li>';
-     echo '<li>name: '.  $rez['name'] . '</li>';
-     echo '<li>select patient: '.  $rez['select_patient'] . '</li>';
-     echo '<li>email: '.  $rez['email'] . '</li>';
-     echo '<li>tel: ' . $rez['tel'] . '</li>';
-   
-     echo '<li>age: ' . $rez['age'] . '</li>';
-     echo '<li>birth_date: ' . $rez['birth_date'] . '</li>';
-
-     echo '<li>comment: '.  $rez['comment'] . '</li>';
-     
-     echo '<li>image: '.  $rez['image'] . '</li>';
-   
-
-     echo '<li style="display:flex ; align-items:center ; justify-content:center">' ;
-          $ext = explode('.', $rez['image']);
-          $ext1 = count($ext)-1;
-          if (strtolower( $ext[$ext1]) != 'jpg' && strtolower( $ext[$ext1]) != 'jpeg' && strtolower( $ext[$ext1])!= 'png' && strtolower( $ext[$ext1])!= 'gif' && strtolower( $ext[$ext1])!= 'svg')
-                      echo '<a href="' . $rez['image'] . '" download>descarca</a>' ;
-          else
-          echo '<div style="margin-top:5em">';
-                      echo '<img src="' . $rez['image'] . '" alt="my-photo" style="height: 10em ; border-radius: 10px ; box-shadow: 1px 1px 3px #888888" />' ;
-          echo '</div>';
-                      echo '</li>' ;
-
-     echo '</ol>';
-
-
- }
-
-
-
- // AFISAM din tabel datele introduse de user
-
-
-
-?>
-
-  </div>
-
-
-
-
-
-
+   <div class="container">
+      <hr>
+    </div>
 
     
 
@@ -207,10 +233,24 @@
 
 
     <div class="container">
+        <hr>
+    </div>
+
+    
+    <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="ascendPatients.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientsLinkPage" style="margin:1.5em 0">
+      <a href="ascendPatients.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientsLinkPage" style="margin-bottom:1.5em 0">
         Ascend patients by age
+      </a>
+    </div>
+
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="descendPatients.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientsLinkPage" style="margin:1.5em 0">
+        Descend patients by age
       </a>
     </div>
 
@@ -225,30 +265,35 @@
 
 
     <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="descendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientNameLinkPage" style="margin-top:1.5em">
+        Descend patients by name
+      </a>
+    </div>
+
+    <div class="container">
         <hr>
     </div>
-
+    
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="selectPatientsByAge.php"  class="btn btn-secondary link_btn"  role="button" id="selectPatientsByAgeLinkPage" style="margin-bottom:1.5em">
+      Select patients by age
+      </a>
+    </div>
 
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="contact.php"  class="btn btn-primary link_btn"  role="button" id="contactLinkPage">
-        Contact
+      <a href="selectPatientsAgeRange.php"  class="btn btn-secondary link_btn"  role="button" id="selectPatientsAgeRangeLinkPage">
+      Select patients by age range
       </a>
     </div>
 
-
     <div class="container">
-      <!-- <a href="contact.html">Contact</a><br> -->
-                
-      <a href="opinion.php"  class="btn btn-primary link_btn"  role="button" id="opinionLinkPage" style="margin-top:1.5em">
-        Opinion
-      </a>
-    </div>
-
-
-    <div class="container">
-      <hr>
+        <hr>
     </div>
 
     <footer>
@@ -266,7 +311,7 @@
         </div>
       </div>
 
-    <a href="#uppageDescend" style=" position: fixed;
+    <a href="#uppage" style=" position: fixed;
                               bottom: 0;
                               right: 0;
                               width: auto">

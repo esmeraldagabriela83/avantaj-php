@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ascendPatientsName.php</title>
+    <title>descendPatientsName.php</title>
 
 
       <!--ion icons-->
@@ -73,12 +73,12 @@
       </div> 
     </nav>
 
-      <a id="uppageAscendName" href="https://images.pexels.com/photos/4492103/pexels-photo-4492103.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
-        <img src="./images/ascendPatientName.jpg" class="img-fluid" alt="ascend_patients_image-name" id="ascend_img_patients-name">
+      <a id="uppage" href="https://images.pexels.com/photos/4197564/pexels-photo-4197564.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
+        <img src="./images/descendPatientName.jpg" class="img-fluid" alt="ascend_patients_image-name" id="ascend_img_patients-name">
       </a>
 
       <div class="container">
-          <h1>Ascend patients by name</h1>
+          <h1>Descend patients by name</h1>
           <hr>
       </div>
       
@@ -121,7 +121,7 @@
 
 //log in cu select
  // AFISAM din tabel datele introduse de user
- $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable ORDER BY name ASC");
+ $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable ORDER BY name DESC");
         
 
 
@@ -227,8 +227,8 @@
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="descendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="descendPatientNameLinkPage" style="margin:1.5em 0">
-        Descend patients by name
+      <a href="ascendPatientName.php"  class="btn btn-primary link_btn"  role="button" id="ascendPatientNameLinkPage" style="margin:1.5em 0">
+        Ascend patients by name
       </a>
     </div>
 
@@ -238,27 +238,6 @@
     </div>
 
 
-    <div class="container">
-      <!-- <a href="contact.html">Contact</a><br> -->
-                
-      <a href="contact.php"  class="btn btn-primary link_btn"  role="button" id="contactLinkPage">
-        Contact
-      </a>
-    </div>
-
-
-    <div class="container">
-      <!-- <a href="contact.html">Contact</a><br> -->
-                
-      <a href="opinion.php"  class="btn btn-primary link_btn"  role="button" id="opinionLinkPage" style="margin-top:1.5em">
-        Opinion
-      </a>
-    </div>
-
-
-    <div class="container">
-      <hr>
-    </div>
 
     <footer>
       <div class="container">
@@ -275,7 +254,7 @@
         </div>
       </div>
 
-    <a href="#uppageAscend" style=" position: fixed;
+    <a href="#uppage" style=" position: fixed;
                               bottom: 0;
                               right: 0;
                               width: auto">

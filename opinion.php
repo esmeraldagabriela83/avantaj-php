@@ -46,19 +46,21 @@
     <nav id="navbar-example2" class="navbar bg-light px-3 mb-3">
 
         <div class="container">
-          <a class="navbar-brand" href="index.html"><strong>Tablet</strong><br><strong>Project</strong></a>
+          <a class="navbar-brand" href="https://mihaelagabriela.ro/tablet_php3/index.html" target="_blank">
+            <strong>Tablet</strong><br><strong>Project</strong>
+          </a>
           
           <ul class="nav nav-pills">
 
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Pills</a>
+              <a class="nav-link" href="https://mihaelagabriela.ro/tablet_php3/index.html" target="_blank">Pills</a>
             </li>
   
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Sort</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="alphabetical.html">Alphabetical</a></li>
-                <li><a class="dropdown-item" href="byPrice.html">By price</a></li>
+                <li><a class="dropdown-item" href="https://mihaelagabriela.ro/tablet_php3/alphabetical.html" target="_blank">Alphabetical</a></li>
+                <li><a class="dropdown-item" href="https://mihaelagabriela.ro/tablet_php3/byPrice.html" target="_blank">By price</a></li>
               </ul>
             </li>
   
@@ -82,7 +84,7 @@
       </div>
 
   
-     <div class="container">
+<div class="container">
       <form id="opinion" action="opinion.php" method="POST">
 
         
@@ -129,34 +131,9 @@
     <!-- ------------------------- -->
 
 
-    <div class="container">
     <?php 
     
-
-
-//accesam baza de date
- //$c_db = mysqli_connect('localhost', 'root', '', 'patientdb');
-// $c_db = mysqli_connect('localhost', 'tfaudmsg_magazinmixt_user', '^4EfxA9+)7as', 'tfaudmsg_magazinmixt');
-
-$c_db = mysqli_connect('localhost', 'tfaudmsg_tablet_user', 'Dvx&Z+^,mj0{', 'tfaudmsg_tablet');
-
-// verificare conexiune
-    if(mysqli_connect_errno()){
-        echo 'NU s-a conectat la baza de date';
-        exit;
-    } else {
-        echo '<h5>Successful connection</h5>' ;
-
-        //---------------------------------------
-
-        // afisam datele din formular
-
-        // echo '<h5>Form data:</h5>';
-
-      
-        if(isset($_POST['send_mail'])){
-
-        
+    if(isset($_POST['send_mail'])){
 
       //2sent email when submit button
       $headers = 'From: tablet_php@mihaelagabriela.ro' . "\r\n" .
@@ -170,66 +147,35 @@ $c_db = mysqli_connect('localhost', 'tfaudmsg_tablet_user', 'Dvx&Z+^,mj0{', 'tfa
       ' emailUser :  ' . $_POST['emailUser'] .
       ' PhoneUser of patient:  ' . $_POST['phoneUser'] .
       ' MessageUser :  ' . $_POST['messageUser'] );
-
       //2sent email when submit button   
-
   }
-   
-        //---------------------------------------
-
-           }
-
-
 
     ?>
-</div>
+
 
     <!-- ------------------------- -->
 
       <p id="sentFormOpinion"></p>
 
+</div>
+
+
+    <div class="container">
+      <hr>
+    </div>
+
+    <div class="container">
+      <!-- <a href="contact.html">Contact</a><br> -->
+                
+      <a href="contact.php"  class="btn btn-primary link_btn "  role="button" id="contactLinkPage" style="margin:1.5em 0">
+        Contact 
+      </a>
+    </div>
+
+    <div class="container">
+      <hr>
      </div>
 
-
-     <div class="container">
-      <hr>
-    </div>
-
-
-
-    <div class="container">
-      <!-- <a href="contact.html">Contact</a><br> -->
-                
-      <a href="patient.php"  class="btn btn-primary link_btn "  role="button" id="patientLinkPage" style="margin:1.5em 0">
-        Patient 
-      </a>
-    </div>
-
-
-    <div class="container">
-      <!-- <a href="contact.html">Contact</a><br> -->
-                
-      <a href="editPatient.php"  class="btn btn-primary link_btn "  role="button" id="editPatientLinkPage" style="margin:1.5em 0">
-        Edit patient 
-      </a>
-    </div>
-
-    
-    <div class="container">
-      <!-- <a href="contact.html">Contact</a><br> -->
-                
-      <a href="allPatients.php"  class="btn btn-primary link_btn"  role="button" id="patientLinkPage" style="margin:1.5em 0">
-      All  patients 
-      </a>
-    </div>
-
-   
-   
-    <div class="container">
-      <hr>
-    </div>
-
-   
 
      <footer>
 
@@ -246,29 +192,6 @@ $c_db = mysqli_connect('localhost', 'tfaudmsg_tablet_user', 'Dvx&Z+^,mj0{', 'tfa
               </a></div>
           </div>
         </div>
-      
-      
-        <div class="container">
-          <!-- collapse -->
-          <p>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-              Toggle source links
-            </button>
-          </p>
-        
-          <div style="min-height: auto">
-            <div class="collapse collapse-horizontal" id="collapseWidthExample">
-              <div class="card card-body" style="width: 70%">
-                
-                <a  href="https://images.unsplash.com/photo-1609720597021-1498d6216a55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" target="_blank">Image</a><br>
-                <a  href="https://images.unsplash.com/photo-1544991936-9464fa9919d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" target="_blank">Click image</a>
-                
-              </div>
-            </div>
-          </div>
-          <!-- collapse -->
-        </div>
-      
       
       </footer>
    

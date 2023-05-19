@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>old.php</title>
+    <title>young.php</title>
 
 
       <!--ion icons-->
@@ -73,12 +73,12 @@
       </div> 
     </nav>
 
-      <a id="uppage" href="https://images.pexels.com/photos/552774/pexels-photo-552774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
-        <img src="./images/old.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
+      <a id="uppage" href="https://images.pexels.com/photos/981619/pexels-photo-981619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
+        <img src="./images/young.jpg" class="img-fluid" alt="selectByAge_patients_image" id="ascend_img_patients">
       </a>
 
       <div class="container">
-          <h1>Old</h1>
+          <h1>Young</h1>
           <hr>
       </div>
 
@@ -103,7 +103,7 @@
 
           //log in cu select
         // daca da - realizam un query SELECT pe baza de date
-        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable WHERE select_patient=3");
+        $selectie_db = mysqli_query($c_db, "SELECT * FROM patienttable WHERE select_patient=1");
 
 
 
@@ -237,6 +237,7 @@ echo '</ol>';
       </a>
     </div>
 
+
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
@@ -255,29 +256,6 @@ echo '</ol>';
 
     <div class="container">
         <hr>
-    </div>
-
-
-    <div class="container">
-      <!-- <a href="contact.html">Contact</a><br> -->
-                
-      <a href="contact.php"  class="btn btn-primary link_btn"  role="button" id="contactLinkPage">
-        Contact
-      </a>
-    </div>
-
-
-    <div class="container">
-      <!-- <a href="contact.html">Contact</a><br> -->
-                
-      <a href="opinion.php"  class="btn btn-primary link_btn"  role="button" id="opinionLinkPage" style="margin-top:1.5em">
-        Opinion
-      </a>
-    </div>
-
-
-    <div class="container">
-      <hr>
     </div>
 
     <footer>

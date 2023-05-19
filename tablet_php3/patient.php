@@ -428,18 +428,6 @@ $c_db = mysqli_connect('localhost', 'tfaudmsg_tablet_user', 'Dvx&Z+^,mj0{', 'tfa
   <hr>
 </div>
 
-    <div class="container">
-      <!-- <a href="contact.html">Contact</a><br> -->
-                
-      <a href="contact.php"  class="btn btn-primary link_btn"  role="button" id="contactLinkPage">
-        Contact
-      </a>
-    </div>
-
-    <div class="container">
-      <hr>
-    </div>
-
     <footer>
       <div class="container">
         <div id="icons">

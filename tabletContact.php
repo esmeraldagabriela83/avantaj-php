@@ -26,7 +26,7 @@ body { margin: 0; padding: 0; }
 </style> -->
   <!--map-->
 
-    <title>contact.php</title>
+    <title>tabletContact.php</title>
 
 
       <!--ion icons-->
@@ -44,11 +44,255 @@ body { margin: 0; padding: 0; }
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+   
+     <!-- ---style css--- -->
+
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+
+    <style>
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+  }
+  
+  html {
+    font-family: 'Nunito Sans', sans-serif;
+  }
+
+  /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*https://www.w3schools.com/css/css_rwd_mediaqueries.asp*/
+  @media only screen and (max-width: 419px) {
+    body{
+        background-color: aliceblue;
+    }
+
+    .container{
+        color:gray;
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    hr{
+      margin-bottom:1em;
+      width:1000%;
+    }
+
+    #icons{
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+    }
     
-    <link href="css/style.css" rel="stylesheet">
+  }
 
-    <link href="css/styleContactForm.css" rel="stylesheet">
+  @media only screen and (min-width: 420px) and (max-width: 1023px) {
+    body{
+        background-color: HoneyDew;
+    }
 
+    .container{
+        color:SlateGray;
+        font-size: 1.3rem;
+        text-align: left;
+    }
+
+    hr{
+      margin-bottom:1em;
+      width:100%;
+        }
+
+        #icons{
+          display:flex;
+        }
+
+  }
+
+  @media only screen and (min-width: 1024px) {
+    body{
+        background-color: Ivory;
+    }
+
+    .container{
+        color:darkgray;
+        font-size: 1.2rem;
+    }
+    .container:hover{
+        color:dimgray;
+        transition-delay: 0.5s;
+    }
+
+    hr{
+      margin-bottom:1em;
+      width:50%;
+      margin-left:0
+    }
+
+    #icons{
+      display:flex;
+    }
+
+  }
+
+
+  /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+nav , button {
+  box-shadow: 1px 1px 3px #888888; 
+}
+
+
+
+/*logo*/
+nav strong{
+    color:dimgray;
+}
+
+/*img index page*/
+
+img {
+    margin-top: -30%;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.card{
+  margin-top:3em;
+  margin-bottom:3em;
+  margin-left:2.5em;
+  margin-right:2.5em;
+}
+
+/*hr pt separare    style="width:50%;text-align:left;margin-left:0"   */
+/*https://www.w3schools.com/tags/tag_hr.asp*/
+
+
+
+
+.footerIcons{
+  font-size: 2rem;
+  margin:0.3em;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+
+a.link_btn{
+  box-shadow: 1px 1px 3px #888888;
+}
+
+/*--------map--------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+@media only screen and (max-width: 959px) {
+  #makeMap{
+    position: relative;
+    height: 15em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: floralwhite;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  #makeMap{
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: floralwhite; */
+  }
+}
+
+#map {
+   position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  /* margin: 0 1em; */
+box-shadow: 1px 1px 3px #888888;
+ }
+
+
+/*------------map-----------------------------------------------------------------------------------------------------------------------------*/
+    </style>
+
+    <!-- ---style css--- -->
+
+    <!-- ---------------styleContactForm---------- -->
+
+    <!-- <link href="css/styleContactForm.css" rel="stylesheet"> -->
+
+    <style>
+        
+/*------mobile---------*/
+
+@media only screen and (max-width: 419px) {
+
+form label input.form-control{
+ width:17em;
+ /* border:3px solid orange; */
+}
+
+form label input.form-control, form div textarea.form-control{
+ background-color: LightCyan;  
+}
+
+}
+
+/*------tablet---------*/
+
+@media only screen and (min-width: 420px) and (max-width: 1023px) {
+
+form label{
+ margin:0.3em;
+}
+
+form label input.form-control{
+ width:20em;
+ /* border:3px solid darkmagenta; */
+}
+
+form label input.form-control, form div textarea.form-control{
+ background-color: rgb(203, 254, 237) ;  
+}
+
+}
+
+
+/*------screen---------*/
+
+@media only screen and (min-width: 1024px) {
+
+form label{
+ margin:0.5em;
+}
+
+form div#inputsContact label input{
+ /* border:3px solid yellowgreen; */
+ width:35em;
+}
+
+/*----------------------------*/
+
+form label input.form-control, form div textarea.form-control{
+ background-color: OldLace  ; 
+}
+
+form label input.form-control:focus, form div textarea.form-control:focus{
+ background-color: Moccasin  ;
+ color: #495057;
+}
+
+}
+    </style>
+
+     <!-- ---------------styleContactForm---------- -->
 
 </head>
 
@@ -103,7 +347,7 @@ body { margin: 0; padding: 0; }
   <div class="carousel-inner">
     <div class="carousel-item active">
       <a href="https://images.pexels.com/photos/3683094/pexels-photo-3683094.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
-        <img src="./images/carousel1.jpg" class="d-block w-100" alt="antibiotics_img_carousel" style="width:100%">
+        <img src="https://images.pexels.com/photos/3683094/pexels-photo-3683094.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="antibiotics_img_carousel" style="width:100%">
       </a>
       <div class="carousel-caption d-none d-md-block">
           <h5 class="text-dark bg-body" style="padding:0.5em; border-radius:5px">Antibiotics</h5>  
@@ -118,7 +362,7 @@ body { margin: 0; padding: 0; }
     </div>
     <div class="carousel-item">
       <a href="https://images.pexels.com/photos/1809341/pexels-photo-1809341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
-        <img src="./images/carousel2.jpg" class="d-block w-100" alt="drugs_img_carousel" style="width:100%">
+        <img src="https://images.pexels.com/photos/1809341/pexels-photo-1809341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="drugs_img_carousel" style="width:100%">
       </a>
       <div class="carousel-caption d-none d-md-block">
         <h5 class="text-dark bg-body" style="padding:0.5em; border-radius:5px">Drugs</h5>
@@ -132,7 +376,7 @@ body { margin: 0; padding: 0; }
     </div>
     <div class="carousel-item">
       <a href="https://images.pexels.com/photos/5723612/pexels-photo-5723612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  target="_blank">
-        <img src="./images/carousel3.jpg" class="d-block w-100" alt="insulin_img_carousel" style="width:100%">
+        <img src="https://images.pexels.com/photos/5723612/pexels-photo-5723612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="insulin_img_carousel" style="width:100%">
       </a>
       <div class="carousel-caption d-none d-md-block">
         <h5 class="text-dark bg-body" style="padding:0.5em; border-radius:5px">Insulin</h5>
@@ -181,7 +425,7 @@ body { margin: 0; padding: 0; }
     
 <div class="container" style="margin-top:2em">
         
-<form action="contact.php" method="POST">
+<form method="post">
 
     <div id="inputsContact">
 
@@ -287,7 +531,7 @@ body { margin: 0; padding: 0; }
     <div class="container">
       <!-- <a href="contact.html">Contact</a><br> -->
                 
-      <a href="opinion.php"  class="btn btn-primary link_btn "  role="button" id="opinionLinkPage" style="margin:1.5em 0">
+      <a href="https://mihaelagabriela.ro/tabletOpinion.php"  class="btn btn-primary link_btn "  role="button" id="opinionLinkPage" style="margin:1.5em 0">
         Opinion 
       </a>
     </div>
@@ -345,12 +589,185 @@ body { margin: 0; padding: 0; }
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
-    <script src="javascript/map.js"></script>
+<!-- ------------map.js---------------- -->
 
-    <script src="javascript/contact.js"></script>
+    <!-- <script src="javascript/map.js"></script> -->
 
-    <script src="javascript/contactMore.js"></script>
+    <script>
+        console.log("hello from map.js");
+//How To Use Mapbox To Create A Google Maps Clone Quickly
+//https://www.youtube.com/watch?v=OySigNMXOZU
+
+//https://account.mapbox.com/
+//https://docs.mapbox.com/mapbox-gl-js/example/simple-map/
+
+// TO MAKE THE MAP APPEAR YOU MUST
+// ADD YOUR ACCESS TOKEN FROM
+// https://account.mapbox.com
+mapboxgl.accessToken = 'pk.eyJ1IjoibWloYWVsYS1hODMiLCJhIjoiY2wyajVnZXh2MDBibDNvcGs0eDE4dGpneSJ9.wgTo_KSlpIRdJ3F41QhrGA';
+
+navigator.geolocation.getCurrentPosition(successLocation , errorLocation ,
+{enableHighAccuracy:true}
+)
+
+
+function successLocation(position) {
+  setupMap([position.coords.longitude, position.coords.latitude])
+}
+
+function errorLocation() {
+  setupMap([-2.24, 53.48])
+}
+
+function setupMap(center) {
+  const map = new mapboxgl.Map({
+    container: "map",
+    style: "mapbox://styles/mapbox/streets-v11",
+    center: center,
+    zoom: 15
+  })
+
+  const nav = new mapboxgl.NavigationControl()
+  map.addControl(nav)
+
+  var directions = new MapboxDirections({
+    accessToken: mapboxgl.accessToken
+  })
+
+  map.addControl(directions, "top-left")
+}
+
+
+
+//
+    </script>
+
+<!-- ------------map.js---------------- -->    
+
+<!-- ----------------contact.js---------------------- -->
+
+    <!-- <script src="javascript/contact.js"></script> -->
+
+    <script>
+        console.log("hello from contact js");
+
+const sentForm=document.getElementById("sentForm");
+
+
+//----
+
+const name=document.getElementById("name");
+console.log("name is : " , name);
+
+const email =document.getElementById("email");
+console.log("email is : " , email);
+
+
+const message=document.getElementById("message");
+console.log("message is " , message);
+
+
+const submit=document.getElementById("submit");
+console.log("submit is " , submit);
+
+
+
+
+submit.addEventListener("click" , function(event){
+    event.preventDefault();
+
+    console.log("you clicked the submit btn");
+
+
+    //----
+console.log("name value is " , name.value);
+
+console.log("email value is " , email.value);
+
+console.log("message value is " , message.value);
+    //----
+
+    sentForm.innerText="sent form";
+
+});
+
+//----
+
+
+    </script>
+
+<!-- ----------------contact.js---------------------- -->    
+
+<!-- --------------------contactMore.js-------------------- -->
+
+    <!-- <script src="javascript/contactMore.js"></script> -->
+
+    <script>
+        console.log("hello from contactMore js");
+
+
+
+
+//----
+
+const age=document.getElementById("age");
+console.log("age is : " , age);
+
+const phone =document.getElementById("phone");
+console.log("phone is : " , phone);
+
+
+const drName=document.getElementById("drName");
+console.log("drName is " , drName);
+
+
+const disease=document.getElementById("disease");
+console.log("disease is " , disease);
+
+
+const medication=document.getElementById("medication");
+console.log("medication is " , medication);
+
+
+
+
+///---------------------------------
+
+
+const submitMore=document.getElementById("submit");
+console.log("submitMore is " , submit);
+
+////------------------------------------
+
+
+submitMore.addEventListener("click" , function(event){
+    event.preventDefault();
+
+    console.log("you clicked the submitMore / submit btn");
+
+
+    //----
+console.log("age value is " , age.value);
+
+console.log("phone value is " , phone.value);
+
+console.log("drName value is " , drName.value);
+
+console.log("disease value is " , disease.value);
+
+console.log("medication value is " , medication.value);
+    //----
+
+
+
+});
+
+//----
+
+
+    </script>
  
+ <!-- --------------------contactMore.js-------------------- -->   
 
   </body>
 </html>

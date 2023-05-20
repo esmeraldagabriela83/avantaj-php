@@ -136,7 +136,7 @@
     if(isset($_POST['send_mail'])){
 
       //2sent email when submit button
-      $headers = 'From: tablet_php@mihaelagabriela.ro' . "\r\n" .
+      $headers = 'From: opinion@mihaelagabriela.ro' . "\r\n" .
       'Reply-To: '. $_POST['emailUser'] . "\r\n" .
       'X-Mailer: PHP/' . phpversion();
 

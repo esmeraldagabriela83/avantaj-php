@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+  }
+  
+  html {
+    font-family: 'Nunito Sans', sans-serif;
+  }
+
+  /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*https://www.w3schools.com/css/css_rwd_mediaqueries.asp*/
+  @media only screen and (max-width: 419px) {
+    body{
+        background-color: aliceblue;
+    }
+
+    .container{
+        color:gray;
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    hr{
+      margin-bottom:1em;
+      width:1000%;
+    }
+
+    #icons{
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+  }
+
+  @media only screen and (min-width: 420px) and (max-width: 1023px) {
+    body{
+        background-color: HoneyDew;
+    }
+
+    .container{
+        color:SlateGray;
+        font-size: 1.3rem;
+        text-align: left;
+    }
+
+    hr{
+      margin-bottom:1em;
+      width:100%;
+        }
+
+        #icons{
+          display:flex;
+        }
+
+  }
+
+  @media only screen and (min-width: 1024px) {
+    body{
+        background-color: Ivory;
+    }
+
+    .container{
+        color:darkgray;
+        font-size: 1.2rem;
+    }
+    .container:hover{
+        color:dimgray;
+        transition-delay: 0.5s;
+    }
+
+    hr{
+      margin-bottom:1em;
+      width:50%;
+      margin-left:0
+    }
+
+    #icons{
+      display:flex;
+    }
+
+  }
+
+
+  /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+nav , button {
+  box-shadow: 1px 1px 3px #888888; 
+}
+
+
+
+/*logo*/
+nav strong{
+    color:dimgray;
+}
+
+/*img index page*/
+
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.card{
+  margin-top:3em;
+  margin-bottom:3em;
+  margin-left:2.5em;
+  margin-right:2.5em;
+}
+
+/*hr pt separare    style="width:50%;text-align:left;margin-left:0"   */
+/*https://www.w3schools.com/tags/tag_hr.asp*/
+
+
+
+
+.footerIcons{
+  font-size: 2rem;
+  margin:0.3em;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+
+a.link_btn{
+  box-shadow: 1px 1px 3px #888888;
+}
+
+/*--------map--------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+@media only screen and (max-width: 959px) {
+  #makeMap{
+    position: relative;
+    height: 15em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: floralwhite;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  #makeMap{
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: floralwhite; */
+  }
+}
+
+#map {
+   position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  /* margin: 0 1em; */
+box-shadow: 1px 1px 3px #888888;
+ }
+
+
+/*------------map-----------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+

@@ -3,6 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--map-->
+  <!-- https://account.mapbox.com/ -->
+  <!-- https://docs.mapbox.com/mapbox-gl-js/example/simple-map/ -->
+
+  <!-- <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script> -->
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+ <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+ <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+ <link
+   rel="stylesheet"
+   href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+   type="text/css"
+ />
+
+  <!-- <style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style> -->
+  <!--map-->
+
     <title>index.html</title>
 
 
@@ -29,7 +52,7 @@
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/newstyle.css" rel="stylesheet">
 </head>
 
 
@@ -41,28 +64,35 @@
     <nav id="navbar-example2" class="navbar bg-light px-3">
 
       <div class="container">
-        <a class="navbar-brand" href="index.html"><strong>Offer</strong><br><strong>Estima</strong></a>
+        <a class="navbar-brand" href="index.html">
+            <img src="./images/logo-estima.png" 
+             class="img-fluid" 
+             alt="index_image_offer_estima" 
+             id="img_logo_estima_index" 
+             style="width:130px">
+             <strong>Offer</strong>
+          </a>
         
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <a class="nav-link" href="#scrollspyHeading1">Pills</a>
+            <a class="nav-link" href="#scrollspyHeading1">Offer</a>
           </li>
 
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Sort</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="alphabetical.html">Alphabetical</a></li>
               <li><a class="dropdown-item" href="byPrice.html">By price</a></li>
             </ul>
-          </li>
+          </li> -->
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Info</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#scrollspyHeading3">Definition</a></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading4">History</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading5">Classification</a></li>
+              <li><a class="dropdown-item" href="#scrollspyHeading3">Adresa</a></li>
+              <li><a class="dropdown-item" href="#scrollspyHeading4">Telefon</a></li>
+              <!-- <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#scrollspyHeading5">Classification</a></li> -->
             </ul>
           </li>
 
@@ -76,27 +106,88 @@
       <a id="uppage" 
          href="https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  
          target="_blank">
-        <img src="./images/index-offer-estima.jpg" 
+        <img src="./images/index-offer-estima2.jpg" 
              class="img-fluid" 
              alt="index_image_offer_estima" 
-             id="img_index" 
-             style="width:100%">
+             id="img_index">
       </a>
 
-      
 
+
+<div class="container">
+  <!-- show all offerts-->
+
+  <div id="offerts_container"  style="padding:0.5em ;
+                                      margin:0.5em ;      
+                                   /* background-color:MistyRose; */
+                                      display:flex ; align-items:center ; justify-content:center; flex-wrap:wrap"></div>
+<button type="button" class="btn btn-success mb-3 mt-3" id="showAllOffertsBtn">Oferte</button>
+<hr>
+
+<!-- show all offerts-->
+</div>
+
+
+
+      <!-- map -->
+
+  <!--map-->
+  <div class="container">
+    <h4 class="primary my-3">Găsiți-ne pe hartă</h4>
+
+    <div id="makeMap">
+      <div id='map'></div>
+    </div>
+
+  </div>
+  <!--map-->
+
+<!-- map -->
     
       <div class="container">
 
-        my container
+        <hr  class="my-5">
 
+        <h4 id="scrollspyHeading3" class="my-3">Adresa</h4>
+            <p>
+              Sediu Bucuresti:<br>
+              <strong>Str. Lespezi, Nr. 38</strong>
+            </p>
+            <hr>
+            <p>
+              Sediu Iasi:<br>
+              <strong>Str. Clopotari, Nr. 2</strong>
+            </p>
       </div>
 
-    <!-- https://getbootstrap.com/docs/5.2/components/scrollspy/#how-it-works -->
+   
+   
+
+
 
     <div class="container">
-      <hr>
+
+      <hr  class="my-5">
+
+      <h4 id="scrollspyHeading4" class="my-3">Telefon</h4>
+          <p>
+            <ion-icon name="call-outline"></ion-icon>
+            <strong>0733.681.571
+              
+             </strong>
+          </p>
+          <hr>
+          <p>
+            <ion-icon name="call-outline"></ion-icon>
+            <strong>0728.327.082</strong>
+          </p>
     </div>
+
+ 
+  <div class="container">
+    <hr  class="my-5">
+  </div>
+
 
  
     
@@ -104,16 +195,16 @@
     <footer>
       <div class="container">
         <div id="icons">
-          <div class="footerIcons"><a href="https://facebook.com/" target="_blank">
+
+          <div class="footerIcons"><a href="https://www.facebook.com/estimamedicalgroup/" target="_blank">
               <ion-icon name="logo-facebook"></ion-icon>
             </a></div>
-          <div class="footerIcons"><a href="https://instagram.com/" target="_blank">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a></div>
-          <div class="footerIcons"><a href="https://twitter.com/" target="_blank">
-              <ion-icon name="logo-twitter"></ion-icon>
+
+          <div class="footerIcons"><a href="https://www.youtube.com/user/EstimaMedical" target="_blank">
+            <ion-icon name="logo-youtube"></ion-icon>
             </a></div>
         </div>
+
       </div>
 
       <div class="container"><hr></div>
@@ -130,7 +221,7 @@
               data-bs-target="#collapseWidthExample" 
               aria-expanded="false" 
               aria-controls="collapseWidthExample" style="margin-top:0.5em">
-        Toggle source links
+        Toggle links
       </button>
     </p>
 
@@ -146,9 +237,9 @@
 
     </div>
 
-    <div class="container"><hr></div>
+    <div class="container"><hr  class="my-5"></div>
     <h3 class="container" id="hourDateTitle"></h3>
-    <div class="container"><hr></div>
+    <div class="container"><hr  class="my-5"></div>
 
     <a href="#uppage" style=" position: fixed;
                               bottom: 0;
@@ -166,6 +257,8 @@
     <script src="javascript/index.js"></script>
     <script src="javascript/toast.js"></script>
     <script src="javascript/toastAntibiotics.js"></script>
+    
+    <script src="javascript/map.js"></script>
     <script src="javascript/hourDate.js"></script>
 
  

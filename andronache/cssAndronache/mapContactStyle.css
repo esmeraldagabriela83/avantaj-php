@@ -1,0 +1,68 @@
+/*-----------------map-------contact page-----------------------------------------------------------------------------*/
+@media only screen and (max-width: 959px) {
+    #makeMap {
+      position: relative;
+      height: 50vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 0.5em;
+    }
+  }
+  
+  @media only screen and (min-width: 960px) {
+    #makeMap {
+      position: relative;
+      height: 50vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  
+  #map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    /* margin: 0 1em; */
+    border-radius: 0.3em;
+    box-shadow: 0.3px 0.3px 5px DarkSlateGrey;
+    border: 3px solid DarkSlateGrey;
+    margin-bottom: 3em;
+  }
+  
+  @media only screen and (min-width: 500px) {
+    #location {
+      width: 50%;
+      border-radius: 0.3em;
+      box-shadow: 0.3px 0.3px 5px DarkSlateGrey;
+      border: 3px solid DarkSlateGrey;
+      margin-bottom: 3em;
+      margin-top: 5em;
+      padding-top: 1em;
+      padding-right: 2.7em;
+      padding-left: 2.7em;
+      background-color: skyblue;
+    }
+  
+    #location:hover {
+      background-color: cornflowerblue;
+      transition: 0.5s ease;
+    }
+  }
+  
+  @media only screen and (max-width: 499px) {
+    #location {
+      display: none;
+    }
+  
+    #makeMap {
+      margin-top: 3em;
+    }
+  }
+  
+  /*----------------------------map--------contact page-----------------------------------------------------------------*/

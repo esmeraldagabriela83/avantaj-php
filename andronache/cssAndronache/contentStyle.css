@@ -1,0 +1,129 @@
+  /*---------------------------------------------------------------------*/
+  .center-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  /*------------------------------------------------------------------------*/
+   
+  @media only screen and (min-width: 960px) {
+    #location {
+      width: 50%;
+      border-radius: 0.3em;
+      box-shadow: 0.3px 0.3px 2px #333;
+      border: 3px solid #333;
+      margin-bottom: 3em;
+      margin-top: 5em;
+      padding-top: 1em;
+      padding-right: 2.7em;
+      padding-left: 2.7em;
+      background-color: skyblue;
+    }
+  
+    #location:hover {
+      background-color: dodgerblue;
+      transition: 0.5s ease;
+    }
+  }
+  
+  @media only screen and (max-width: 959px) {
+    #location {
+      display: none;
+    }
+  
+  }
+  
+
+  
+  /*--------------------------------------------------------------------------------*/
+  
+  .dental-marimar-image{
+    width:100vw;
+    box-shadow: 1px 1px 2px #333;
+  }
+
+  
+
+
+   /*--------------------------------------------------------------------------------*/
+
+  .title_text_effect{
+    color:cornflowerblue;
+  }
+  
+  .title_text_effect:hover{
+    color:dodgerblue;
+    text-shadow: 1px 1px 2px #333;
+    transition: width 10s;
+  }
+  
+     /*------------------------------------------------index.html--------------------------------*/
+
+     /* @media only screen and (max-width: 899px) {
+        .ion_icon_p_index{
+       
+         }
+    } */
+
+
+
+     @media only screen and (min-width: 900px) {
+        .ion_icon_p_index{
+            display:flex; 
+            align-items: center; 
+            justify-content: left;
+         }
+    }
+
+
+     /*-----------------------------------contact.html----------------------------------------------*/
+
+   
+/* 
+     @media only screen and (max-width: 599px) {
+        .ion_icon_p{
+     
+         }
+    } */
+
+    
+    @media only screen and (min-width: 600px) {
+        .ion_icon_p{
+            display:flex; 
+            align-items: center; 
+            justify-content: left;
+         }
+    }
+
+      
+    /*--------------------------------------------------------------------------------*/ 
+
+.ion_icon_class{
+    margin-top: -0.5em; 
+    margin-right: 0.5em;
+    border-radius: 0.3em;
+    color:#333;
+    font-size:1.5rem;
+    padding: 0.10em; 
+    text-shadow: 0.3px 0.3px 1px #333;
+    background-color: cornflowerblue;
+}
+
+.ion_icon_class:hover{
+    background-color: dodgerblue;
+    text-shadow:0.3px 0.3px 1px #333; 
+    box-shadow:0.3px 0.3px 1px #333;
+    transition: width 10s;
+}
+
+     /*----------------------------------------------------------------------------------*/
+  
+     .paragraph_text{
+      color:#333;
+     }
+
+     /*---------------------------------------------------------------*/
+
+

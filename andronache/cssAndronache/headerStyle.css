@@ -9,7 +9,7 @@
   }
 
   html{
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   
   body{
@@ -105,21 +105,3 @@
   
   
   /**/
-
-  /*--------------------------------------------------------------------------------*/
-
-.title_text_effect{
-  color:cornflowerblue;
-}
-
-.title_text_effect:hover{
-  color:dodgerblue;
-  text-shadow: 1px 1px 2px #333;
-  transition: width 10s;
-}
-
-   /*--------------------------------------------------------------------------------*/
-
-   .paragraph_text{
-    color:#333;
-   }
